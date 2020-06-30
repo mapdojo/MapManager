@@ -7,3 +7,5 @@
 /TileManager/obj
 /TileManager/bin
 *.suo
+/packages
+/.idea

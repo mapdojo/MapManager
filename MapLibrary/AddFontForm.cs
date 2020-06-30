@@ -13,8 +13,7 @@ namespace DMS.MapLibrary
     public partial class AddFontForm : Form
     {
         RegistryKey fontsKey;
-        string fontFile;
-        
+
         public AddFontForm()
         {
             InitializeComponent();
@@ -23,7 +22,7 @@ namespace DMS.MapLibrary
                 if (font.EndsWith("(TrueType)")) 
                     comboBoxFonts.Items.Add(font);
 
-            fontFile = "";
+            FontFile = "";
         }
 
         public string FontName
@@ -34,13 +33,7 @@ namespace DMS.MapLibrary
             }
         }
 
-        public string FontFile
-        {
-            get
-            {
-                return fontFile;
-            }
-        }
+        public string FontFile { get; private set; }
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
@@ -57,9 +50,9 @@ namespace DMS.MapLibrary
             // Concatenate Fonts folder onto Windows folder.
             string strFontsFolder = Path.Combine(dirWindowsFolder.FullName, "Fonts");
 
-            fontFile = strFontsFolder + "\\" + fontsKey.GetValue(comboBoxFonts.Text, string.Empty).ToString();
+            FontFile = strFontsFolder + "\\" + fontsKey.GetValue(comboBoxFonts.Text, string.Empty).ToString();
 
-            if (!File.Exists(fontFile))
+            if (!File.Exists(FontFile))
             {
                 MessageBox.Show("Font file doesn't exist",
                    "MapManager", MessageBoxButtons.OK, MessageBoxIcon.Error);

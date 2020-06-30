@@ -114,7 +114,7 @@ namespace DMS.MapManager
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.mapControl = new DMS.MapLibrary.MapControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.scintillaControl = new ScintillaNet.Scintilla();
+            this.scintillaControl = new ScintillaNET.Scintilla();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.toolStripMain.SuspendLayout();
@@ -130,7 +130,6 @@ namespace DMS.MapManager
             this.tabControlContents.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.scintillaControl)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -917,27 +916,11 @@ namespace DMS.MapManager
             // scintillaControl
             // 
             this.scintillaControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintillaControl.Lexing.Lexer = ScintillaNet.Lexer.Null;
-            this.scintillaControl.Lexing.LexerName = "automatic";
-            this.scintillaControl.Lexing.LineCommentPrefix = "";
-            this.scintillaControl.Lexing.StreamCommentPrefix = "";
-            this.scintillaControl.Lexing.StreamCommentSufix = "";
             this.scintillaControl.Location = new System.Drawing.Point(3, 3);
             this.scintillaControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.scintillaControl.Name = "scintillaControl";
             this.scintillaControl.Size = new System.Drawing.Size(844, 616);
-            this.scintillaControl.Styles.BraceBad.FontName = "Verdana";
-            this.scintillaControl.Styles.BraceLight.FontName = "Verdana";
-            this.scintillaControl.Styles.ControlChar.FontName = "Verdana";
-            this.scintillaControl.Styles.Default.FontName = "Verdana";
-            this.scintillaControl.Styles.IndentGuide.FontName = "Verdana";
-            this.scintillaControl.Styles.LastPredefined.FontName = "Verdana";
-            this.scintillaControl.Styles.LineNumber.FontName = "Verdana";
-            this.scintillaControl.Styles.Max.FontName = "Verdana";
             this.scintillaControl.TabIndex = 0;
-            this.scintillaControl.TextInserted += new System.EventHandler<ScintillaNet.TextModifiedEventArgs>(this.scintillaControl_TextInserted);
-            this.scintillaControl.TextDeleted += new System.EventHandler<ScintillaNet.TextModifiedEventArgs>(this.scintillaControl_TextDeleted);
-            this.scintillaControl.ZoomChanged += new System.EventHandler(this.scintillaControl_ZoomChanged);
             // 
             // MainForm
             // 
@@ -977,10 +960,8 @@ namespace DMS.MapManager
             this.tabControlContents.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.scintillaControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
        
@@ -1058,7 +1039,7 @@ namespace DMS.MapManager
         private DMS.MapLibrary.MapControl mapControl;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ImageList imageListTabs;
-        private ScintillaNet.Scintilla scintillaControl;
+        private ScintillaNET.Scintilla scintillaControl;
         private System.Windows.Forms.TabControl tabControlContents;
         private System.Windows.Forms.ToolStripButton toolStripButtonHelp;
         private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;

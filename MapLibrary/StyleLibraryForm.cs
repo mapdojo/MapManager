@@ -175,13 +175,6 @@ namespace DMS.MapLibrary
             fontsetChanged = false;
             fontsetSaved = false;
             styleLibraryChanged = false;
-            // load scintilla config from file
-            scintillaControl.ConfigurationManager.Language = "user";
-            ScintillaNet.Configuration.Configuration config = new ScintillaNet.Configuration.Configuration(Environment.CurrentDirectory + "\\MapfileConfig.xml", "user", true);
-            scintillaControl.ConfigurationManager.Configure(config);
-
-            scintillaControlSymbolset.ConfigurationManager.Language = "user";
-            scintillaControlSymbolset.ConfigurationManager.Configure(config);
 
             LoadSymbolset();
 
@@ -464,10 +457,6 @@ namespace DMS.MapLibrary
         /// </summary>
         private void SetMargins()
         {
-            // adjust margin width (text width + padding)
-            scintillaControl.Margins.Margin0.Width = scintillaControl.NativeInterface.TextWidth(33, scintillaControl.Lines.Count.ToString()) + 6;
-            scintillaControl.Margins.Margin1.Width = 0;
-            scintillaControl.Margins.Margin2.Width = 20;
         }
 
         /// <summary>
@@ -475,10 +464,6 @@ namespace DMS.MapLibrary
         /// </summary>
         private void SetMarginsSymbolset()
         {
-            // adjust margin width (text width + padding)
-            scintillaControlSymbolset.Margins.Margin0.Width = scintillaControlSymbolset.NativeInterface.TextWidth(33, scintillaControlSymbolset.Lines.Count.ToString()) + 6;
-            scintillaControlSymbolset.Margins.Margin1.Width = 0;
-            scintillaControlSymbolset.Margins.Margin2.Width = 20;
         }
         
         /// <summary>
@@ -495,10 +480,7 @@ namespace DMS.MapLibrary
             buttonRemoveFont.Visible = false;
             
             if (tabControl.SelectedIndex == 0)
-            {
-                scrollPos = scintillaControl.Lines.FirstVisible.Number;
-                caretPos = scintillaControl.Caret.Position;
-
+            {  
                 ValidateTextContents();
                 buttonSave.Enabled = styleLibraryChanged;
             }
@@ -513,11 +495,8 @@ namespace DMS.MapLibrary
 
                     if (caretPos > 0)
                     {
-                        scintillaControl.Selection.Start = caretPos;
-                        scintillaControl.Caret.Position = caretPos;
                     }
-                    if (scrollPos > 0)
-                        scintillaControl.Scrolling.ScrollBy(0, scrollPos);
+                    
                     textChanged = false;
                     isInitStyleLibText = false;
                 }
@@ -551,7 +530,7 @@ namespace DMS.MapLibrary
         /// </summary>
         /// <param name="sender">The source object of this event.</param>
         /// <param name="e">The event parameters.</param>
-        private void scintillaControl_TextInserted(object sender, ScintillaNet.TextModifiedEventArgs e)
+        private void scintillaControl_TextInserted(object sender, EventArgs e)
         {
             SetMargins();
             textChanged = true;
@@ -564,7 +543,7 @@ namespace DMS.MapLibrary
         /// </summary>
         /// <param name="sender">The source object of this event.</param>
         /// <param name="e">The event parameters.</param>
-        private void scintillaControl_TextDeleted(object sender, ScintillaNet.TextModifiedEventArgs e)
+        private void scintillaControl_TextDeleted(object sender, EventArgs e)
         {
             SetMargins();
             textChanged = true;
@@ -577,7 +556,7 @@ namespace DMS.MapLibrary
         /// </summary>
         /// <param name="sender">The source object of this event.</param>
         /// <param name="e">The event parameters.</param>
-        private void scintillaControlSymbolset_TextInserted(object sender, ScintillaNet.TextModifiedEventArgs e)
+        private void scintillaControlSymbolset_TextInserted(object sender, EventArgs e)
         {
             SetMarginsSymbolset();
             SetSymbolsetModified(true);
@@ -588,7 +567,7 @@ namespace DMS.MapLibrary
         /// </summary>
         /// <param name="sender">The source object of this event.</param>
         /// <param name="e">The event parameters.</param>
-        private void scintillaControlSymbolset_TextDeleted(object sender, ScintillaNet.TextModifiedEventArgs e)
+        private void scintillaControlSymbolset_TextDeleted(object sender, EventArgs e)
         {
             SetMarginsSymbolset();
             SetSymbolsetModified(true);
@@ -633,7 +612,6 @@ namespace DMS.MapLibrary
                 }
             }
             scrollPos = pos;
-            scintillaControl.Scrolling.ScrollBy(0, scrollPos);
         }
 
         /// <summary>
@@ -733,9 +711,6 @@ namespace DMS.MapLibrary
                     isInit = false;
                 }
                 layerControlStyles.Target = StyleLibrary.Styles;
-
-                // clear the undo buffer of the control
-                scintillaControl.UndoRedo.EmptyUndoBuffer();
             }
             finally
             {

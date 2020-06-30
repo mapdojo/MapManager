@@ -38,9 +38,9 @@ namespace DMS.MapLibrary
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.layerControlStyles = new DMS.MapLibrary.LayerControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.scintillaControl = new ScintillaNet.Scintilla();
+            this.scintillaControl = new ScintillaNET.Scintilla();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.scintillaControlSymbolset = new ScintillaNet.Scintilla();
+            this.scintillaControlSymbolset = new ScintillaNET.Scintilla();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.listViewFonts = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -184,25 +184,10 @@ namespace DMS.MapLibrary
             // scintillaControl
             // 
             this.scintillaControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintillaControl.Lexing.Lexer = ScintillaNet.Lexer.Null;
-            this.scintillaControl.Lexing.LexerName = "automatic";
-            this.scintillaControl.Lexing.LineCommentPrefix = "";
-            this.scintillaControl.Lexing.StreamCommentPrefix = "";
-            this.scintillaControl.Lexing.StreamCommentSufix = "";
             this.scintillaControl.Location = new System.Drawing.Point(3, 3);
             this.scintillaControl.Name = "scintillaControl";
             this.scintillaControl.Size = new System.Drawing.Size(391, 378);
-            this.scintillaControl.Styles.BraceBad.FontName = "Verdana";
-            this.scintillaControl.Styles.BraceLight.FontName = "Verdana";
-            this.scintillaControl.Styles.ControlChar.FontName = "Verdana";
-            this.scintillaControl.Styles.Default.FontName = "Verdana";
-            this.scintillaControl.Styles.IndentGuide.FontName = "Verdana";
-            this.scintillaControl.Styles.LastPredefined.FontName = "Verdana";
-            this.scintillaControl.Styles.LineNumber.FontName = "Verdana";
-            this.scintillaControl.Styles.Max.FontName = "Verdana";
             this.scintillaControl.TabIndex = 1;
-            this.scintillaControl.TextInserted += new System.EventHandler<ScintillaNet.TextModifiedEventArgs>(this.scintillaControl_TextInserted);
-            this.scintillaControl.TextDeleted += new System.EventHandler<ScintillaNet.TextModifiedEventArgs>(this.scintillaControl_TextDeleted);
             // 
             // tabPage3
             // 
@@ -217,25 +202,10 @@ namespace DMS.MapLibrary
             // scintillaControlSymbolset
             // 
             this.scintillaControlSymbolset.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintillaControlSymbolset.Lexing.Lexer = ScintillaNet.Lexer.Null;
-            this.scintillaControlSymbolset.Lexing.LexerName = "automatic";
-            this.scintillaControlSymbolset.Lexing.LineCommentPrefix = "";
-            this.scintillaControlSymbolset.Lexing.StreamCommentPrefix = "";
-            this.scintillaControlSymbolset.Lexing.StreamCommentSufix = "";
             this.scintillaControlSymbolset.Location = new System.Drawing.Point(0, 0);
             this.scintillaControlSymbolset.Name = "scintillaControlSymbolset";
             this.scintillaControlSymbolset.Size = new System.Drawing.Size(397, 384);
-            this.scintillaControlSymbolset.Styles.BraceBad.FontName = "Verdana";
-            this.scintillaControlSymbolset.Styles.BraceLight.FontName = "Verdana";
-            this.scintillaControlSymbolset.Styles.ControlChar.FontName = "Verdana";
-            this.scintillaControlSymbolset.Styles.Default.FontName = "Verdana";
-            this.scintillaControlSymbolset.Styles.IndentGuide.FontName = "Verdana";
-            this.scintillaControlSymbolset.Styles.LastPredefined.FontName = "Verdana";
-            this.scintillaControlSymbolset.Styles.LineNumber.FontName = "Verdana";
-            this.scintillaControlSymbolset.Styles.Max.FontName = "Verdana";
             this.scintillaControlSymbolset.TabIndex = 2;
-            this.scintillaControlSymbolset.TextInserted += new System.EventHandler<ScintillaNet.TextModifiedEventArgs>(this.scintillaControlSymbolset_TextInserted);
-            this.scintillaControlSymbolset.TextDeleted += new System.EventHandler<ScintillaNet.TextModifiedEventArgs>(this.scintillaControlSymbolset_TextDeleted);
             this.scintillaControlSymbolset.Validating += new System.ComponentModel.CancelEventHandler(this.scintillaControlSymbolset_Validating);
             // 
             // tabPage4
@@ -416,12 +386,12 @@ namespace DMS.MapLibrary
         private System.Windows.Forms.TabPage tabPage1;
         private LayerControl layerControlStyles;
         private System.Windows.Forms.TabPage tabPage2;
-        private ScintillaNet.Scintilla scintillaControl;
+        private ScintillaNET.Scintilla scintillaControl;
         private System.Windows.Forms.PictureBox pictureBoxSample;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timerRefresh;
         private System.Windows.Forms.TabPage tabPage3;
-        private ScintillaNet.Scintilla scintillaControlSymbolset;
+        private ScintillaNET.Scintilla scintillaControlSymbolset;
         private System.Windows.Forms.Panel panelRefresh;
         private System.Windows.Forms.Label labelRefresh;
         private System.Windows.Forms.TextBox textBoxInfo;

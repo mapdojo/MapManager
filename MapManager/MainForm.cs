@@ -18,7 +18,9 @@ using System.Text.RegularExpressions;
 
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Drawing.Imaging;
+using MapLibrary;
 using MapManager;
+using ScintillaNET;
 
 namespace DMS.MapManager
 {
@@ -66,10 +68,20 @@ namespace DMS.MapManager
                 Gdal.AllRegister();
                 Ogr.RegisterAll();
                 mapscript.SetEnvironmentVariable("CURL_CA_BUNDLE=" + Environment.CurrentDirectory + "\\curl-ca-bundle.crt");
-                // load scintilla config from file
-                scintillaControl.ConfigurationManager.Language = "user";
-                ScintillaNet.Configuration.Configuration config = new ScintillaNet.Configuration.Configuration(Environment.CurrentDirectory + "\\MapfileConfig.xml", "user", true);
-                scintillaControl.ConfigurationManager.Configure(config);
+                
+                scintillaControl.StyleResetDefault();
+                scintillaControl.Styles[Style.Default].Font = "Consolas";
+                scintillaControl.Styles[Style.Default].Size = 10;
+                scintillaControl.StyleClearAll();
+
+                scintillaControl.Styles[MapLexer.StyleDefault].ForeColor = Color.Black;
+                scintillaControl.Styles[MapLexer.StyleKeyword].ForeColor = Color.Blue;
+                scintillaControl.Styles[MapLexer.StyleIdentifier].ForeColor = Color.Teal;
+                scintillaControl.Styles[MapLexer.StyleNumber].ForeColor = Color.Purple;
+                scintillaControl.Styles[MapLexer.StyleString].ForeColor = Color.Red;
+
+                scintillaControl.Lexer = Lexer.Container;
+                scintillaControl.StyleNeeded += scintilla_StyleNeeded;
             }
             catch (Exception ex)
             {
@@ -78,8 +90,17 @@ namespace DMS.MapManager
                 Environment.Exit(1);
             }
         }
+        
+        private readonly MapLexer mapLexer = new MapLexer("class const int namespace partial public static string using void LEGEND MAP LAYER");
 
+        private void scintilla_StyleNeeded(object sender, StyleNeededEventArgs e)
+        {
+            var startPos = scintillaControl.GetEndStyled();
+            var endPos = e.Position;
 
+            mapLexer.Style(scintillaControl, startPos, endPos);
+        }
+        
         /// <summary>
         /// Constructs the main form.
         /// </summary>
@@ -592,9 +613,6 @@ namespace DMS.MapManager
             UpdateMenuState();
 
             UpdateFileMonitor();
-
-            // clear the undo buffer of the control
-            scintillaControl.UndoRedo.EmptyUndoBuffer();
 
             return true;
         }
@@ -1702,7 +1720,6 @@ namespace DMS.MapManager
                 {
                     dirtyFlag = false;
                     buttonApply.Enabled = false;
-                    int pos = scintillaControl.CurrentPos;
                     OpenMap(fileName, isTemplate);
                     //scintillaControl.CurrentPos = pos;
                 }
@@ -1745,10 +1762,6 @@ namespace DMS.MapManager
         /// </summary>
         private void SetMargins()
         {
-            // adjust margin width (text width + padding)
-            scintillaControl.Margins.Margin0.Width = scintillaControl.NativeInterface.TextWidth(33, scintillaControl.Lines.Count.ToString()) + 6;
-            scintillaControl.Margins.Margin1.Width = 0;
-            scintillaControl.Margins.Margin2.Width = 20;
         }
 
         /// <summary>
@@ -1768,11 +1781,7 @@ namespace DMS.MapManager
 
                     if (caretPos > 0)
                     {
-                        scintillaControl.Selection.Start = caretPos;
-                        scintillaControl.Caret.Position = caretPos;
                     }
-                    if (scrollPos > 0)
-                        scintillaControl.Scrolling.ScrollBy(0, scrollPos);
                     textChanged = false;
                 }
             }
@@ -1844,9 +1853,6 @@ namespace DMS.MapManager
         {
             if (tabControlContents.SelectedIndex == 0)
             {
-                scrollPos = scintillaControl.Lines.FirstVisible.Number;
-                caretPos = scintillaControl.Caret.Position;
-
                 ValidateTextContents();
             }
             else if (tabControlContents.SelectedIndex == 1)
@@ -1866,7 +1872,7 @@ namespace DMS.MapManager
         /// </summary>
         /// <param name="sender">The source object of this event.</param>
         /// <param name="e">The event parameters.</param>
-        private void scintillaControl_TextInserted(object sender, ScintillaNet.TextModifiedEventArgs e)
+        private void scintillaControl_TextInserted(object sender, EventArgs e)
         {
             SetMargins();
             textChanged = true;
@@ -1878,7 +1884,7 @@ namespace DMS.MapManager
         /// </summary>
         /// <param name="sender">The source object of this event.</param>
         /// <param name="e">The event parameters.</param>
-        private void scintillaControl_TextDeleted(object sender, ScintillaNet.TextModifiedEventArgs e)
+        private void scintillaControl_TextDeleted(object sender, EventArgs e)
         {
             SetMargins();
             textChanged = true;
@@ -1926,7 +1932,6 @@ namespace DMS.MapManager
                     ++pos;
                 }
             }
-            scintillaControl.Scrolling.ScrollBy(0, pos - scrollPos);
             scrollPos = pos;
         }
 
@@ -1949,7 +1954,6 @@ namespace DMS.MapManager
         private void findToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControlContents.SelectedIndex = 1;
-            scintillaControl.FindReplace.ShowFind();
         }
 
         /// <summary>
@@ -1960,7 +1964,6 @@ namespace DMS.MapManager
         private void replaceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControlContents.SelectedIndex = 1;
-            scintillaControl.FindReplace.ShowReplace();
         }
 
         /// <summary>
