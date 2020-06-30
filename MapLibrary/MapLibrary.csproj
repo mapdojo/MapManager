@@ -41,19 +41,19 @@
   <ItemGroup>
     <Reference Include="gdal_csharp, Version=1.0.5098.28547, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Gdal\bin\gdal\csharp\gdal_csharp.dll</HintPath>
+      <HintPath>..\..\Apis\bin\gdal\csharp\gdal_csharp.dll</HintPath>
     </Reference>
     <Reference Include="mapscript_csharp, Version=1.0.5098.28628, Culture=neutral, PublicKeyToken=80087771edd02926, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Gdal\bin\ms\csharp\mapscript_csharp.dll</HintPath>
+      <HintPath>..\..\Apis\bin\ms\csharp\mapscript_csharp.dll</HintPath>
     </Reference>
     <Reference Include="ogr_csharp, Version=1.0.4035.39384, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Gdal\bin\gdal\csharp\ogr_csharp.dll</HintPath>
+      <HintPath>..\..\Apis\bin\gdal\csharp\ogr_csharp.dll</HintPath>
     </Reference>
     <Reference Include="osr_csharp, Version=1.0.4035.39384, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Gdal\bin\gdal\csharp\osr_csharp.dll</HintPath>
+      <HintPath>..\..\Apis\bin\gdal\csharp\osr_csharp.dll</HintPath>
     </Reference>
     <Reference Include="ScintillaNET, Version=3.6.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\jacobslusser.ScintillaNET.3.6.3\lib\net40\ScintillaNET.dll</HintPath>
