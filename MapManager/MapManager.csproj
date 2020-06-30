@@ -307,6 +307,7 @@ copy $(SolutionDir)..\Apis\bin\curl\curl-ca-bundle.crt $(TargetDir)
 copy $(SolutionDir)help\MapManager.chm $(TargetDir)
 copy $(SolutionDir)..\Apis\bin\ms\csharp\mapscript_csharp.dll $(TargetDir)
 copy $(SolutionDir)..\Apis\bin\ms\csharp\mapscript.dll $(TargetDir)
+copy $(SolutionDir)..\Apis\bin\ms\apps\mapserv.exe $(TargetDir)
 copy $(SolutionDir)..\Apis\bin\gdal\csharp\*_csharp.dll $(TargetDir)
 copy $(SolutionDir)..\Apis\bin\gdal\csharp\*_wrap.dll $(TargetDir)
 
