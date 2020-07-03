@@ -73,6 +73,10 @@ namespace MapManager
 
                 scintillaControl.Lexer = Lexer.Container;
                 scintillaControl.StyleNeeded += scintilla_StyleNeeded;
+
+                scintillaControl.TabWidth = 4;
+                scintillaControl.CharAdded += ScintillaControl_CharAdded;
+
             }
             catch (Exception ex)
             {
@@ -81,7 +85,24 @@ namespace MapManager
                 Environment.Exit(1);
             }
         }
-        
+
+        private void ScintillaControl_CharAdded(object sender, CharAddedEventArgs e)
+        {
+            // Find the word start
+            var currentPos = scintillaControl.CurrentPosition;
+            var wordStartPos = scintillaControl.WordStartPosition(currentPos, true);
+
+            // Display the autocompletion list
+            var lenEntered = currentPos - wordStartPos;
+            if (lenEntered > 0)
+            {
+                if (!scintillaControl.AutoCActive)
+                {
+                    scintillaControl.AutoCShow(lenEntered, "ALIGN ANCHORPOINT ANGLE ANTIALIAS BACKGROUNDCOLOR BANDSITEM BINDVALS BROWSEFORMAT BUFFER CHARACTER CLASS CLASSGROUP CLASSITEM CLUSTER COLOR COLORRANGE CONFIG CONNECTION CONNECTIONTYPE DATA DATAPATTERN DATARANGE DEBUG DEFRESOLUTION DRIVER DUMP EMPTY ENCODING END ERROR EXPRESSION EXTENSION EXTENT FEATURE FILEPATTERN FILLED FILTER FILTERITEM FOOTER FONT FONTSET FORCE FORMATOPTION FROM GAP GEOMTRANSFORM GRATICULE GRID GRIDSTEP GROUP HEADER IMAGE IMAGECOLOR IMAGEMODE IMAGEPATH IMAGEQUALITY IMAGETYPE IMAGEURL INCLUDE INDEX INITIALGAP INTERLACE INTERVALS ITEMS JOIN KEYIMAGE KEYSIZE KEYSPACING LABEL LABELCACHE LABELFORMAT LABELITEM LABELMAXSCALE LABELMAXSCALEDENOM LABELMINSCALE LABELMINSCALEDENOM LABELREQUIRES LATLON LAYER LEADER LEGEND LEGENDFORMAT LINECAP LINEJOIN LINEJOINMAXSIZE LOG MAP MARKER MARKERSIZE MASK MAXARCS MAXBOXSIZE MAXDISTANCE MAXFEATURES MAXGEOWIDTH MAXINTERVAL MAXLENGTH MAXOVERLAPANGLE MAXSCALE MAXSCALEDENOM MAXSIZE MAXSUBDIVIDE MAXTEMPLATE MAXWIDTH METADATA MIMETYPE MINARCS MINBOXSIZE MINDISTANCE MINFEATURESIZE MINGEOWIDTH MININTERVAL MINLENGTH MINSCALE MINSCALEDENOM MINSIZE MINSUBDIVIDE MINTEMPLATE MINWIDTH NAME NFTEMPLATE OFFSET OFFSITE OPACITY OUTLINECOLOR OUTLINEWIDTH OUTPUTFORMAT OVERLAYBACKGROUNDCOLOR OVERLAYCOLOR OVERLAYMAXSIZE OVERLAYMINSIZE OVERLAYOUTLINECOLOR OVERLAYSIZE OVERLAYSYMBOL PARTIALS PLUGIN PATTERN POINTS POLAROFFSET POSITION POSTLABELCACHE PRIORITY PROCESSING PROJECTION QUERY QUERYFORMAT QUERYITEM QUERYMAP RANGEITEM REFERENCE REGION RELATIVETO REPEATDISTANCE REQUIRES RESOLUTION SCALE SCALEDENOM SCALEBAR SHADOWCOLOR SHADOWSIZE SHAPEPATH SIZE SIZEUNITS STATUS STYLE STYLEITEM SYMBOL SYMBOLSCALE SYMBOLSCALEDENOM SYMBOLSET TABLE TEMPLATE TEMPLATEPATTERN TEMPPATH TEXT TEXTITEM TILEINDEX TILEITEM TITLE TO TOLERANCE TOLERANCEUNITS TRANSPARENCY TRANSPARENT TRANSFORM TYPE UNION UNITS VALIDATION WEB WIDTH WKT WRAP");
+                }
+            }
+        }
+
         private readonly MapLexer mapLexer = new MapLexer("class const int namespace partial public static string using void LEGEND MAP LAYER");
 
         private void scintilla_StyleNeeded(object sender, StyleNeededEventArgs e)
@@ -691,6 +712,7 @@ namespace MapManager
         /// <param name="e">The event parameters.</param>
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            scintillaControl.EmptyUndoBuffer();
             NewMap();
         }
 
@@ -1712,6 +1734,7 @@ namespace MapManager
                     dirtyFlag = false;
                     buttonApply.Enabled = false;
                     OpenMap(fileName, isTemplate);
+                    int pos = scintillaControl.CurrentPosition;
                     //scintillaControl.CurrentPos = pos;
                 }
             }
@@ -1753,6 +1776,10 @@ namespace MapManager
         /// </summary>
         private void SetMargins()
         {
+            // adjust margin width (text width + padding)
+            scintillaControl.Margins[0].Width = scintillaControl.TextWidth(33, scintillaControl.Lines.Count.ToString()) + 6;
+            scintillaControl.Margins[1].Width = 0;
+            scintillaControl.Margins[2].Width = 20;
         }
 
         /// <summary>
@@ -1772,7 +1799,11 @@ namespace MapManager
 
                     if (caretPos > 0)
                     {
+                        scintillaControl.SelectionStart = caretPos;
+                        scintillaControl.CurrentPosition = caretPos;
                     }
+                    if (scrollPos > 0)
+                        scintillaControl.ScrollRange(0, scrollPos);
                     textChanged = false;
                 }
             }
@@ -1844,6 +1875,9 @@ namespace MapManager
         {
             if (tabControlContents.SelectedIndex == 0)
             {
+                scrollPos = scintillaControl.FirstVisibleLine;
+                caretPos = scintillaControl.CurrentPosition;
+
                 ValidateTextContents();
             }
             else if (tabControlContents.SelectedIndex == 1)
@@ -1923,6 +1957,7 @@ namespace MapManager
                     ++pos;
                 }
             }
+            scintillaControl.ScrollRange(0, pos - scrollPos);
             scrollPos = pos;
         }
 
@@ -1945,6 +1980,7 @@ namespace MapManager
         private void findToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControlContents.SelectedIndex = 1;
+            //TODO: https://github.com/Stumpii/ScintillaNET-FindReplaceDialog
         }
 
         /// <summary>
@@ -1955,6 +1991,7 @@ namespace MapManager
         private void replaceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControlContents.SelectedIndex = 1;
+            // TODO: https://github.com/Stumpii/ScintillaNET-FindReplaceDialog
         }
 
         /// <summary>
