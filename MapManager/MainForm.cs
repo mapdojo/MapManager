@@ -1946,7 +1946,7 @@ namespace MapManager
                     ++pos;
                 }
             }
-            scintillaControl.ScrollRange(0, pos - scrollPos);
+            scintillaControl.Lines[pos].Goto();
             scrollPos = pos;
         }
 
