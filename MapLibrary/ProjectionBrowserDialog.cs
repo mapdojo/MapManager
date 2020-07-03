@@ -1,15 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using System.IO;
-using System.Runtime.InteropServices;
-using OSGeo.OGR;
+using System.Windows.Forms;
 
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     /// <summary>
     /// Dialog form for browsing the proj4 projections based on the EPSG file.

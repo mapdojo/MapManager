@@ -1,4 +1,4 @@
-﻿namespace DMS.MapLibrary
+﻿namespace MapLibrary
 {
     partial class AddGraticuleLayerForm
     {
@@ -49,10 +49,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxLineWidth = new System.Windows.Forms.TextBox();
-            this.colorPickerLineColor = new DMS.MapLibrary.ColorPicker();
+            this.colorPickerLineColor = new ColorPicker();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.colorPickerLabelColor = new DMS.MapLibrary.ColorPicker();
+            this.colorPickerLabelColor = new ColorPicker();
             this.textBoxLabelSize = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.SuspendLayout();

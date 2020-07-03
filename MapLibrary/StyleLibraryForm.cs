@@ -1,17 +1,13 @@
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using OSGeo.MapServer;
-using System.Xml;
-using System.IO;
-using System.Text.RegularExpressions;
-using System.Collections;
 
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     /// <summary>
     /// Represents a Form for changing the map view.

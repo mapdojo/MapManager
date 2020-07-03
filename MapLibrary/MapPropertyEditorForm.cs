@@ -1,22 +1,18 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
-using DMS.MapLibrary;
 using OSGeo.MapServer;
-using System.Globalization;
 
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     /// <summary>
     /// Common form for hosting the various Editor controls.
     /// </summary>
     public partial class MapPropertyEditorForm : Form
     {
-        private DMS.MapLibrary.IPropertyEditor editor;
+        private IPropertyEditor editor;
 
         public new event HelpEventHandler HelpRequested;
 

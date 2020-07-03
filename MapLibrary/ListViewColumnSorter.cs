@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Windows.Forms;
 
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
 
     /// <summary>

@@ -1,4 +1,4 @@
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     partial class ClassPropertyEditor
     {
@@ -49,7 +49,7 @@ namespace DMS.MapLibrary
             this.textBoxMaxZoom = new System.Windows.Forms.TextBox();
             this.textBoxMinZoom = new System.Windows.Forms.TextBox();
             this.checkBoxVisible = new System.Windows.Forms.CheckBox();
-            this.mapControl = new DMS.MapLibrary.MapControl();
+            this.mapControl = new MapControl();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.button1 = new System.Windows.Forms.Button();
@@ -268,7 +268,7 @@ namespace DMS.MapLibrary
             this.mapControl.Border = true;
             this.mapControl.EnableRendering = true;
             this.mapControl.Gap = 10;
-            this.mapControl.InputMode = DMS.MapLibrary.MapControl.InputModes.Pan;
+            this.mapControl.InputMode = MapControl.InputModes.Pan;
             this.mapControl.Location = new System.Drawing.Point(304, 21);
             this.mapControl.Name = "mapControl";
             this.mapControl.Size = new System.Drawing.Size(146, 155);

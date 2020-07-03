@@ -1,4 +1,4 @@
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     partial class ColorRampForm
     {
@@ -47,8 +47,8 @@ namespace DMS.MapLibrary
             this.comboBoxStyle = new System.Windows.Forms.ComboBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.colorPickerEnd = new DMS.MapLibrary.ColorPicker();
-            this.colorPickerStart = new DMS.MapLibrary.ColorPicker();
+            this.colorPickerEnd = new ColorPicker();
+            this.colorPickerStart = new ColorPicker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).BeginInit();

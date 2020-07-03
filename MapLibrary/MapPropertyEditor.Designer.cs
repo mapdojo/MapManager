@@ -1,4 +1,4 @@
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     partial class MapPropertyEditor
     {
@@ -78,7 +78,7 @@ namespace DMS.MapLibrary
             this.label13 = new System.Windows.Forms.Label();
             this.textBoxRotation = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.colorPickerBackColor = new DMS.MapLibrary.ColorPicker();
+            this.colorPickerBackColor = new ColorPicker();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.tabPageExtent.SuspendLayout();
@@ -576,7 +576,7 @@ namespace DMS.MapLibrary
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(36, 13);
             this.label19.TabIndex = 14;
-            this.label19.Text = "°";
+            this.label19.Text = "Â°";
             // 
             // colorPickerBackColor
             // 

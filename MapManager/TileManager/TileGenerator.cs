@@ -1,25 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
-using System.Runtime.Serialization;
-using OSGeo.MapServer;
-using OSGeo.GDAL;
-using OSGeo.OGR;
-using System.Diagnostics;
-using System.Reflection;
-using System.Text.RegularExpressions;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Drawing.Imaging;
-using System.Xml.Serialization;
-using DMS;
-using DMS.MapLibrary;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
+using MapLibrary;
+using OSGeo.GDAL;
+using OSGeo.MapServer;
+using OSGeo.OGR;
 
-namespace DMS.MapManager
+namespace MapManager.TileManager
 {
     public class TileGenerator
     {

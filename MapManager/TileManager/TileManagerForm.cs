@@ -1,25 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
-using System.Runtime.Serialization;
-using OSGeo.MapServer;
-using OSGeo.GDAL;
-using OSGeo.OGR;
-using DMS.MapLibrary;
 using System.Diagnostics;
-using System.Reflection;
-using System.Text.RegularExpressions;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Drawing.Imaging;
-using MapManager;
+using System.Drawing;
+using System.IO;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
+using MapLibrary;
+using OSGeo.MapServer;
 
-namespace DMS.MapManager
+namespace MapManager.TileManager
 {
     public partial class TileManagerForm : Form
     {

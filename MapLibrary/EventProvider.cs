@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     /// <summary>
     /// Common class to propagate the error messages for recording ang logging purposes.

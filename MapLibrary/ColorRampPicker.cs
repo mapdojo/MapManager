@@ -1,17 +1,15 @@
 using System;
-using System.Drawing;
-using System.Text;
-using OSGeo.MapServer;
-using System.Windows.Forms;
-using System.Drawing.Design;
-using System.ComponentModel;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Globalization;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;   
+using System.Windows.Forms;
+using System.Xml.Serialization;
+using OSGeo.MapServer;
 
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     public enum ColorRampStyle { Gradient, Discrete}
     

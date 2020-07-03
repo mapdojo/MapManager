@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
-namespace DMS.MapManager.TileManager
+namespace MapManager.TileManager
 {
     public partial class NewPresetConfigDialog : Form
     {

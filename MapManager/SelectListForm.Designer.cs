@@ -1,4 +1,6 @@
-namespace DMS.MapManager
+using MapLibrary;
+
+namespace MapManager
 {
     partial class SelectListForm
     {
@@ -28,7 +30,7 @@ namespace DMS.MapManager
         /// </summary>
         private void InitializeComponent()
         {
-            this.selectList = new DMS.MapLibrary.SelectList();
+            this.selectList = new SelectList();
             this.SuspendLayout();
             // 
             // selectList
@@ -64,7 +66,7 @@ namespace DMS.MapManager
 
         #endregion
 
-        internal DMS.MapLibrary.SelectList selectList;
+        internal SelectList selectList;
 
     }
 }

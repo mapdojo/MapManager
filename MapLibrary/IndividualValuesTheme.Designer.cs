@@ -1,4 +1,4 @@
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     partial class IndividualValuesTheme
     {
@@ -37,13 +37,13 @@ namespace DMS.MapLibrary
             this.WizardPage2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.colorRampPickerBackgroundColor = new DMS.MapLibrary.ColorRampPicker();
-            this.colorRampPickerOutlineColor = new DMS.MapLibrary.ColorRampPicker();
+            this.colorRampPickerBackgroundColor = new ColorRampPicker();
+            this.colorRampPickerOutlineColor = new ColorRampPicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.colorRampPickerColor = new DMS.MapLibrary.ColorRampPicker();
+            this.colorRampPickerColor = new ColorRampPicker();
             this.checkBoxFirstOnly = new System.Windows.Forms.CheckBox();
             this.checkBoxKeepStyles = new System.Windows.Forms.CheckBox();
-            this.layerControl = new DMS.MapLibrary.LayerControl();
+            this.layerControl = new LayerControl();
             this.checkBoxClassItem = new System.Windows.Forms.CheckBox();
             this.WizardPage1.SuspendLayout();
             this.WizardPage2.SuspendLayout();

@@ -1,4 +1,4 @@
-﻿namespace DMS.MapManager.TileManager
+﻿namespace MapManager.TileManager
 {
     partial class NewPresetConfigDialog
     {

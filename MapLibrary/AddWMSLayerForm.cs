@@ -1,18 +1,14 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using OSGeo.MapServer;
-using System.Xml;
-using System.Globalization;
 using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Net;
+using System.Windows.Forms;
+using System.Xml;
+using OSGeo.MapServer;
 
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     /// <summary>
     /// Represents a Form for adding WMS layers.

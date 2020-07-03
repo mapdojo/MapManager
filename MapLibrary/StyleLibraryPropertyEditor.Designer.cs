@@ -1,4 +1,4 @@
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     partial class StyleLibraryPropertyEditor
     {
@@ -42,9 +42,9 @@ namespace DMS.MapLibrary
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBoxPreview = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.colorPickerOutlineColor = new DMS.MapLibrary.ColorPicker();
-            this.colorPickerBackColor = new DMS.MapLibrary.ColorPicker();
-            this.colorPickerColor = new DMS.MapLibrary.ColorPicker();
+            this.colorPickerOutlineColor = new ColorPicker();
+            this.colorPickerBackColor = new ColorPicker();
+            this.colorPickerColor = new ColorPicker();
             this.label13 = new System.Windows.Forms.Label();
             this.comboBoxSymbol = new System.Windows.Forms.ComboBox();
             this.textBoxPattern = new System.Windows.Forms.TextBox();

@@ -1,13 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using System.IO;
+using MapLibrary;
 
-namespace DMS.MapManager
+namespace MapManager
 {
     /// <summary>
     /// A form for displaying mapfile conversion information.
@@ -15,7 +9,7 @@ namespace DMS.MapManager
     public partial class MapFileConvertForm : Form
     {
         AppSettings settings;
-        DMS.MapLibrary.ColorRampPicker colorRampPicker;
+        ColorRampPicker colorRampPicker;
         ListBox listBoxColorRamp;
 
         /// <summary>

@@ -1,4 +1,4 @@
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     partial class StylePropertyEditor
     {
@@ -74,14 +74,14 @@ namespace DMS.MapLibrary
             this.buttonMinScale = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.comboBoxGeomTransform = new System.Windows.Forms.ComboBox();
-            this.styleBindingControllerAngle = new DMS.MapLibrary.StyleBindingController();
-            this.styleBindingControllerOutlineColor = new DMS.MapLibrary.StyleBindingController();
-            this.colorPickerOutlineColor = new DMS.MapLibrary.ColorPicker();
-            this.styleBindingControllerColor = new DMS.MapLibrary.StyleBindingController();
-            this.colorPickerColor = new DMS.MapLibrary.ColorPicker();
-            this.styleBindingControllerWidth = new DMS.MapLibrary.StyleBindingController();
-            this.styleBindingControllerSize = new DMS.MapLibrary.StyleBindingController();
-            this.colorPickerBackColor = new DMS.MapLibrary.ColorPicker();
+            this.styleBindingControllerAngle = new StyleBindingController();
+            this.styleBindingControllerOutlineColor = new StyleBindingController();
+            this.colorPickerOutlineColor = new ColorPicker();
+            this.styleBindingControllerColor = new StyleBindingController();
+            this.colorPickerColor = new ColorPicker();
+            this.styleBindingControllerWidth = new StyleBindingController();
+            this.styleBindingControllerSize = new StyleBindingController();
+            this.colorPickerBackColor = new ColorPicker();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarOpacity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSample)).BeginInit();
             this.SuspendLayout();

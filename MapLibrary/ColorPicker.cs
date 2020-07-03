@@ -1,13 +1,11 @@
 using System;
-using System.Drawing;
-using System.Text;
-using OSGeo.MapServer;
-using System.Windows.Forms;
-using System.Drawing.Design;
 using System.ComponentModel;
-using System.Globalization;
+using System.Drawing;
+using System.Drawing.Design;
+using System.Windows.Forms;
+using OSGeo.MapServer;
 
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     /// <summary>
     /// Represents a Windows picker box that displays Color values.

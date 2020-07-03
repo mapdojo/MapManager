@@ -1,20 +1,14 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
-using OSGeo.MapServer;
 using System.Diagnostics;
-using MapLibrary.Properties;
-using System.Reflection;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-using System.Runtime.InteropServices;
+using System.IO;
+using System.Windows.Forms;
+using MapLibrary.Properties;
+using OSGeo.MapServer;
 
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     /// <summary>
     /// Event handler to sign that the cursor is moving.

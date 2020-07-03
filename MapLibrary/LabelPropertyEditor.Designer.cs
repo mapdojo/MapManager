@@ -1,4 +1,4 @@
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     partial class LabelPropertyEditor
     {
@@ -36,24 +36,24 @@ namespace DMS.MapLibrary
             this.label15 = new System.Windows.Forms.Label();
             this.textBoxText = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.labelBindingControllerShadowSizeY = new DMS.MapLibrary.LabelBindingController();
+            this.labelBindingControllerShadowSizeY = new LabelBindingController();
             this.textBoxShadowSizeY = new System.Windows.Forms.TextBox();
-            this.labelBindingControllerShadowSizeX = new DMS.MapLibrary.LabelBindingController();
+            this.labelBindingControllerShadowSizeX = new LabelBindingController();
             this.textBoxShadowSizeX = new System.Windows.Forms.TextBox();
-            this.labelBindingControllerSize = new DMS.MapLibrary.LabelBindingController();
+            this.labelBindingControllerSize = new LabelBindingController();
             this.textBoxSize = new System.Windows.Forms.TextBox();
-            this.labelBindingControllerFont = new DMS.MapLibrary.LabelBindingController();
+            this.labelBindingControllerFont = new LabelBindingController();
             this.comboBoxFont = new System.Windows.Forms.ComboBox();
-            this.labelBindingControllerColor = new DMS.MapLibrary.LabelBindingController();
-            this.colorPickerColor = new DMS.MapLibrary.ColorPicker();
-            this.labelBindingControllerOutlineColor = new DMS.MapLibrary.LabelBindingController();
-            this.colorPickerOutlineColor = new DMS.MapLibrary.ColorPicker();
+            this.labelBindingControllerColor = new LabelBindingController();
+            this.colorPickerColor = new ColorPicker();
+            this.labelBindingControllerOutlineColor = new LabelBindingController();
+            this.colorPickerOutlineColor = new ColorPicker();
             this.textBoxMaxSize = new System.Windows.Forms.TextBox();
             this.textBoxMinSize = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.colorPickerShadowColor = new DMS.MapLibrary.ColorPicker();
+            this.colorPickerShadowColor = new ColorPicker();
             this.tabPageDisplay = new System.Windows.Forms.TabPage();
             this.buttonMaxScale = new System.Windows.Forms.Button();
             this.buttonMinScale = new System.Windows.Forms.Button();
@@ -73,11 +73,11 @@ namespace DMS.MapLibrary
             this.checkBoxForce = new System.Windows.Forms.CheckBox();
             this.checkBoxPartials = new System.Windows.Forms.CheckBox();
             this.tabPagePosition = new System.Windows.Forms.TabPage();
-            this.labelBindingControllerPosition = new DMS.MapLibrary.LabelBindingController();
+            this.labelBindingControllerPosition = new LabelBindingController();
             this.comboBoxPosition = new System.Windows.Forms.ComboBox();
-            this.labelBindingControllerPriority = new DMS.MapLibrary.LabelBindingController();
+            this.labelBindingControllerPriority = new LabelBindingController();
             this.textBoxPriority = new System.Windows.Forms.TextBox();
-            this.labelBindingControllerAngle = new DMS.MapLibrary.LabelBindingController();
+            this.labelBindingControllerAngle = new LabelBindingController();
             this.textBoxAngle = new System.Windows.Forms.TextBox();
             this.textBoxMaxLength = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -106,7 +106,7 @@ namespace DMS.MapLibrary
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.mapControl = new DMS.MapLibrary.MapControl();
+            this.mapControl = new MapControl();
             this.tabControl1.SuspendLayout();
             this.tabPageRendering.SuspendLayout();
             this.tabPageDisplay.SuspendLayout();
@@ -968,7 +968,7 @@ namespace DMS.MapLibrary
             // 
             this.mapControl.Border = true;
             this.mapControl.Gap = 10;
-            this.mapControl.InputMode = DMS.MapLibrary.MapControl.InputModes.Pan;
+            this.mapControl.InputMode = MapControl.InputModes.Pan;
             this.mapControl.Location = new System.Drawing.Point(315, 20);
             this.mapControl.Name = "mapControl";
             this.mapControl.Size = new System.Drawing.Size(146, 222);

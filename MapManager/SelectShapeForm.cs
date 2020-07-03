@@ -1,15 +1,8 @@
-﻿using DMS.MapLibrary;
-using OSGeo.MapServer;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using System;
 using System.Windows.Forms;
+using MapLibrary;
 
-namespace DMS.MapManager
+namespace MapManager
 {
     public partial class SelectShapeForm : Form
     {

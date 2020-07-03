@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 
-namespace DMS.TileGenerator
+namespace TileGenerator
 {
     static class Program
     {
@@ -17,7 +15,7 @@ namespace DMS.TileGenerator
             {
                 if (args[0] == "/tile")
                 {
-                    new DMS.MapManager.TileGenerator(args[1], args[2], args[3]);
+                    new MapManager.TileManager.TileGenerator(args[1], args[2], args[3]);
                 }
             }
         }

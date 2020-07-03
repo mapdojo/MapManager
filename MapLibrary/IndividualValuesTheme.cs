@@ -1,15 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
 using System.Windows.Forms;
-using System.Collections;
-using System.IO;
 using OSGeo.MapServer;
 
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     /// <summary>
     /// UserControl to provide Individual value theme support.

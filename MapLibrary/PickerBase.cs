@@ -1,17 +1,15 @@
 using System;
 using System.Collections;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
-using System.Text;
-using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using System.Windows.Forms.Design;
-using System.Reflection;
 using System.Globalization;
+using System.Reflection;
+using System.Windows.Forms;
+using System.Windows.Forms.Design;
+using System.Windows.Forms.VisualStyles;
 
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     /// <summary>
     /// Represents a base class of a Windows Picker control that allows you to edit a value of any type. 

@@ -1,4 +1,4 @@
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     partial class ScalebarPropertyEditor
     {
@@ -48,10 +48,10 @@ namespace DMS.MapLibrary
             this.comboBoxUnits = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.colorPickerImageColor = new DMS.MapLibrary.ColorPicker();
-            this.colorPickerOutlineColor = new DMS.MapLibrary.ColorPicker();
-            this.colorPickerBackColor = new DMS.MapLibrary.ColorPicker();
-            this.colorPickerColor = new DMS.MapLibrary.ColorPicker();
+            this.colorPickerImageColor = new ColorPicker();
+            this.colorPickerOutlineColor = new ColorPicker();
+            this.colorPickerBackColor = new ColorPicker();
+            this.colorPickerColor = new ColorPicker();
             this.SuspendLayout();
             // 
             // textBoxHeight

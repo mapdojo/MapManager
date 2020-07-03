@@ -1,15 +1,11 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Text;
-using System.Windows.Forms;
-using OSGeo.MapServer;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using OSGeo.MapServer;
 
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     /// <summary>
     /// User Control to select a symbol from the pre-definied symbol set.

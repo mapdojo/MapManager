@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml;
 using System.Net;
+using System.Xml;
 
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     /// <summary>
     /// XmlProxyUrlResolver Class

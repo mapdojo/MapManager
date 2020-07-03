@@ -1,28 +1,19 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
-using System.IO;
-using System.Runtime.Serialization;
-using OSGeo.MapServer;
+using MapLibrary;
+using MapManager.TileManager;
 using OSGeo.GDAL;
+using OSGeo.MapServer;
 using OSGeo.OGR;
 using OSGeo.OSR;
-using DMS.MapLibrary;
-using System.Diagnostics;
-using System.Reflection;
-using System.Text.RegularExpressions;
-
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Drawing.Imaging;
-using MapLibrary;
-using MapManager;
 using ScintillaNET;
 
-namespace DMS.MapManager
+namespace MapManager
 {
     /// <summary>
     /// The main form of the application.
@@ -249,7 +240,7 @@ namespace DMS.MapManager
                     {
                         settings = (AppSettings)loader.Deserialize(fs);
                         if (settings.ColorRampList != null)
-                            DMS.MapLibrary.ColorRampConverter.ColorRampList = settings.ColorRampList;
+                            ColorRampConverter.ColorRampList = settings.ColorRampList;
                     }
                 }
             }
@@ -295,7 +286,7 @@ namespace DMS.MapManager
             {
                 string appdataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\MapManager20";
 
-                settings.ColorRampList = DMS.MapLibrary.ColorRampConverter.ColorRampList;
+                settings.ColorRampList = ColorRampConverter.ColorRampList;
 
                 // saving the application settings
                 System.Xml.Serialization.XmlSerializer saver = new System.Xml.Serialization.XmlSerializer(typeof(AppSettings));

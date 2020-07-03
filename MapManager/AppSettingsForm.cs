@@ -1,13 +1,10 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
+using MapLibrary;
 
-namespace DMS.MapManager
+namespace MapManager
 {
     /// <summary>
     /// A form for setting the application parameters.
@@ -15,7 +12,7 @@ namespace DMS.MapManager
     public partial class AppSettingsForm : Form
     {
         AppSettings settings;
-        DMS.MapLibrary.ColorRampPicker colorRampPicker;
+        ColorRampPicker colorRampPicker;
         ListBox listBoxColorRamp;
 
         /// <summary>
@@ -28,7 +25,7 @@ namespace DMS.MapManager
             this.settings = settings;
             LoadState();
 
-            colorRampPicker = new DMS.MapLibrary.ColorRampPicker();
+            colorRampPicker = new ColorRampPicker();
             listBoxColorRamp = colorRampPicker.GetListBox();
             panelColorRamp.Controls.Add(this.listBoxColorRamp);
             listBoxColorRamp.Dock = DockStyle.Fill;

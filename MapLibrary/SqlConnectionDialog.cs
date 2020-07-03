@@ -1,18 +1,13 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
-using System.Runtime.InteropServices;
 using System.Data.SqlClient;
-using System.Threading;
-using System.Collections.Specialized;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Windows.Forms;
 
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     /// <summary>
     /// Dialog form for constructing mssql connection strings.

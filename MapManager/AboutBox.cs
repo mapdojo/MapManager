@@ -1,16 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Windows.Forms;
 using System.Reflection;
-using OSGeo.MapServer;
-using OSGeo.GDAL;
-using System.Text;
-using OSGeo.OGR;
 using System.Runtime.InteropServices;
+using System.Text;
+using System.Windows.Forms;
+using OSGeo.GDAL;
+using OSGeo.MapServer;
+using OSGeo.OGR;
 
-namespace DMS.MapManager
+namespace MapManager
 {
     /// <summary>
     /// Provides the about box for the application

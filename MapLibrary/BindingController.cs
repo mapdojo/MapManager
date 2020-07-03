@@ -1,12 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
-using OSGeo.MapServer;
-using MapLibrary.Properties;
 using System.Drawing;
+using System.Windows.Forms;
+using MapLibrary.Properties;
+using OSGeo.MapServer;
 
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     class BindingController : LinkLabel
     {

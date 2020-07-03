@@ -1,4 +1,4 @@
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     partial class AddWMSLayerForm
     {
@@ -29,7 +29,7 @@ namespace DMS.MapLibrary
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddWMSLayerForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MapLibrary.AddWMSLayerForm));
             this.textBoxServer = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
@@ -47,7 +47,7 @@ namespace DMS.MapLibrary
             this.buttonRemove = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
-            this.treeViewLayers = new DMS.MapLibrary.TreeViewNoImage();
+            this.treeViewLayers = new MapLibrary.TreeViewNoImage();
             this.buttonLoadLayers = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -58,7 +58,7 @@ namespace DMS.MapLibrary
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.checkBoxTransparent = new System.Windows.Forms.CheckBox();
-            this.colorPickerLayerColor = new DMS.MapLibrary.ColorPicker();
+            this.colorPickerLayerColor = new MapLibrary.ColorPicker();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxImageFormat = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -72,27 +72,17 @@ namespace DMS.MapLibrary
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // textBoxServer
-            // 
-            this.textBoxServer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxServer.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxServer.Location = new System.Drawing.Point(92, 22);
             this.textBoxServer.Name = "textBoxServer";
             this.textBoxServer.Size = new System.Drawing.Size(462, 20);
             this.textBoxServer.TabIndex = 1;
-            // 
-            // label5
-            // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 25);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 13);
             this.label5.TabIndex = 0;
             this.label5.Text = "WMS  Server:";
-            // 
-            // buttonOK
-            // 
             this.buttonOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.buttonOK.Location = new System.Drawing.Point(300, 444);
             this.buttonOK.Name = "buttonOK";
@@ -101,9 +91,6 @@ namespace DMS.MapLibrary
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
-            // 
-            // buttonCancel
-            // 
             this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.buttonCancel.Location = new System.Drawing.Point(429, 444);
             this.buttonCancel.Name = "buttonCancel";
@@ -112,12 +99,7 @@ namespace DMS.MapLibrary
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles) ((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.checkBoxSingle);
             this.groupBox1.Controls.Add(this.textBoxDesc);
             this.groupBox1.Controls.Add(this.comboBoxStyle);
@@ -129,10 +111,7 @@ namespace DMS.MapLibrary
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "WMS Layers:";
-            // 
-            // checkBoxSingle
-            // 
-            this.checkBoxSingle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.checkBoxSingle.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxSingle.AutoSize = true;
             this.checkBoxSingle.Checked = true;
             this.checkBoxSingle.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -142,43 +121,28 @@ namespace DMS.MapLibrary
             this.checkBoxSingle.TabIndex = 4;
             this.checkBoxSingle.Text = "Add the selected layers as a single layer";
             this.checkBoxSingle.UseVisualStyleBackColor = true;
-            // 
-            // textBoxDesc
-            // 
-            this.textBoxDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxDesc.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxDesc.Location = new System.Drawing.Point(232, 208);
             this.textBoxDesc.Multiline = true;
             this.textBoxDesc.Name = "textBoxDesc";
             this.textBoxDesc.ReadOnly = true;
             this.textBoxDesc.Size = new System.Drawing.Size(544, 45);
             this.textBoxDesc.TabIndex = 3;
-            // 
-            // comboBoxStyle
-            // 
-            this.comboBoxStyle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBoxStyle.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBoxStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStyle.FormattingEnabled = true;
             this.comboBoxStyle.Location = new System.Drawing.Point(47, 208);
             this.comboBoxStyle.Name = "comboBoxStyle";
             this.comboBoxStyle.Size = new System.Drawing.Size(168, 21);
             this.comboBoxStyle.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(8, 211);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 13);
             this.label3.TabIndex = 1;
             this.label3.Text = "Style:";
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles) ((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
@@ -192,9 +156,6 @@ namespace DMS.MapLibrary
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(778, 183);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // listViewLayers
-            // 
             this.listViewLayers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewLayers.HideSelection = false;
             this.listViewLayers.Location = new System.Drawing.Point(435, 3);
@@ -206,15 +167,9 @@ namespace DMS.MapLibrary
             this.listViewLayers.UseCompatibleStateImageBehavior = false;
             this.listViewLayers.View = System.Windows.Forms.View.List;
             this.listViewLayers.SelectedIndexChanged += new System.EventHandler(this.listViewLayers_SelectedIndexChanged);
-            // 
-            // imageList
-            // 
-            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer) (resources.GetObject("imageList.ImageStream")));
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList.Images.SetKeyName(0, "info.png");
-            // 
-            // tableLayoutPanel2
-            // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.buttonAdd, 0, 0);
@@ -232,9 +187,6 @@ namespace DMS.MapLibrary
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(81, 177);
             this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // buttonAdd
-            // 
             this.buttonAdd.Location = new System.Drawing.Point(3, 3);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(75, 23);
@@ -242,9 +194,6 @@ namespace DMS.MapLibrary
             this.buttonAdd.Text = "Add >>";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
-            // 
-            // buttonRemove
-            // 
             this.buttonRemove.Location = new System.Drawing.Point(3, 38);
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.Size = new System.Drawing.Size(75, 23);
@@ -252,9 +201,6 @@ namespace DMS.MapLibrary
             this.buttonRemove.Text = "<< Remove";
             this.buttonRemove.UseVisualStyleBackColor = true;
             this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
-            // 
-            // buttonUp
-            // 
             this.buttonUp.Location = new System.Drawing.Point(3, 108);
             this.buttonUp.Name = "buttonUp";
             this.buttonUp.Size = new System.Drawing.Size(75, 23);
@@ -262,9 +208,6 @@ namespace DMS.MapLibrary
             this.buttonUp.Text = "Move Up";
             this.buttonUp.UseVisualStyleBackColor = true;
             this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
-            // 
-            // buttonDown
-            // 
             this.buttonDown.Location = new System.Drawing.Point(3, 143);
             this.buttonDown.Name = "buttonDown";
             this.buttonDown.Size = new System.Drawing.Size(75, 23);
@@ -272,25 +215,19 @@ namespace DMS.MapLibrary
             this.buttonDown.Text = "Move Down";
             this.buttonDown.UseVisualStyleBackColor = true;
             this.buttonDown.Click += new System.EventHandler(this.buttonDown_Click);
-            // 
-            // treeViewLayers
-            // 
             this.treeViewLayers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewLayers.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawAll;
             this.treeViewLayers.HideSelection = false;
             this.treeViewLayers.ImageIndex = 0;
             this.treeViewLayers.ImageList = this.imageList;
-            this.treeViewLayers.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.treeViewLayers.LineColor = System.Drawing.Color.FromArgb(((int) (((byte) (109)))), ((int) (((byte) (109)))), ((int) (((byte) (109)))));
             this.treeViewLayers.Location = new System.Drawing.Point(3, 3);
             this.treeViewLayers.Name = "treeViewLayers";
             this.treeViewLayers.SelectedImageIndex = 0;
             this.treeViewLayers.Size = new System.Drawing.Size(339, 177);
             this.treeViewLayers.TabIndex = 0;
             this.treeViewLayers.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewLayers_AfterSelect);
-            // 
-            // buttonLoadLayers
-            // 
-            this.buttonLoadLayers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLoadLayers.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonLoadLayers.Location = new System.Drawing.Point(560, 21);
             this.buttonLoadLayers.Name = "buttonLoadLayers";
             this.buttonLoadLayers.Size = new System.Drawing.Size(75, 23);
@@ -298,11 +235,7 @@ namespace DMS.MapLibrary
             this.buttonLoadLayers.Text = "Load Layers";
             this.buttonLoadLayers.UseVisualStyleBackColor = true;
             this.buttonLoadLayers.Click += new System.EventHandler(this.buttonLoadLayers_Click);
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -314,9 +247,6 @@ namespace DMS.MapLibrary
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(782, 91);
             this.tableLayoutPanel3.TabIndex = 6;
-            // 
-            // groupBox2
-            // 
             this.groupBox2.Controls.Add(this.labelProjDesc);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.comboBoxProj);
@@ -329,36 +259,23 @@ namespace DMS.MapLibrary
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Coordinate Reference System:";
-            // 
-            // labelProjDesc
-            // 
             this.labelProjDesc.Location = new System.Drawing.Point(9, 65);
             this.labelProjDesc.Name = "labelProjDesc";
             this.labelProjDesc.Size = new System.Drawing.Size(338, 13);
             this.labelProjDesc.TabIndex = 3;
-            // 
-            // label4
-            // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(9, 43);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 1;
             this.label4.Text = "Projection:";
-            // 
-            // comboBoxProj
-            // 
-            this.comboBoxProj.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxProj.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxProj.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxProj.FormattingEnabled = true;
             this.comboBoxProj.Location = new System.Drawing.Point(72, 40);
             this.comboBoxProj.Name = "comboBoxProj";
             this.comboBoxProj.Size = new System.Drawing.Size(310, 21);
             this.comboBoxProj.TabIndex = 2;
-            // 
-            // checkBoxProj
-            // 
             this.checkBoxProj.AutoSize = true;
             this.checkBoxProj.Location = new System.Drawing.Point(6, 19);
             this.checkBoxProj.Name = "checkBoxProj";
@@ -367,9 +284,6 @@ namespace DMS.MapLibrary
             this.checkBoxProj.Text = "Show Projection Description instead of SRS";
             this.checkBoxProj.UseVisualStyleBackColor = true;
             this.checkBoxProj.CheckedChanged += new System.EventHandler(this.checkBoxProj_CheckedChanged);
-            // 
-            // panel1
-            // 
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.comboBoxImageFormat);
             this.panel1.Controls.Add(this.label1);
@@ -378,9 +292,6 @@ namespace DMS.MapLibrary
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(385, 85);
             this.panel1.TabIndex = 0;
-            // 
-            // groupBox3
-            // 
             this.groupBox3.Controls.Add(this.checkBoxTransparent);
             this.groupBox3.Controls.Add(this.colorPickerLayerColor);
             this.groupBox3.Controls.Add(this.label2);
@@ -392,9 +303,6 @@ namespace DMS.MapLibrary
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Image Background:";
-            // 
-            // checkBoxTransparent
-            // 
             this.checkBoxTransparent.AutoSize = true;
             this.checkBoxTransparent.Checked = true;
             this.checkBoxTransparent.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -404,11 +312,7 @@ namespace DMS.MapLibrary
             this.checkBoxTransparent.TabIndex = 0;
             this.checkBoxTransparent.Text = "Transparent";
             this.checkBoxTransparent.UseVisualStyleBackColor = true;
-            // 
-            // colorPickerLayerColor
-            // 
-            this.colorPickerLayerColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.colorPickerLayerColor.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.colorPickerLayerColor.BackColor = System.Drawing.SystemColors.Window;
             this.colorPickerLayerColor.Context = null;
             this.colorPickerLayerColor.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -418,39 +322,26 @@ namespace DMS.MapLibrary
             this.colorPickerLayerColor.Size = new System.Drawing.Size(232, 20);
             this.colorPickerLayerColor.TabIndex = 2;
             this.colorPickerLayerColor.Value = System.Drawing.Color.Empty;
-            // 
-            // label2
-            // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(107, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Colour:";
-            // 
-            // comboBoxImageFormat
-            // 
-            this.comboBoxImageFormat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxImageFormat.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxImageFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxImageFormat.FormattingEnabled = true;
             this.comboBoxImageFormat.Location = new System.Drawing.Point(86, 7);
             this.comboBoxImageFormat.Name = "comboBoxImageFormat";
             this.comboBoxImageFormat.Size = new System.Drawing.Size(293, 21);
             this.comboBoxImageFormat.TabIndex = 1;
-            // 
-            // label1
-            // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Image Format:";
-            // 
-            // buttonDetails
-            // 
-            this.buttonDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDetails.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDetails.Location = new System.Drawing.Point(641, 21);
             this.buttonDetails.Name = "buttonDetails";
             this.buttonDetails.Size = new System.Drawing.Size(67, 23);
@@ -458,10 +349,7 @@ namespace DMS.MapLibrary
             this.buttonDetails.Text = "Details...";
             this.buttonDetails.UseVisualStyleBackColor = true;
             this.buttonDetails.Click += new System.EventHandler(this.buttonDetails_Click);
-            // 
-            // buttonConnection
-            // 
-            this.buttonConnection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonConnection.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonConnection.Location = new System.Drawing.Point(714, 21);
             this.buttonConnection.Name = "buttonConnection";
             this.buttonConnection.Size = new System.Drawing.Size(84, 23);
@@ -469,9 +357,6 @@ namespace DMS.MapLibrary
             this.buttonConnection.Text = "Connection...";
             this.buttonConnection.UseVisualStyleBackColor = true;
             this.buttonConnection.Click += new System.EventHandler(this.buttonConnection_Click);
-            // 
-            // AddWMSLayerForm
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(802, 479);
@@ -506,44 +391,43 @@ namespace DMS.MapLibrary
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
-        #endregion
-
-        private System.Windows.Forms.TextBox textBoxServer;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button buttonOK;
-        private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ListView listViewLayers;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Button buttonRemove;
-        private System.Windows.Forms.Button buttonUp;
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonConnection;
+        private System.Windows.Forms.Button buttonDetails;
         private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.Button buttonLoadLayers;
-        private System.Windows.Forms.ImageList imageList;
-        private DMS.MapLibrary.TreeViewNoImage treeViewLayers;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox comboBoxImageFormat;
-        private System.Windows.Forms.Label label1;
-        private ColorPicker colorPickerLayerColor;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox checkBoxTransparent;
-        private System.Windows.Forms.TextBox textBoxDesc;
-        private System.Windows.Forms.ComboBox comboBoxStyle;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button buttonDetails;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBoxProj;
+        private System.Windows.Forms.Button buttonOK;
+        private System.Windows.Forms.Button buttonRemove;
+        private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.CheckBox checkBoxProj;
-        private System.Windows.Forms.Label labelProjDesc;
         private System.Windows.Forms.CheckBox checkBoxSingle;
-        private System.Windows.Forms.Button buttonConnection;
+        private System.Windows.Forms.CheckBox checkBoxTransparent;
+        private MapLibrary.ColorPicker colorPickerLayerColor;
+        private System.Windows.Forms.ComboBox comboBoxImageFormat;
+        private System.Windows.Forms.ComboBox comboBoxProj;
+        private System.Windows.Forms.ComboBox comboBoxStyle;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ImageList imageList;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelProjDesc;
+        private System.Windows.Forms.ListView listViewLayers;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TextBox textBoxDesc;
+        private System.Windows.Forms.TextBox textBoxServer;
+        private MapLibrary.TreeViewNoImage treeViewLayers;
+
+        #endregion
     }
 }

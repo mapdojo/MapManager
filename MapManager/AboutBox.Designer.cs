@@ -1,4 +1,4 @@
-namespace DMS.MapManager
+namespace MapManager
 {
     partial class AboutBox
     {
@@ -218,7 +218,7 @@ namespace DMS.MapManager
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(342, 17);
             this.label1.TabIndex = 13;
-            this.label1.Text = "support@mapsolutions.com.au";
+            this.label1.Text = "support@mapdojo.com";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // logoPictureBox
@@ -278,7 +278,7 @@ namespace DMS.MapManager
             this.labelCompanyName.Name = "labelCompanyName";
             this.labelCompanyName.Size = new System.Drawing.Size(342, 17);
             this.labelCompanyName.TabIndex = 3;
-            this.labelCompanyName.Text = "http://www.mapsolutions.com.au";
+            this.labelCompanyName.Text = "https://support.mapdojo.com";
             this.labelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // AboutBox

@@ -1,20 +1,14 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Collections;
 using System.Drawing;
-using System.Runtime.InteropServices;
 using System.IO;
+using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 using OSGeo.MapServer;
 using OSGeo.OGR;
-using OSGeo.OSR;
-using System.Drawing.Drawing2D;
-using System.Windows.Forms;
-using System.Text.RegularExpressions;
-using System.Diagnostics;
-using System.Collections;
-using System.Reflection;
 
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     /// <summary>
     /// MapLibrary utility functions.
@@ -365,7 +359,7 @@ namespace DMS.MapLibrary
             switch (unit)
             {
                 case MS_UNITS.MS_DD:
-                    return "°";
+                    return "Â°";
                 case MS_UNITS.MS_FEET:
                     return "ft";
                 case MS_UNITS.MS_INCHES:

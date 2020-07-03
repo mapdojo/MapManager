@@ -1,20 +1,16 @@
 using System;
-using System.Collections.Generic;
-using System.Collections;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
-using System.Text;
-using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using OSGeo.GDAL;
 using OSGeo.MapServer;
 using OSGeo.OGR;
-using System.Runtime.InteropServices;
-using OSGeo.GDAL;
 using OSGeo.OSR;
-using System.Data.SqlClient;
 
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     /// <summary>
     /// User Control to edit the layerObj, classObj, and styleObj collections.

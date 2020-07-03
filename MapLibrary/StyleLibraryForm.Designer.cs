@@ -1,4 +1,4 @@
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     partial class StyleLibraryForm
     {
@@ -36,7 +36,7 @@ namespace DMS.MapLibrary
             this.labelPercent = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.layerControlStyles = new DMS.MapLibrary.LayerControl();
+            this.layerControlStyles = new LayerControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.scintillaControl = new ScintillaNET.Scintilla();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -162,11 +162,11 @@ namespace DMS.MapLibrary
             this.layerControlStyles.Size = new System.Drawing.Size(391, 378);
             this.layerControlStyles.TabIndex = 1;
             this.layerControlStyles.Target = null;
-            this.layerControlStyles.ItemSelect += new DMS.MapLibrary.LayerControl.ItemSelectEventHandler(this.layerControlStyles_ItemSelect);
-            this.layerControlStyles.GoToLayerText += new DMS.MapLibrary.LayerControl.GoToLayerTextEventHandler(this.layerControlStyles_GoToLayerText);
+            this.layerControlStyles.ItemSelect += new LayerControl.ItemSelectEventHandler(this.layerControlStyles_ItemSelect);
+            this.layerControlStyles.GoToLayerText += new LayerControl.GoToLayerTextEventHandler(this.layerControlStyles_GoToLayerText);
             this.layerControlStyles.BeforeRefresh += new System.EventHandler(this.layerControlStyles_BeforeRefresh);
             this.layerControlStyles.AfterRefresh += new System.EventHandler(this.layerControlStyles_AfterRefresh);
-            this.layerControlStyles.EditProperties += new DMS.MapLibrary.EditPropertiesEventHandler(this.layerControlStyles_EditProperties);
+            this.layerControlStyles.EditProperties += new EditPropertiesEventHandler(this.layerControlStyles_EditProperties);
             // 
             // tabPage2
             // 

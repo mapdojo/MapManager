@@ -1,4 +1,6 @@
-namespace DMS.MapManager
+using MapLibrary;
+
+namespace MapManager
 {
     partial class MainForm
     {
@@ -106,13 +108,13 @@ namespace DMS.MapManager
             this.fileSystemWatcher = new System.IO.FileSystemWatcher();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.layerControl = new DMS.MapLibrary.LayerControl();
+            this.layerControl = new LayerControl();
             this.buttonApply = new System.Windows.Forms.Button();
-            this.layerPropertyEditor = new DMS.MapLibrary.LayerPropertyEditor();
-            this.mapPropertyEditor = new DMS.MapLibrary.MapPropertyEditor();
+            this.layerPropertyEditor = new LayerPropertyEditor();
+            this.mapPropertyEditor = new MapPropertyEditor();
             this.tabControlContents = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.mapControl = new DMS.MapLibrary.MapControl();
+            this.mapControl = new MapControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.scintillaControl = new ScintillaNET.Scintilla();
             this.menuStripMain.SuspendLayout();
@@ -813,9 +815,9 @@ namespace DMS.MapManager
             this.layerControl.Size = new System.Drawing.Size(318, 355);
             this.layerControl.TabIndex = 0;
             this.layerControl.Target = null;
-            this.layerControl.ItemSelect += new DMS.MapLibrary.LayerControl.ItemSelectEventHandler(this.layerControl_ItemSelect);
-            this.layerControl.GoToLayerText += new DMS.MapLibrary.LayerControl.GoToLayerTextEventHandler(this.layerControl_GoToLayerText);
-            this.layerControl.EditProperties += new DMS.MapLibrary.EditPropertiesEventHandler(this.layerControl_EditProperties);
+            this.layerControl.ItemSelect += new LayerControl.ItemSelectEventHandler(this.layerControl_ItemSelect);
+            this.layerControl.GoToLayerText += new LayerControl.GoToLayerTextEventHandler(this.layerControl_GoToLayerText);
+            this.layerControl.EditProperties += new EditPropertiesEventHandler(this.layerControl_EditProperties);
             this.layerControl.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.editor_HelpRequested);
             // 
             // buttonApply
@@ -842,7 +844,7 @@ namespace DMS.MapManager
             this.layerPropertyEditor.Target = null;
             this.layerPropertyEditor.Visible = false;
             this.layerPropertyEditor.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.editor_HelpRequested);
-            this.layerPropertyEditor.EditProperties += new DMS.MapLibrary.EditPropertiesEventHandler(this.layerPropertyEditor_EditProperties);
+            this.layerPropertyEditor.EditProperties += new EditPropertiesEventHandler(this.layerPropertyEditor_EditProperties);
             // 
             // mapPropertyEditor
             // 
@@ -856,7 +858,7 @@ namespace DMS.MapManager
             this.mapPropertyEditor.Target = null;
             this.mapPropertyEditor.Visible = false;
             this.mapPropertyEditor.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.editor_HelpRequested);
-            this.mapPropertyEditor.EditProperties += new DMS.MapLibrary.EditPropertiesEventHandler(this.layerPropertyEditor_EditProperties);
+            this.mapPropertyEditor.EditProperties += new EditPropertiesEventHandler(this.layerPropertyEditor_EditProperties);
             // 
             // tabControlContents
             // 
@@ -890,13 +892,13 @@ namespace DMS.MapManager
             this.mapControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mapControl.EnableRendering = true;
             this.mapControl.Gap = 10;
-            this.mapControl.InputMode = DMS.MapLibrary.MapControl.InputModes.Pan;
+            this.mapControl.InputMode = MapControl.InputModes.Pan;
             this.mapControl.Location = new System.Drawing.Point(3, 3);
             this.mapControl.Name = "mapControl";
             this.mapControl.Size = new System.Drawing.Size(843, 607);
             this.mapControl.TabIndex = 1;
             this.mapControl.Target = null;
-            this.mapControl.CursorMove += new DMS.MapLibrary.CursorMoveEventHandler(this.mapControl_CursorMove);
+            this.mapControl.CursorMove += new CursorMoveEventHandler(this.mapControl_CursorMove);
             this.mapControl.BeforeRefresh += new System.EventHandler(this.mapControl_BeforeRefresh);
             this.mapControl.AfterRefresh += new System.EventHandler(this.mapControl_AfterRefresh);
             this.mapControl.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.editor_HelpRequested);
@@ -999,7 +1001,7 @@ namespace DMS.MapManager
         private System.Windows.Forms.ToolStripMenuItem statusbarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem layerPanelToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private DMS.MapLibrary.LayerControl layerControl;
+        private LayerControl layerControl;
         private System.Windows.Forms.ToolStripMenuItem overviewPanelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
@@ -1013,8 +1015,8 @@ namespace DMS.MapManager
         private System.Windows.Forms.ToolStripButton toolStripButtonRedraw;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem mapPropertiesToolStripMenuItem;
-        private DMS.MapLibrary.LayerPropertyEditor layerPropertyEditor;
-        private DMS.MapLibrary.MapPropertyEditor mapPropertyEditor;
+        private LayerPropertyEditor layerPropertyEditor;
+        private MapPropertyEditor mapPropertyEditor;
         private System.Windows.Forms.Button buttonApply;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton toolStripButtonSelect;
@@ -1036,7 +1038,7 @@ namespace DMS.MapManager
         private System.IO.FileSystemWatcher fileSystemWatcher;
         private System.Windows.Forms.ToolStripMenuItem openFileExternalToolStripMenuItem;
         private System.Windows.Forms.TabPage tabPage1;
-        private DMS.MapLibrary.MapControl mapControl;
+        private MapControl mapControl;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ImageList imageListTabs;
         private ScintillaNET.Scintilla scintillaControl;

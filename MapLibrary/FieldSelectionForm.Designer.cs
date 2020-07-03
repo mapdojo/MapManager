@@ -1,4 +1,4 @@
-﻿namespace DMS.MapLibrary
+﻿namespace MapLibrary
 {
     partial class FieldSelectionForm
     {

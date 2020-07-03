@@ -1,4 +1,4 @@
-﻿namespace DMS.MapLibrary
+﻿namespace MapLibrary
 {
     partial class ColorStopForm
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label5 = new System.Windows.Forms.Label();
-            this.colorPickerStopColor = new DMS.MapLibrary.ColorPicker();
+            this.colorPickerStopColor = new ColorPicker();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxOffset = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -131,7 +131,7 @@
         #endregion
 
         private System.Windows.Forms.Label label5;
-        private DMS.MapLibrary.ColorPicker colorPickerStopColor;
+        private ColorPicker colorPickerStopColor;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxOffset;
         private System.Windows.Forms.Label label6;

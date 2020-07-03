@@ -1,15 +1,12 @@
 using System;
-using System.Windows.Forms;
-using System.Collections.Generic;
-using System.Text;
 using System.Collections;
-using System.IO;
 using System.Drawing;
+using System.Windows.Forms;
 using System.Xml.Serialization;
-using DMS.MapLibrary;
-using MapManager;
+using MapLibrary;
+using MapManager.TileManager;
 
-namespace DMS.MapManager
+namespace MapManager
 {
     /// <summary>
     /// A class to hold, serialize and deserialize the application settings.

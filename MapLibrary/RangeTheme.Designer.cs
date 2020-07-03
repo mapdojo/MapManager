@@ -1,4 +1,4 @@
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     partial class RangeTheme
     {
@@ -37,15 +37,15 @@ namespace DMS.MapLibrary
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.WizardPage2 = new System.Windows.Forms.Panel();
-            this.colorRampPickerBackgroundColor = new DMS.MapLibrary.ColorRampPicker();
-            this.colorRampPickerOutlineColor = new DMS.MapLibrary.ColorRampPicker();
-            this.colorRampPickerColor = new DMS.MapLibrary.ColorRampPicker();
+            this.colorRampPickerBackgroundColor = new ColorRampPicker();
+            this.colorRampPickerOutlineColor = new ColorRampPicker();
+            this.colorRampPickerColor = new ColorRampPicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.checkBoxFirstOnly = new System.Windows.Forms.CheckBox();
             this.checkBoxKeepStyles = new System.Windows.Forms.CheckBox();
-            this.layerControl = new DMS.MapLibrary.LayerControl();
+            this.layerControl = new LayerControl();
             this.WizardPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownClasses)).BeginInit();
             this.WizardPage2.SuspendLayout();

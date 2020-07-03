@@ -1,15 +1,11 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using System.Reflection;
 using OSGeo.MapServer;
-using System.IO;
 
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     /// <summary>
     /// Represents a UserControl for editing the MapScript layerObj parameters.

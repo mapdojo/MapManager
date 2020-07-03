@@ -1,4 +1,4 @@
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     partial class QueryMapPropertyEditor
     {
@@ -34,7 +34,7 @@ namespace DMS.MapLibrary
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxStyle = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.colorPickerColor = new DMS.MapLibrary.ColorPicker();
+            this.colorPickerColor = new ColorPicker();
             this.SuspendLayout();
             // 
             // label8

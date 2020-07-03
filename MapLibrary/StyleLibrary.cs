@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using OSGeo.MapServer;
-using System.IO;
-using Microsoft.Win32;
 
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     public static class StyleLibrary
     {

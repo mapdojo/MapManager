@@ -1,4 +1,6 @@
-namespace DMS.MapManager
+using MapLibrary;
+
+namespace MapManager
 {
     partial class AppSettingsForm
     {
@@ -38,7 +40,7 @@ namespace DMS.MapManager
             this.label2 = new System.Windows.Forms.Label();
             this.checkBoxAutoLoadRecent = new System.Windows.Forms.CheckBox();
             this.tabPageLayerPanel = new System.Windows.Forms.TabPage();
-            this.colorPickerLayerBackgroundColor = new DMS.MapLibrary.ColorPicker();
+            this.colorPickerLayerBackgroundColor = new ColorPicker();
             this.checkBoxStyles = new System.Windows.Forms.CheckBox();
             this.checkBoxClasses = new System.Windows.Forms.CheckBox();
             this.checkBoxCheck = new System.Windows.Forms.CheckBox();
@@ -327,7 +329,7 @@ namespace DMS.MapManager
         private System.Windows.Forms.CheckBox checkBoxClasses;
         private System.Windows.Forms.CheckBox checkBoxCheck;
         private System.Windows.Forms.CheckBox checkBoxRoot;
-        private DMS.MapLibrary.ColorPicker colorPickerLayerBackgroundColor;
+        private ColorPicker colorPickerLayerBackgroundColor;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonEditor;

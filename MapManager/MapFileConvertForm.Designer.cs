@@ -1,4 +1,4 @@
-namespace DMS.MapManager
+namespace MapManager
 {
     partial class MapFileConvertForm
     {

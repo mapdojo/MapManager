@@ -1,11 +1,8 @@
-using System;
-using System.Drawing;
-using System.Text;
-using OSGeo.MapServer;
-using System.Drawing.Design;
 using System.ComponentModel;
+using System.Drawing.Design;
+using OSGeo.MapServer;
 
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     /// <summary>
     /// Represents a Windows picker box that displays Font values.

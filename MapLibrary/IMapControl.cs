@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DMS.MapLibrary
+namespace MapLibrary
 {
     /// <summary>
     /// The signature of the EditProperties event handler. Raised when a MapScript object should be edited by the corresponding editor UserControl.

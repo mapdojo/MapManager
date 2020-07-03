@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.IO;
-using System.Xml;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using OSGeo.MapServer;
-using System.Collections;
-using System.Text.RegularExpressions;
 
-namespace DMS.MapManager
+namespace MapManager
 {
     class MapfileConverter
     {
