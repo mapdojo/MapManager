@@ -77,6 +77,8 @@ namespace MapManager
                 scintillaControl.TabWidth = 4;
                 scintillaControl.CharAdded += ScintillaControl_CharAdded;
 
+                scintillaControl.TextChanged += ScintillaControl_TextChanged;
+
             }
             catch (Exception ex)
             {
@@ -84,6 +86,18 @@ namespace MapManager
                     "MapManager", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(1);
             }
+        }
+
+        /// <summary>
+        /// TextDeleted event handler of the scintillaControl control.
+        /// </summary>
+        /// <param name="sender">The source object of this event.</param>
+        /// <param name="e">The event parameters.</param>
+        private void ScintillaControl_TextChanged(object sender, EventArgs e)
+        {
+            SetMargins();
+            textChanged = true;
+            SetDirty(true);
         }
 
         private void ScintillaControl_CharAdded(object sender, CharAddedEventArgs e)
@@ -1890,30 +1904,6 @@ namespace MapManager
             }
 
             UpdateMenuState();
-        }
-
-        /// <summary>
-        /// TextInserted event handler of the scintillaControl control.
-        /// </summary>
-        /// <param name="sender">The source object of this event.</param>
-        /// <param name="e">The event parameters.</param>
-        private void scintillaControl_TextInserted(object sender, EventArgs e)
-        {
-            SetMargins();
-            textChanged = true;
-            SetDirty(true);
-        }
-
-        /// <summary>
-        /// TextDeleted event handler of the scintillaControl control.
-        /// </summary>
-        /// <param name="sender">The source object of this event.</param>
-        /// <param name="e">The event parameters.</param>
-        private void scintillaControl_TextDeleted(object sender, EventArgs e)
-        {
-            SetMargins();
-            textChanged = true;
-            SetDirty(true);
         }
 
         /// <summary>
