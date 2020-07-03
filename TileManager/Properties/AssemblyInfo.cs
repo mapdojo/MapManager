@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MapServer MapManager")]
-[assembly: AssemblyDescription("MapServer MapManager")]
+[assembly: AssemblyTitle("TileGenerator")]
+[assembly: AssemblyDescription("TileGenerator")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("mapdojo")]
-[assembly: AssemblyProduct("MapServer MapManager")]
+[assembly: AssemblyProduct("TileGenerator")]
 [assembly: AssemblyCopyright("Copyright © DMS 2018, Copyright © mapdojo 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("dc20908d-1d7b-465e-9a19-0492847457e7")]
+[assembly: Guid("0374801c-3b56-4bd6-b333-3656565968a9")]
 
 // Version information for an assembly consists of the following four values:
 //

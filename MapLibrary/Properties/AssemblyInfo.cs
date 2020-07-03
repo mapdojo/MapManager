@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("MapLibrary")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("MapLibrary")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Digital Mapping Solutions")]
+[assembly: AssemblyCompany("mapdojo")]
 [assembly: AssemblyProduct("MapLibrary")]
-[assembly: AssemblyCopyright("Copyright © Digital Mapping Solutions 2018")]
+[assembly: AssemblyCopyright("Copyright © DMS 2018, Copyright © mapdojo 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,6 +31,6 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("20.0.4.0")]
-[assembly: AssemblyFileVersion("20.0.4.0")]
-[assembly: AssemblyInformationalVersion("20.0.4+5.Branch.master.Sha.395caee1f35b0bd87afdb827e7fa69ef59dd4723")]
+[assembly: AssemblyVersion("20.0.8.0")]
+[assembly: AssemblyFileVersion("20.0.8.0")]
+[assembly: AssemblyInformationalVersion("20.0.8+1.Branch.master.Sha.67f2b5048a7a68cde4636c1b0a22cf8104a66a23")]
