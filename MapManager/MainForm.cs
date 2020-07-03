@@ -78,7 +78,6 @@ namespace MapManager
                 scintillaControl.CharAdded += ScintillaControl_CharAdded;
 
                 scintillaControl.TextChanged += ScintillaControl_TextChanged;
-
             }
             catch (Exception ex)
             {
@@ -237,10 +236,10 @@ namespace MapManager
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                string styleLibFile = Application.StartupPath + "\\templates\\mmstyles.map";
+                string styleLibFile = Application.StartupPath + "\\Default\\StyleLibrary.map";
                 if (!File.Exists(styleLibFile))
                 {
-                    styleLibFile = Environment.CurrentDirectory + "\\mmstyles.map";
+                    styleLibFile = Environment.CurrentDirectory + "\\StyleLibrary.map";
                     if (!File.Exists(styleLibFile))
                         return;
                 }
@@ -391,8 +390,8 @@ namespace MapManager
                 string s = settings.MRU[i].ToString();
                 if (File.Exists(s))
                 {
-                    // filter out the new.map files (ticket #4423)
-                    if (!s.ToLower().EndsWith("templates\\new.map"))
+                    // filter out the Default.map files (ticket #4423)
+                    if (!s.ToLower().EndsWith("Default\\Default.map"))
                     {
                         ToolStripMenuItem menuItem = new ToolStripMenuItem(s);
                         this.recentMapsToolStripMenuItem.DropDownItems.Add(s, null, this.MRUMenuItem_Click);
@@ -597,13 +596,13 @@ namespace MapManager
                 if (map.symbolset.filename != null && !File.Exists(map.symbolset.filename))
                 {
                     // override the symbolset if that points to incorrect location
-                    map.setSymbolSet(Application.StartupPath + "\\templates\\symbols.sym");
+                    map.setSymbolSet(Application.StartupPath + "\\Default\\symbols.sym");
                 }
 
                 if (map.fontset.filename != null && !File.Exists(map.fontset.filename))
                 {
                     // override the fontset if that points to incorrect location
-                    map.setFontSet(Application.StartupPath + "\\templates\\font.list");
+                    map.setFontSet(Application.StartupPath + "\\Default\\font.list");
                 }
 
                 if (MapUtils.RenameDuplicatedNames(map))
@@ -669,9 +668,9 @@ namespace MapManager
             try
             {
                 // opening the template file if exists
-                if (File.Exists(Application.StartupPath + "\\templates\\new.map"))
+                if (File.Exists(Application.StartupPath + "\\Default\\Default.map"))
                 {
-                    if (!OpenMap(Application.StartupPath + "\\templates\\new.map", true))
+                    if (!OpenMap(Application.StartupPath + "\\Default\\Default.map", true))
                         return;
                 }
                 else
@@ -708,7 +707,7 @@ namespace MapManager
                     layerControl.InitialExtentSet += new EventHandler(layerControl_InitialExtentSet);
                 }
 
-                fileName = "new.map";
+                fileName = "Default.map";
                 UpdateMenuState();
                 UpdateFileMonitor();
             }
@@ -779,8 +778,8 @@ namespace MapManager
         /// <param name="newFile">The new file name</param>
         private void CopyDependentFiles(string oldFile, string newFile)
         {
-            if (oldFile == "new.map")
-                oldFile = Application.StartupPath + "\\templates\\new.map"; // template
+            if (oldFile == "Default.map")
+                oldFile = Application.StartupPath + "\\Default\\Default.map"; // template
 
             string oldPath = oldFile.Substring(0, oldFile.LastIndexOf('\\'));
             string newPath = newFile.Substring(0, newFile.LastIndexOf('\\'));
@@ -1990,7 +1989,7 @@ namespace MapManager
         private void tileManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (tileManagerForm != null) tileManagerForm.Close();
-            if (fileName != "new.map")
+            if (fileName != "Default.map")
             {
                 tileManagerForm = new TileManagerForm(this, fileName, mapControl);
                 tileManagerForm.Owner = this;

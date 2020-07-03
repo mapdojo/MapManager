@@ -50,7 +50,7 @@ namespace MapLibrary
                         classObj classobj = layer.getClass(0);
                         if (!fontSetFileContents.Contains(classobj.name))
                         {   
-                            throw new Exception("Invalid font reference in mmstyles.map: " + classobj.name + ". The fontset file should contain an entry for this font name.");
+                            throw new Exception("Invalid font reference in StyleLibrary.map: " + classobj.name + ". The fontset file should contain an entry for this font name.");
                         }
                         for (int c = 33; c < 33 + num; c++)
                         {

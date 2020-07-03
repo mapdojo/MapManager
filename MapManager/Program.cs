@@ -20,19 +20,8 @@ namespace MapManager
                 Environment.CurrentDirectory = Application.StartupPath;
             }
 
-            // post setup install actions
-            if (args.Length > 0)
-            {
-                if (args[0] == "/postinstall")
-                {
-                    ReplaceFiles();
-                    return;
-                }
-                else if (args[0] == "/replace")
-                {
-                    ReplaceFiles();
-                }
-            }
+            // TODO: Check to see if files have been altered
+            ReplaceFiles();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -43,22 +32,22 @@ namespace MapManager
 
         static void ReplaceFiles()
         {
-            String strFile = File.ReadAllText("templates\\new.map");
-            strFile = strFile.Replace("FONTSET \"font.list\"", "FONTSET \"" + (Application.StartupPath + "\\templates\\font.list\"").Replace("\\", "\\\\"));
-            strFile = strFile.Replace("SYMBOLSET \"symbols.sym\"", "SYMBOLSET \"" + (Application.StartupPath + "\\templates\\symbols.sym\"").Replace("\\", "\\\\"));
-            File.WriteAllText("templates\\new.map", strFile);
+            String strFile = File.ReadAllText("Default\\Default.map");
+            strFile = strFile.Replace("FONTSET \"font.list\"", "FONTSET \"" + (Application.StartupPath + "\\Default\\font.list\"").Replace("\\", "\\\\"));
+            strFile = strFile.Replace("SYMBOLSET \"symbols.sym\"", "SYMBOLSET \"" + (Application.StartupPath + "\\Default\\symbols.sym\"").Replace("\\", "\\\\"));
+            File.WriteAllText("Default\\Default.map", strFile);
 
-            // set references in mmstyles.map
-            strFile = File.ReadAllText("templates\\mmstyles.map");
-            strFile = strFile.Replace("FONTSET \"font.list\"", "FONTSET \"" + (Application.StartupPath + "\\templates\\font.list\"").Replace("\\", "\\\\"));
-            strFile = strFile.Replace("SYMBOLSET \"symbols.sym\"", "SYMBOLSET \"" + (Application.StartupPath + "\\templates\\symbols.sym\"").Replace("\\", "\\\\"));
-            File.WriteAllText("templates\\mmstyles.map", strFile);
+            // set references in StyleLibrary.map
+            strFile = File.ReadAllText("Default\\StyleLibrary.map");
+            strFile = strFile.Replace("FONTSET \"font.list\"", "FONTSET \"" + (Application.StartupPath + "\\Default\\font.list\"").Replace("\\", "\\\\"));
+            strFile = strFile.Replace("SYMBOLSET \"symbols.sym\"", "SYMBOLSET \"" + (Application.StartupPath + "\\Default\\symbols.sym\"").Replace("\\", "\\\\"));
+            File.WriteAllText("Default\\StyleLibrary.map", strFile);
 
-            // set references in annotation.map
-            strFile = File.ReadAllText("templates\\annotation.map");
-            strFile = strFile.Replace("FONTSET \"font.list\"", "FONTSET \"" + (Application.StartupPath + "\\templates\\font.list\"").Replace("\\", "\\\\"));
-            strFile = strFile.Replace("SYMBOLSET \"symbols.sym\"", "SYMBOLSET \"" + (Application.StartupPath + "\\templates\\symbols.sym\"").Replace("\\", "\\\\"));
-            File.WriteAllText("templates\\annotation.map", strFile);
+            // set references in Annotation.map
+            strFile = File.ReadAllText("Default\\Annotation.map");
+            strFile = strFile.Replace("FONTSET \"font.list\"", "FONTSET \"" + (Application.StartupPath + "\\Default\\font.list\"").Replace("\\", "\\\\"));
+            strFile = strFile.Replace("SYMBOLSET \"symbols.sym\"", "SYMBOLSET \"" + (Application.StartupPath + "\\Default\\symbols.sym\"").Replace("\\", "\\\\"));
+            File.WriteAllText("Default\\Annotation.map", strFile);
         }
     }
 }

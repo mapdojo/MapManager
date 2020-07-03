@@ -301,7 +301,8 @@
   </Target>
   -->
   <PropertyGroup>
-    <PreBuildEvent>copy $(SolutionDir)..\Apis\bin\*.dll $(TargetDir)
+    <PreBuildEvent>
+copy $(SolutionDir)..\Apis\bin\*.dll $(TargetDir)
 copy $(SolutionDir)..\Apis\bin\gdal-data\*.* $(TargetDir)
 copy $(SolutionDir)..\Apis\bin\curl\curl-ca-bundle.crt $(TargetDir)
 copy $(SolutionDir)help\MapManager.chm $(TargetDir)
@@ -316,13 +317,14 @@ copy $(SolutionDir)..\Apis\bin\ms\plugins\oci\msplugin_oracle.dll $(TargetDir)
 
 if not exist $(TargetDir)ProjLib mkdir $(TargetDir)ProjLib
 copy $(SolutionDir)..\Apis\bin\proj\SHARE\*.* $(TargetDir)\ProjLib
-if not exist $(TargetDir)templates mkdir $(TargetDir)templates
-copy $(SolutionDir)Templates $(TargetDir)templates
+if not exist $(TargetDir)Default mkdir $(TargetDir)Default
+copy $(SolutionDir)Default $(TargetDir)Default
 
 if not exist $(TargetDir)gdalplugins mkdir $(TargetDir)gdalplugins
 copy $(SolutionDir)..\Apis\bin\gdal\plugins\*.* $(TargetDir)\gdalplugins
 
-del $(TargetDir)\gdalplugins\gdal_GEOR.dll $(TargetDir)\gdalplugins\ogr_SDE.dll $(TargetDir)\gdalplugins\gdal_SDE.dll $(TargetDir)\gdalplugins\ogr_OCI.dll</PreBuildEvent>
+del $(TargetDir)\gdalplugins\gdal_GEOR.dll $(TargetDir)\gdalplugins\ogr_SDE.dll $(TargetDir)\gdalplugins\gdal_SDE.dll $(TargetDir)\gdalplugins\ogr_OCI.dll
+</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>

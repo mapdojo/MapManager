@@ -59,7 +59,7 @@ namespace MapLibrary
         }
 
         /// <summary>
-        /// Set the modified flag for the style library (mmstyles.map)
+        /// Set the modified flag for the style library (StyleLibrary.map)
         /// </summary>
         /// <param name="bModify">modified flag</param>
         private void SetStyleLibModified(bool bModify)

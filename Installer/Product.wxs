@@ -116,44 +116,44 @@
                         </Component>
                     </Directory>
                     <Directory Id="templatesDir" Name="templates">
-                        <Component Id="new.map" Guid="*">
-                            <File Id="new.map" Name="new.map" Source="$(var.MapManager.TargetDir)\templates\new.map" />
+                        <Component Id="Default.map" Guid="*">
+                            <File Id="Default.map" Name="Default.map" Source="$(var.MapManager.TargetDir)\Default\Default.map" />
                         </Component>
-                        <Component Id="mmstyles.map" Guid="*">
-                            <File Id="mmstyles.map" Name="mmstyles.map" Source="$(var.MapManager.TargetDir)\templates\mmstyles.map" />
+                        <Component Id="StyleLibrary.map" Guid="*">
+                            <File Id="StyleLibrary.map" Name="StyleLibrary.map" Source="$(var.MapManager.TargetDir)\Default\StyleLibrary.map" />
                         </Component>
-                      <Component Id="annotation.map" Guid="*">
-                        <File Id="annotation.map" Name="annotation.map" Source="$(var.MapManager.TargetDir)\templates\annotation.map" />
+                      <Component Id="Annotation.map" Guid="*">
+                        <File Id="Annotation.map" Name="Annotation.map" Source="$(var.MapManager.TargetDir)\Default\Annotation.map" />
                       </Component>
                         <Component Id="symbols.sym" Guid="*">
-                            <File Id="symbols.sym" Name="symbols.sym" Source="$(var.MapManager.TargetDir)\templates\symbols.sym" />
+                            <File Id="symbols.sym" Name="symbols.sym" Source="$(var.MapManager.TargetDir)\Default\symbols.sym" />
                         </Component>
                         <Component Id="font.list" Guid="*">
-                            <File Id="font.list" Name="font.list" Source="$(var.MapManager.TargetDir)\templates\font.list" />
+                            <File Id="font.list" Name="font.list" Source="$(var.MapManager.TargetDir)\Default\font.list" />
                         </Component>
                         <Component Id="flaeche1.png" Guid="*">
-                            <File Id="flaeche1.png" Name="flaeche1.png" Source="$(var.MapManager.TargetDir)\templates\flaeche1.png" />
+                            <File Id="flaeche1.png" Name="flaeche1.png" Source="$(var.MapManager.TargetDir)\Default\flaeche1.png" />
                         </Component>
                         <Component Id="flaeche1_1.png" Guid="*">
-                            <File Id="flaeche1_1.png" Name="flaeche1_1.png" Source="$(var.MapManager.TargetDir)\templates\flaeche1_1.png" />
+                            <File Id="flaeche1_1.png" Name="flaeche1_1.png" Source="$(var.MapManager.TargetDir)\Default\flaeche1_1.png" />
                         </Component>
                         <Component Id="flaeche2.png" Guid="*">
-                            <File Id="flaeche2.png" Name="flaeche2.png" Source="$(var.MapManager.TargetDir)\templates\flaeche2.png" />
+                            <File Id="flaeche2.png" Name="flaeche2.png" Source="$(var.MapManager.TargetDir)\Default\flaeche2.png" />
                         </Component>
                         <Component Id="flaeche2_1.png" Guid="*">
-                            <File Id="flaeche2_1.png" Name="flaeche2_1.png" Source="$(var.MapManager.TargetDir)\templates\flaeche2_1.png" />
+                            <File Id="flaeche2_1.png" Name="flaeche2_1.png" Source="$(var.MapManager.TargetDir)\Default\flaeche2_1.png" />
                         </Component>
                         <Component Id="flaeche3.png" Guid="*">
-                            <File Id="flaeche3.png" Name="flaeche3.png" Source="$(var.MapManager.TargetDir)\templates\flaeche3.png" />
+                            <File Id="flaeche3.png" Name="flaeche3.png" Source="$(var.MapManager.TargetDir)\Default\flaeche3.png" />
                         </Component>
                         <Component Id="schraffur.png" Guid="*">
-                            <File Id="schraffur.png" Name="schraffur.png" Source="$(var.MapManager.TargetDir)\templates\schraffur.png" />
+                            <File Id="schraffur.png" Name="schraffur.png" Source="$(var.MapManager.TargetDir)\Default\schraffur.png" />
                         </Component>
                         <Component Id="stern.png" Guid="*">
-                            <File Id="stern.png" Name="stern.png" Source="$(var.MapManager.TargetDir)\templates\stern.png" />
+                            <File Id="stern.png" Name="stern.png" Source="$(var.MapManager.TargetDir)\Default\stern.png" />
                         </Component>
                         <Component Id="welle.png" Guid="*">
-                            <File Id="welle.png" Name="welle.png" Source="$(var.MapManager.TargetDir)\templates\welle.png" />
+                            <File Id="welle.png" Name="welle.png" Source="$(var.MapManager.TargetDir)\Default\welle.png" />
                         </Component>
                     </Directory>
                     <Directory Id="licenseDir" Name="license">
@@ -738,9 +738,9 @@
                 <ComponentRef Id="CH" />
                 <ComponentRef Id="BETA2007.gsb" />
                 <ComponentRef Id="alaska" />
-                <ComponentRef Id="new.map" />
-                <ComponentRef Id="mmstyles.map" />
-                <ComponentRef Id="annotation.map" />
+                <ComponentRef Id="Default.map" />
+                <ComponentRef Id="StyleLibrary.map" />
+                <ComponentRef Id="Annotation.map" />
                 <ComponentRef Id="symbols.sym" />
                 <ComponentRef Id="font.list" />
                 <ComponentRef Id="flaeche1.png" />
