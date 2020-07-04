@@ -19,5 +19,9 @@
       <HintPath>..\..\Apis\bin\gdal\csharp\osr_csharp.dll</HintPath>
     </Reference>
   </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="ReactiveUI" Version="11.4.17" />
+  </ItemGroup>
 
 </Project>

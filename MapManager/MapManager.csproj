@@ -58,6 +58,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DynamicData, Version=6.15.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\DynamicData.6.15.1\lib\net461\DynamicData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="gdal_csharp, Version=1.0.5098.28547, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Apis\bin\gdal\csharp\gdal_csharp.dll</HintPath>
@@ -74,6 +78,7 @@
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
     </Reference>
+    <Reference Include="mscorlib" />
     <Reference Include="ogr_csharp, Version=1.0.4035.39384, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Apis\bin\gdal\csharp\ogr_csharp.dll</HintPath>
@@ -82,16 +87,54 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Apis\bin\gdal\csharp\osr_csharp.dll</HintPath>
     </Reference>
+    <Reference Include="Pharmacist.Common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Pharmacist.Common.1.5.15\lib\netstandard2.0\Pharmacist.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ReactiveUI, Version=11.4.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\ReactiveUI.11.4.17\lib\net461\ReactiveUI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ReactiveUI.Events.Winforms, Version=11.4.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\ReactiveUI.Events.Winforms.11.4.17\lib\net461\ReactiveUI.Events.Winforms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ReactiveUI.Winforms, Version=11.4.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\ReactiveUI.WinForms.11.4.17\lib\net461\ReactiveUI.Winforms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="ScintillaNET, Version=3.6.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\jacobslusser.ScintillaNET.3.6.3\lib\net40\ScintillaNET.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat, Version=9.4.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Splat.9.4.5\lib\net461\Splat.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Reactive, Version=4.4.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263">
+      <HintPath>..\packages\System.Reactive.4.4.1\lib\net46\System.Reactive.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutBox.cs">
