@@ -89,12 +89,14 @@ namespace MapLibrary
             // 
             // toolStrip
             // 
-            this.toolStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.toolStripSplitButtonNew, this.toolStripButtonDelete, this.toolStripButtonUp, this.toolStripButtonDown});
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSplitButtonNew,
+            this.toolStripButtonDelete,
+            this.toolStripButtonUp,
+            this.toolStripButtonDown});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStrip.Size = new System.Drawing.Size(408, 39);
+            this.toolStrip.Size = new System.Drawing.Size(204, 25);
             this.toolStrip.TabIndex = 0;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -102,11 +104,22 @@ namespace MapLibrary
             // 
             this.toolStripSplitButtonNew.AccessibleName = " ";
             this.toolStripSplitButtonNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButtonNew.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.addVectorLayerToolStripMenuItem, this.addRasterLayerToolStripMenuItem, this.addWMSLayerToolStripMenuItem, this.addMSSQLSpatialLayerToolStripMenuItem, this.addTileIndexLayerToolStripMenuItem, this.addGraticuleLayerToolStripMenuItem, this.addNewLayerToolStripMenuItem, this.addMapFileToolStripMenuItem, this.addNewClassToolStripMenuItem, this.addNewStyleToolStripMenuItem, this.addNewLabelToolStripMenuItem});
+            this.toolStripSplitButtonNew.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addVectorLayerToolStripMenuItem,
+            this.addRasterLayerToolStripMenuItem,
+            this.addWMSLayerToolStripMenuItem,
+            this.addMSSQLSpatialLayerToolStripMenuItem,
+            this.addTileIndexLayerToolStripMenuItem,
+            this.addGraticuleLayerToolStripMenuItem,
+            this.addNewLayerToolStripMenuItem,
+            this.addMapFileToolStripMenuItem,
+            this.addNewClassToolStripMenuItem,
+            this.addNewStyleToolStripMenuItem,
+            this.addNewLabelToolStripMenuItem});
             this.toolStripSplitButtonNew.Image = global::MapLibrary.Properties.Resources.add;
             this.toolStripSplitButtonNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButtonNew.Name = "toolStripSplitButtonNew";
-            this.toolStripSplitButtonNew.Size = new System.Drawing.Size(59, 36);
+            this.toolStripSplitButtonNew.Size = new System.Drawing.Size(32, 22);
             this.toolStripSplitButtonNew.Text = "toolStripSplitButton1";
             this.toolStripSplitButtonNew.ToolTipText = "Add New Item";
             this.toolStripSplitButtonNew.ButtonClick += new System.EventHandler(this.toolStripSplitButtonNew_ButtonClick);
@@ -114,77 +127,77 @@ namespace MapLibrary
             // addVectorLayerToolStripMenuItem
             // 
             this.addVectorLayerToolStripMenuItem.Name = "addVectorLayerToolStripMenuItem";
-            this.addVectorLayerToolStripMenuItem.Size = new System.Drawing.Size(413, 38);
+            this.addVectorLayerToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.addVectorLayerToolStripMenuItem.Text = "Add Vector Layer From File...";
             this.addVectorLayerToolStripMenuItem.Click += new System.EventHandler(this.addVectorLayerToolStripMenuItem_Click);
             // 
             // addRasterLayerToolStripMenuItem
             // 
             this.addRasterLayerToolStripMenuItem.Name = "addRasterLayerToolStripMenuItem";
-            this.addRasterLayerToolStripMenuItem.Size = new System.Drawing.Size(413, 38);
+            this.addRasterLayerToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.addRasterLayerToolStripMenuItem.Text = "Add Raster Layer From File...";
             this.addRasterLayerToolStripMenuItem.Click += new System.EventHandler(this.addRasterLayerToolStripMenuItem_Click);
             // 
             // addWMSLayerToolStripMenuItem
             // 
             this.addWMSLayerToolStripMenuItem.Name = "addWMSLayerToolStripMenuItem";
-            this.addWMSLayerToolStripMenuItem.Size = new System.Drawing.Size(413, 38);
+            this.addWMSLayerToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.addWMSLayerToolStripMenuItem.Text = "Add WMS Layer...";
             this.addWMSLayerToolStripMenuItem.Click += new System.EventHandler(this.addWMSLayerToolStripMenuItem_Click);
             // 
             // addMSSQLSpatialLayerToolStripMenuItem
             // 
             this.addMSSQLSpatialLayerToolStripMenuItem.Name = "addMSSQLSpatialLayerToolStripMenuItem";
-            this.addMSSQLSpatialLayerToolStripMenuItem.Size = new System.Drawing.Size(413, 38);
+            this.addMSSQLSpatialLayerToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.addMSSQLSpatialLayerToolStripMenuItem.Text = "Add MS SQL Spatial Layer...";
             this.addMSSQLSpatialLayerToolStripMenuItem.Click += new System.EventHandler(this.addMSSQLSpatialLayerToolStripMenuItem_Click);
             // 
             // addTileIndexLayerToolStripMenuItem
             // 
             this.addTileIndexLayerToolStripMenuItem.Name = "addTileIndexLayerToolStripMenuItem";
-            this.addTileIndexLayerToolStripMenuItem.Size = new System.Drawing.Size(413, 38);
+            this.addTileIndexLayerToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.addTileIndexLayerToolStripMenuItem.Text = "Add Tile Index Layer...";
             this.addTileIndexLayerToolStripMenuItem.Click += new System.EventHandler(this.addTileIndexLayerToolStripMenuItem_Click);
             // 
             // addGraticuleLayerToolStripMenuItem
             // 
             this.addGraticuleLayerToolStripMenuItem.Name = "addGraticuleLayerToolStripMenuItem";
-            this.addGraticuleLayerToolStripMenuItem.Size = new System.Drawing.Size(413, 38);
+            this.addGraticuleLayerToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.addGraticuleLayerToolStripMenuItem.Text = "Add Graticule Layer";
             this.addGraticuleLayerToolStripMenuItem.Click += new System.EventHandler(this.addGraticuleLayerToolStripMenuItem_Click);
             // 
             // addNewLayerToolStripMenuItem
             // 
             this.addNewLayerToolStripMenuItem.Name = "addNewLayerToolStripMenuItem";
-            this.addNewLayerToolStripMenuItem.Size = new System.Drawing.Size(413, 38);
+            this.addNewLayerToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.addNewLayerToolStripMenuItem.Text = "Add New Layer";
             this.addNewLayerToolStripMenuItem.Click += new System.EventHandler(this.addLayerToolStripMenuItem_Click);
             // 
             // addMapFileToolStripMenuItem
             // 
             this.addMapFileToolStripMenuItem.Name = "addMapFileToolStripMenuItem";
-            this.addMapFileToolStripMenuItem.Size = new System.Drawing.Size(413, 38);
+            this.addMapFileToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.addMapFileToolStripMenuItem.Text = "Add Layers from Map File...";
             this.addMapFileToolStripMenuItem.Click += new System.EventHandler(this.addMapFileToolStripMenuItem_Click);
             // 
             // addNewClassToolStripMenuItem
             // 
             this.addNewClassToolStripMenuItem.Name = "addNewClassToolStripMenuItem";
-            this.addNewClassToolStripMenuItem.Size = new System.Drawing.Size(413, 38);
+            this.addNewClassToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.addNewClassToolStripMenuItem.Text = "Add New Class";
             this.addNewClassToolStripMenuItem.Click += new System.EventHandler(this.addClassToolStripMenuItem_Click);
             // 
             // addNewStyleToolStripMenuItem
             // 
             this.addNewStyleToolStripMenuItem.Name = "addNewStyleToolStripMenuItem";
-            this.addNewStyleToolStripMenuItem.Size = new System.Drawing.Size(413, 38);
+            this.addNewStyleToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.addNewStyleToolStripMenuItem.Text = "Add New Style";
             this.addNewStyleToolStripMenuItem.Click += new System.EventHandler(this.addStyleToolStripMenuItem_Click);
             // 
             // addNewLabelToolStripMenuItem
             // 
             this.addNewLabelToolStripMenuItem.Name = "addNewLabelToolStripMenuItem";
-            this.addNewLabelToolStripMenuItem.Size = new System.Drawing.Size(413, 38);
+            this.addNewLabelToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.addNewLabelToolStripMenuItem.Text = "Add New Label";
             this.addNewLabelToolStripMenuItem.Click += new System.EventHandler(this.addLabelToolStripMenuItem_Click);
             // 
@@ -194,7 +207,7 @@ namespace MapLibrary
             this.toolStripButtonDelete.Image = global::MapLibrary.Properties.Resources.remove;
             this.toolStripButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDelete.Name = "toolStripButtonDelete";
-            this.toolStripButtonDelete.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButtonDelete.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonDelete.Text = "toolStripButton1";
             this.toolStripButtonDelete.ToolTipText = "Delete The Selected Item";
             this.toolStripButtonDelete.Click += new System.EventHandler(this.toolStripButtonDelete_Click);
@@ -205,7 +218,7 @@ namespace MapLibrary
             this.toolStripButtonUp.Image = global::MapLibrary.Properties.Resources.up;
             this.toolStripButtonUp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUp.Name = "toolStripButtonUp";
-            this.toolStripButtonUp.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButtonUp.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonUp.Text = "toolStripButton2";
             this.toolStripButtonUp.ToolTipText = "Move The Selected Item Up";
             this.toolStripButtonUp.Click += new System.EventHandler(this.toolStripButtonUp_Click);
@@ -216,7 +229,7 @@ namespace MapLibrary
             this.toolStripButtonDown.Image = global::MapLibrary.Properties.Resources.down;
             this.toolStripButtonDown.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDown.Name = "toolStripButtonDown";
-            this.toolStripButtonDown.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButtonDown.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonDown.Text = "toolStripButton3";
             this.toolStripButtonDown.ToolTipText = "Move The Selected Item Down";
             this.toolStripButtonDown.Click += new System.EventHandler(this.toolStripButtonDown_Click);
@@ -230,11 +243,10 @@ namespace MapLibrary
             this.treeView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView.HideSelection = false;
             this.treeView.LabelEdit = true;
-            this.treeView.Location = new System.Drawing.Point(0, 39);
-            this.treeView.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.treeView.Location = new System.Drawing.Point(0, 25);
             this.treeView.Name = "treeView";
             this.treeView.ShowRootLines = false;
-            this.treeView.Size = new System.Drawing.Size(408, 624);
+            this.treeView.Size = new System.Drawing.Size(204, 320);
             this.treeView.TabIndex = 2;
             this.treeView.Visible = false;
             this.treeView.BeforeLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.treeView_BeforeLabelEdit);
@@ -251,93 +263,118 @@ namespace MapLibrary
             // 
             // contextMenuStrip
             // 
-            this.contextMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.addVectorLayerFromFileToolStripMenuItem, this.addRasterLayerFromFileToolStripMenuItem, this.addWMSLayerToolStripMenuItem1, this.addMSSQLSpatialLayerToolStripMenuItem1, this.addTileIndexLayerToolStripMenuItem1, this.addGraticuleLayerToolStripMenuItem1, this.addLayerToolStripMenuItem, this.addMapFileToolStripMenuItem1, this.addClassToolStripMenuItem, this.addStyleToolStripMenuItem, this.addLabelToolStripMenuItem, this.renameToolStripMenuItem, this.deleteItemToolStripMenuItem, this.toolStripMenuItem1, this.moveItemUpToolStripMenuItem, this.moveItemDownToolStripMenuItem, this.zoomToLayerExtentToolStripMenuItem, this.goToLayerTextToolStripMenuItem, this.goToClassTextToolStripMenuItem, this.toolStripMenuItemSplitItems, this.autoStyleToolStripMenuItem, this.propertiesToolStripMenuItem, this.toolStripMenuItemSplitProp, this.addThemeToolStripMenuItem, this.toolStripMenuItemSplitTheme, this.refreshListToolStripMenuItem});
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addVectorLayerFromFileToolStripMenuItem,
+            this.addRasterLayerFromFileToolStripMenuItem,
+            this.addWMSLayerToolStripMenuItem1,
+            this.addMSSQLSpatialLayerToolStripMenuItem1,
+            this.addTileIndexLayerToolStripMenuItem1,
+            this.addGraticuleLayerToolStripMenuItem1,
+            this.addLayerToolStripMenuItem,
+            this.addMapFileToolStripMenuItem1,
+            this.addClassToolStripMenuItem,
+            this.addStyleToolStripMenuItem,
+            this.addLabelToolStripMenuItem,
+            this.renameToolStripMenuItem,
+            this.deleteItemToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.moveItemUpToolStripMenuItem,
+            this.moveItemDownToolStripMenuItem,
+            this.zoomToLayerExtentToolStripMenuItem,
+            this.goToLayerTextToolStripMenuItem,
+            this.goToClassTextToolStripMenuItem,
+            this.toolStripMenuItemSplitItems,
+            this.autoStyleToolStripMenuItem,
+            this.propertiesToolStripMenuItem,
+            this.toolStripMenuItemSplitProp,
+            this.addThemeToolStripMenuItem,
+            this.toolStripMenuItemSplitTheme,
+            this.refreshListToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(406, 864);
+            this.contextMenuStrip.Size = new System.Drawing.Size(225, 512);
             // 
             // addVectorLayerFromFileToolStripMenuItem
             // 
             this.addVectorLayerFromFileToolStripMenuItem.Image = global::MapLibrary.Properties.Resources.add;
             this.addVectorLayerFromFileToolStripMenuItem.Name = "addVectorLayerFromFileToolStripMenuItem";
-            this.addVectorLayerFromFileToolStripMenuItem.Size = new System.Drawing.Size(405, 38);
+            this.addVectorLayerFromFileToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.addVectorLayerFromFileToolStripMenuItem.Text = "Add Vector Layer From File...";
             this.addVectorLayerFromFileToolStripMenuItem.Click += new System.EventHandler(this.addVectorLayerFromFileToolStripMenuItem_Click);
             // 
             // addRasterLayerFromFileToolStripMenuItem
             // 
             this.addRasterLayerFromFileToolStripMenuItem.Name = "addRasterLayerFromFileToolStripMenuItem";
-            this.addRasterLayerFromFileToolStripMenuItem.Size = new System.Drawing.Size(405, 38);
+            this.addRasterLayerFromFileToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.addRasterLayerFromFileToolStripMenuItem.Text = "Add Raster Layer From File...";
             this.addRasterLayerFromFileToolStripMenuItem.Click += new System.EventHandler(this.addRasterLayerFromFileToolStripMenuItem_Click);
             // 
             // addWMSLayerToolStripMenuItem1
             // 
             this.addWMSLayerToolStripMenuItem1.Name = "addWMSLayerToolStripMenuItem1";
-            this.addWMSLayerToolStripMenuItem1.Size = new System.Drawing.Size(405, 38);
+            this.addWMSLayerToolStripMenuItem1.Size = new System.Drawing.Size(224, 22);
             this.addWMSLayerToolStripMenuItem1.Text = "Add WMS Layer...";
             this.addWMSLayerToolStripMenuItem1.Click += new System.EventHandler(this.addWMSLayerToolStripMenuItem_Click);
             // 
             // addMSSQLSpatialLayerToolStripMenuItem1
             // 
             this.addMSSQLSpatialLayerToolStripMenuItem1.Name = "addMSSQLSpatialLayerToolStripMenuItem1";
-            this.addMSSQLSpatialLayerToolStripMenuItem1.Size = new System.Drawing.Size(405, 38);
+            this.addMSSQLSpatialLayerToolStripMenuItem1.Size = new System.Drawing.Size(224, 22);
             this.addMSSQLSpatialLayerToolStripMenuItem1.Text = "Add MS SQL Spatial Layer...";
             this.addMSSQLSpatialLayerToolStripMenuItem1.Click += new System.EventHandler(this.addMSSQLSpatialLayerToolStripMenuItem_Click);
             // 
             // addTileIndexLayerToolStripMenuItem1
             // 
             this.addTileIndexLayerToolStripMenuItem1.Name = "addTileIndexLayerToolStripMenuItem1";
-            this.addTileIndexLayerToolStripMenuItem1.Size = new System.Drawing.Size(405, 38);
+            this.addTileIndexLayerToolStripMenuItem1.Size = new System.Drawing.Size(224, 22);
             this.addTileIndexLayerToolStripMenuItem1.Text = "Add Tile Index Layer...";
             this.addTileIndexLayerToolStripMenuItem1.Click += new System.EventHandler(this.addTileIndexLayerToolStripMenuItem_Click);
             // 
             // addGraticuleLayerToolStripMenuItem1
             // 
             this.addGraticuleLayerToolStripMenuItem1.Name = "addGraticuleLayerToolStripMenuItem1";
-            this.addGraticuleLayerToolStripMenuItem1.Size = new System.Drawing.Size(405, 38);
+            this.addGraticuleLayerToolStripMenuItem1.Size = new System.Drawing.Size(224, 22);
             this.addGraticuleLayerToolStripMenuItem1.Text = "Add Graticule Layer";
             this.addGraticuleLayerToolStripMenuItem1.Click += new System.EventHandler(this.addGraticuleLayerToolStripMenuItem_Click);
             // 
             // addLayerToolStripMenuItem
             // 
             this.addLayerToolStripMenuItem.Name = "addLayerToolStripMenuItem";
-            this.addLayerToolStripMenuItem.Size = new System.Drawing.Size(405, 38);
+            this.addLayerToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.addLayerToolStripMenuItem.Text = "Add New Layer";
             this.addLayerToolStripMenuItem.Click += new System.EventHandler(this.addLayerToolStripMenuItem_Click);
             // 
             // addMapFileToolStripMenuItem1
             // 
             this.addMapFileToolStripMenuItem1.Name = "addMapFileToolStripMenuItem1";
-            this.addMapFileToolStripMenuItem1.Size = new System.Drawing.Size(405, 38);
+            this.addMapFileToolStripMenuItem1.Size = new System.Drawing.Size(224, 22);
             this.addMapFileToolStripMenuItem1.Text = "Add Layers from Map File...";
             this.addMapFileToolStripMenuItem1.Click += new System.EventHandler(this.addMapFileToolStripMenuItem_Click);
             // 
             // addClassToolStripMenuItem
             // 
             this.addClassToolStripMenuItem.Name = "addClassToolStripMenuItem";
-            this.addClassToolStripMenuItem.Size = new System.Drawing.Size(405, 38);
+            this.addClassToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.addClassToolStripMenuItem.Text = "Add New Class";
             this.addClassToolStripMenuItem.Click += new System.EventHandler(this.addClassToolStripMenuItem_Click);
             // 
             // addStyleToolStripMenuItem
             // 
             this.addStyleToolStripMenuItem.Name = "addStyleToolStripMenuItem";
-            this.addStyleToolStripMenuItem.Size = new System.Drawing.Size(405, 38);
+            this.addStyleToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.addStyleToolStripMenuItem.Text = "Add New Style";
             this.addStyleToolStripMenuItem.Click += new System.EventHandler(this.addStyleToolStripMenuItem_Click);
             // 
             // addLabelToolStripMenuItem
             // 
             this.addLabelToolStripMenuItem.Name = "addLabelToolStripMenuItem";
-            this.addLabelToolStripMenuItem.Size = new System.Drawing.Size(405, 38);
+            this.addLabelToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.addLabelToolStripMenuItem.Text = "Add New Label";
             this.addLabelToolStripMenuItem.Click += new System.EventHandler(this.addLabelToolStripMenuItem_Click);
             // 
             // renameToolStripMenuItem
             // 
             this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-            this.renameToolStripMenuItem.Size = new System.Drawing.Size(405, 38);
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.renameToolStripMenuItem.Text = "Rename";
             this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
             // 
@@ -345,20 +382,20 @@ namespace MapLibrary
             // 
             this.deleteItemToolStripMenuItem.Image = global::MapLibrary.Properties.Resources.remove;
             this.deleteItemToolStripMenuItem.Name = "deleteItemToolStripMenuItem";
-            this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(405, 38);
+            this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.deleteItemToolStripMenuItem.Text = "Delete Layer";
             this.deleteItemToolStripMenuItem.Click += new System.EventHandler(this.deleteLayerToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(402, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(221, 6);
             // 
             // moveItemUpToolStripMenuItem
             // 
             this.moveItemUpToolStripMenuItem.Image = global::MapLibrary.Properties.Resources.up;
             this.moveItemUpToolStripMenuItem.Name = "moveItemUpToolStripMenuItem";
-            this.moveItemUpToolStripMenuItem.Size = new System.Drawing.Size(405, 38);
+            this.moveItemUpToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.moveItemUpToolStripMenuItem.Text = "Move Layer Up";
             this.moveItemUpToolStripMenuItem.Click += new System.EventHandler(this.moveLayerUpToolStripMenuItem_Click);
             // 
@@ -366,72 +403,72 @@ namespace MapLibrary
             // 
             this.moveItemDownToolStripMenuItem.Image = global::MapLibrary.Properties.Resources.down;
             this.moveItemDownToolStripMenuItem.Name = "moveItemDownToolStripMenuItem";
-            this.moveItemDownToolStripMenuItem.Size = new System.Drawing.Size(405, 38);
+            this.moveItemDownToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.moveItemDownToolStripMenuItem.Text = "Move Layer Down";
             this.moveItemDownToolStripMenuItem.Click += new System.EventHandler(this.moveLayerDownToolStripMenuItem_Click);
             // 
             // zoomToLayerExtentToolStripMenuItem
             // 
             this.zoomToLayerExtentToolStripMenuItem.Name = "zoomToLayerExtentToolStripMenuItem";
-            this.zoomToLayerExtentToolStripMenuItem.Size = new System.Drawing.Size(405, 38);
+            this.zoomToLayerExtentToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.zoomToLayerExtentToolStripMenuItem.Text = "Zoom To Layer Extent";
             this.zoomToLayerExtentToolStripMenuItem.Click += new System.EventHandler(this.zoomToLayerExtentToolStripMenuItem_Click);
             // 
             // goToLayerTextToolStripMenuItem
             // 
             this.goToLayerTextToolStripMenuItem.Name = "goToLayerTextToolStripMenuItem";
-            this.goToLayerTextToolStripMenuItem.Size = new System.Drawing.Size(405, 38);
+            this.goToLayerTextToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.goToLayerTextToolStripMenuItem.Text = "Go To Layer (Text)";
             this.goToLayerTextToolStripMenuItem.Click += new System.EventHandler(this.goToLayerTextToolStripMenuItem_Click);
             // 
             // goToClassTextToolStripMenuItem
             // 
             this.goToClassTextToolStripMenuItem.Name = "goToClassTextToolStripMenuItem";
-            this.goToClassTextToolStripMenuItem.Size = new System.Drawing.Size(405, 38);
+            this.goToClassTextToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.goToClassTextToolStripMenuItem.Text = "Go To Class (Text)";
             this.goToClassTextToolStripMenuItem.Click += new System.EventHandler(this.goToClassTextToolStripMenuItem_Click);
             // 
             // toolStripMenuItemSplitItems
             // 
             this.toolStripMenuItemSplitItems.Name = "toolStripMenuItemSplitItems";
-            this.toolStripMenuItemSplitItems.Size = new System.Drawing.Size(402, 6);
+            this.toolStripMenuItemSplitItems.Size = new System.Drawing.Size(221, 6);
             // 
             // autoStyleToolStripMenuItem
             // 
             this.autoStyleToolStripMenuItem.Name = "autoStyleToolStripMenuItem";
-            this.autoStyleToolStripMenuItem.Size = new System.Drawing.Size(405, 38);
+            this.autoStyleToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.autoStyleToolStripMenuItem.Text = "Auto Style";
             this.autoStyleToolStripMenuItem.Click += new System.EventHandler(this.autoStyleToolStripMenuItem_Click);
             // 
             // propertiesToolStripMenuItem
             // 
             this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
-            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(405, 38);
+            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.propertiesToolStripMenuItem.Text = "Properties...";
             this.propertiesToolStripMenuItem.Click += new System.EventHandler(this.propertiesToolStripMenuItem_Click);
             // 
             // toolStripMenuItemSplitProp
             // 
             this.toolStripMenuItemSplitProp.Name = "toolStripMenuItemSplitProp";
-            this.toolStripMenuItemSplitProp.Size = new System.Drawing.Size(402, 6);
+            this.toolStripMenuItemSplitProp.Size = new System.Drawing.Size(221, 6);
             // 
             // addThemeToolStripMenuItem
             // 
             this.addThemeToolStripMenuItem.Name = "addThemeToolStripMenuItem";
-            this.addThemeToolStripMenuItem.Size = new System.Drawing.Size(405, 38);
+            this.addThemeToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.addThemeToolStripMenuItem.Text = "Add Theme...";
             this.addThemeToolStripMenuItem.Click += new System.EventHandler(this.addThemeToolStripMenuItem_Click);
             // 
             // toolStripMenuItemSplitTheme
             // 
             this.toolStripMenuItemSplitTheme.Name = "toolStripMenuItemSplitTheme";
-            this.toolStripMenuItemSplitTheme.Size = new System.Drawing.Size(402, 6);
+            this.toolStripMenuItemSplitTheme.Size = new System.Drawing.Size(221, 6);
             // 
             // refreshListToolStripMenuItem
             // 
             this.refreshListToolStripMenuItem.Image = global::MapLibrary.Properties.Resources.Refresh16;
             this.refreshListToolStripMenuItem.Name = "refreshListToolStripMenuItem";
-            this.refreshListToolStripMenuItem.Size = new System.Drawing.Size(405, 38);
+            this.refreshListToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.refreshListToolStripMenuItem.Text = "Refresh List";
             this.refreshListToolStripMenuItem.Click += new System.EventHandler(this.refreshListToolStripMenuItem_Click);
             // 
@@ -448,11 +485,10 @@ namespace MapLibrary
             this.treeView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView2.HideSelection = false;
             this.treeView2.LabelEdit = true;
-            this.treeView2.Location = new System.Drawing.Point(0, 39);
-            this.treeView2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.treeView2.Location = new System.Drawing.Point(0, 25);
             this.treeView2.Name = "treeView2";
             this.treeView2.ShowRootLines = false;
-            this.treeView2.Size = new System.Drawing.Size(408, 624);
+            this.treeView2.Size = new System.Drawing.Size(204, 320);
             this.treeView2.TabIndex = 1;
             this.treeView2.Visible = false;
             this.treeView2.BeforeLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.treeView_BeforeLabelEdit);
@@ -475,19 +511,19 @@ namespace MapLibrary
             // 
             // LayerControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.treeView2);
             this.Controls.Add(this.treeView);
             this.Controls.Add(this.toolStrip);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "LayerControl";
-            this.Size = new System.Drawing.Size(408, 663);
+            this.Size = new System.Drawing.Size(204, 345);
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.ToolStripMenuItem addClassToolStripMenuItem;
