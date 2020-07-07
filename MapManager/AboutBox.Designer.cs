@@ -298,7 +298,6 @@ namespace MapManager
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AboutBox";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AboutBox_KeyDown);
             this.tabControl1.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();

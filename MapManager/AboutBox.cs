@@ -1,6 +1,9 @@
 using System.Windows.Forms;
 using ReactiveUI;
 using MapManager.ViewModels;
+using System.Reactive.Linq;
+using System.Reactive;
+using System;
 
 namespace MapManager
 {
@@ -28,17 +31,13 @@ namespace MapManager
                 d(this.OneWayBind(ViewModel, vm => vm.OgrFormats, v => v.ogrFormats.Text));
             });
 
-            ViewModel = new AboutBoxViewModel();
-        }
+            IObservable<EventPattern<KeyEventArgs>> keyDown = Observable.FromEventPattern<KeyEventArgs>(this, "KeyDown");
+            keyDown.Subscribe(evt => {
+                if (evt.EventArgs.KeyCode == Keys.Escape)
+                    Close();
+            });
 
-        /// <summary>
-        ///     KeyDown event handler of the AboutBox object.
-        /// </summary>
-        /// <param name="sender">The source object of this event.</param>
-        /// <param name="e">The event parameters.</param>
-        private void AboutBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape) Close();
+            ViewModel = new AboutBoxViewModel();
         }
 
         public AboutBoxViewModel ViewModel { get; set; }
