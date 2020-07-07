@@ -1,13 +1,13 @@
-using System;
 using System.Windows.Forms;
-using MapManager.Apis.Gdal;
+using ReactiveUI;
+using MapManager.ViewModels;
 
 namespace MapManager
 {
     /// <summary>
     ///     Provides the about box for the application
     /// </summary>
-    partial class AboutBox : Form
+    partial class AboutBox : Form, IViewFor<AboutBoxViewModel>
     {
         /// <summary>
         ///     Constructs a new AboutBox object.
@@ -16,23 +16,19 @@ namespace MapManager
         {
             InitializeComponent();
 
-            Text = $"About {Version.AssemblyTitle}";
+            this.WhenActivated(d =>
+            {
+                d(this.OneWayBind(ViewModel, vm => vm.Title, v => v.Text));
+                d(this.OneWayBind(ViewModel, vm => vm.ProductName, v => v.productName.Text));
+                d(this.OneWayBind(ViewModel, vm => vm.Version, v => v.version.Text));
+                d(this.OneWayBind(ViewModel, vm => vm.Copyright, v => v.labelCopyright.Text));
+                d(this.OneWayBind(ViewModel, vm => vm.VersionInfo, v => v.versionInfo.Text));
+                d(this.OneWayBind(ViewModel, vm => vm.MapserverFormats, v => v.mapserverFormats.Text));
+                d(this.OneWayBind(ViewModel, vm => vm.GdalFormats, v => v.gdalFormats.Text));
+                d(this.OneWayBind(ViewModel, vm => vm.OgrFormats, v => v.ogrFormats.Text));
+            });
 
-            productName.Text = Version.AssemblyProduct;
-
-            version.Text = $"Version {Version.AssemblyVersion}";
-
-            labelCopyright.Text = Version.AssemblyCopyright;
-
-            versionInfo.Text = Apis.MapServer.Version.VersionInfo;
-
-            mapserverFormats.Text = Apis.MapServer.Version.VersionString
-                .Substring(Apis.MapServer.Version.VersionString.IndexOf("OUTPUT", StringComparison.Ordinal))
-                .Replace(" ", "\r\n");
-
-            gdalFormats.Text = string.Join("\r\n", Driver.DriverNames);
-
-            ogrFormats.Text = string.Join("\r\n", Apis.Ogr.Driver.DriverNames);
+            ViewModel = new AboutBoxViewModel();
         }
 
         /// <summary>
@@ -43,6 +39,14 @@ namespace MapManager
         private void AboutBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape) Close();
+        }
+
+        public AboutBoxViewModel ViewModel { get; set; }
+
+        object IViewFor.ViewModel
+        {
+            get => ViewModel;
+            set => ViewModel = (AboutBoxViewModel)value;
         }
     }
 }
