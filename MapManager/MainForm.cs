@@ -6,7 +6,6 @@ using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using MapLibrary;
-using MapManager.Apis;
 using MapManager.TileManager;
 using OSGeo.GDAL;
 using OSGeo.MapServer;
@@ -79,8 +78,6 @@ namespace MapManager
                 scintillaControl.CharAdded += ScintillaControl_CharAdded;
 
                 scintillaControl.TextChanged += ScintillaControl_TextChanged;
-
-                var c = new MapServer();
             }
             catch (Exception ex)
             {

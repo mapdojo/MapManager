@@ -29,19 +29,19 @@ namespace MapManager
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.textBoxVersions = new System.Windows.Forms.TextBox();
+            this.versionInfo = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.textBoxDescription = new System.Windows.Forms.TextBox();
+            this.mapserverFormats = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBoxDescription1 = new System.Windows.Forms.TextBox();
+            this.gdalFormats = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.textBoxDescription2 = new System.Windows.Forms.TextBox();
+            this.ogrFormats = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
-            this.labelProductName = new System.Windows.Forms.Label();
-            this.labelVersion = new System.Windows.Forms.Label();
+            this.productName = new System.Windows.Forms.Label();
+            this.version = new System.Windows.Forms.Label();
             this.labelCopyright = new System.Windows.Forms.Label();
             this.labelCompanyName = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
@@ -68,7 +68,7 @@ namespace MapManager
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.textBoxVersions);
+            this.tabPage4.Controls.Add(this.versionInfo);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(337, 127);
@@ -76,24 +76,24 @@ namespace MapManager
             this.tabPage4.Text = "Versions";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // textBoxVersions
+            // versionInfo
             // 
-            this.textBoxVersions.BackColor = System.Drawing.Color.White;
-            this.textBoxVersions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxVersions.Location = new System.Drawing.Point(0, 0);
-            this.textBoxVersions.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
-            this.textBoxVersions.Multiline = true;
-            this.textBoxVersions.Name = "textBoxVersions";
-            this.textBoxVersions.ReadOnly = true;
-            this.textBoxVersions.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxVersions.Size = new System.Drawing.Size(337, 127);
-            this.textBoxVersions.TabIndex = 0;
-            this.textBoxVersions.TabStop = false;
-            this.textBoxVersions.Text = "Description";
+            this.versionInfo.BackColor = System.Drawing.Color.White;
+            this.versionInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.versionInfo.Location = new System.Drawing.Point(0, 0);
+            this.versionInfo.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
+            this.versionInfo.Multiline = true;
+            this.versionInfo.Name = "versionInfo";
+            this.versionInfo.ReadOnly = true;
+            this.versionInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.versionInfo.Size = new System.Drawing.Size(337, 127);
+            this.versionInfo.TabIndex = 0;
+            this.versionInfo.TabStop = false;
+            this.versionInfo.Text = "Description";
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.textBoxDescription);
+            this.tabPage1.Controls.Add(this.mapserverFormats);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -102,24 +102,24 @@ namespace MapManager
             this.tabPage1.Text = "MapServer Formats";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // textBoxDescription
+            // mapserverFormats
             // 
-            this.textBoxDescription.BackColor = System.Drawing.Color.White;
-            this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDescription.Location = new System.Drawing.Point(3, 3);
-            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
-            this.textBoxDescription.Multiline = true;
-            this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.ReadOnly = true;
-            this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxDescription.Size = new System.Drawing.Size(331, 121);
-            this.textBoxDescription.TabIndex = 24;
-            this.textBoxDescription.TabStop = false;
-            this.textBoxDescription.Text = "Description";
+            this.mapserverFormats.BackColor = System.Drawing.Color.White;
+            this.mapserverFormats.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mapserverFormats.Location = new System.Drawing.Point(3, 3);
+            this.mapserverFormats.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
+            this.mapserverFormats.Multiline = true;
+            this.mapserverFormats.Name = "mapserverFormats";
+            this.mapserverFormats.ReadOnly = true;
+            this.mapserverFormats.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.mapserverFormats.Size = new System.Drawing.Size(331, 121);
+            this.mapserverFormats.TabIndex = 24;
+            this.mapserverFormats.TabStop = false;
+            this.mapserverFormats.Text = "Description";
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.textBoxDescription1);
+            this.tabPage2.Controls.Add(this.gdalFormats);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -128,24 +128,24 @@ namespace MapManager
             this.tabPage2.Text = "GDAL Formats";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // textBoxDescription1
+            // gdalFormats
             // 
-            this.textBoxDescription1.BackColor = System.Drawing.Color.White;
-            this.textBoxDescription1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDescription1.Location = new System.Drawing.Point(3, 3);
-            this.textBoxDescription1.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
-            this.textBoxDescription1.Multiline = true;
-            this.textBoxDescription1.Name = "textBoxDescription1";
-            this.textBoxDescription1.ReadOnly = true;
-            this.textBoxDescription1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxDescription1.Size = new System.Drawing.Size(331, 121);
-            this.textBoxDescription1.TabIndex = 25;
-            this.textBoxDescription1.TabStop = false;
-            this.textBoxDescription1.Text = "Description";
+            this.gdalFormats.BackColor = System.Drawing.Color.White;
+            this.gdalFormats.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gdalFormats.Location = new System.Drawing.Point(3, 3);
+            this.gdalFormats.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
+            this.gdalFormats.Multiline = true;
+            this.gdalFormats.Name = "gdalFormats";
+            this.gdalFormats.ReadOnly = true;
+            this.gdalFormats.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.gdalFormats.Size = new System.Drawing.Size(331, 121);
+            this.gdalFormats.TabIndex = 25;
+            this.gdalFormats.TabStop = false;
+            this.gdalFormats.Text = "Description";
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.textBoxDescription2);
+            this.tabPage3.Controls.Add(this.ogrFormats);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(337, 127);
@@ -153,20 +153,20 @@ namespace MapManager
             this.tabPage3.Text = "OGR Formats";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // textBoxDescription2
+            // ogrFormats
             // 
-            this.textBoxDescription2.BackColor = System.Drawing.Color.White;
-            this.textBoxDescription2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDescription2.Location = new System.Drawing.Point(0, 0);
-            this.textBoxDescription2.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
-            this.textBoxDescription2.Multiline = true;
-            this.textBoxDescription2.Name = "textBoxDescription2";
-            this.textBoxDescription2.ReadOnly = true;
-            this.textBoxDescription2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxDescription2.Size = new System.Drawing.Size(337, 127);
-            this.textBoxDescription2.TabIndex = 25;
-            this.textBoxDescription2.TabStop = false;
-            this.textBoxDescription2.Text = "Description";
+            this.ogrFormats.BackColor = System.Drawing.Color.White;
+            this.ogrFormats.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ogrFormats.Location = new System.Drawing.Point(0, 0);
+            this.ogrFormats.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
+            this.ogrFormats.Multiline = true;
+            this.ogrFormats.Name = "ogrFormats";
+            this.ogrFormats.ReadOnly = true;
+            this.ogrFormats.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.ogrFormats.Size = new System.Drawing.Size(337, 127);
+            this.ogrFormats.TabIndex = 25;
+            this.ogrFormats.TabStop = false;
+            this.ogrFormats.Text = "Description";
             // 
             // okButton
             // 
@@ -187,8 +187,8 @@ namespace MapManager
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67F));
             this.tableLayoutPanel.Controls.Add(this.label1, 1, 5);
             this.tableLayoutPanel.Controls.Add(this.logoPictureBox, 0, 0);
-            this.tableLayoutPanel.Controls.Add(this.labelProductName, 1, 1);
-            this.tableLayoutPanel.Controls.Add(this.labelVersion, 1, 2);
+            this.tableLayoutPanel.Controls.Add(this.productName, 1, 1);
+            this.tableLayoutPanel.Controls.Add(this.version, 1, 2);
             this.tableLayoutPanel.Controls.Add(this.labelCopyright, 1, 3);
             this.tableLayoutPanel.Controls.Add(this.labelCompanyName, 1, 4);
             this.tableLayoutPanel.Controls.Add(this.okButton, 1, 8);
@@ -233,29 +233,29 @@ namespace MapManager
             this.logoPictureBox.TabIndex = 12;
             this.logoPictureBox.TabStop = false;
             // 
-            // labelProductName
+            // productName
             // 
-            this.labelProductName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelProductName.Location = new System.Drawing.Point(178, 15);
-            this.labelProductName.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
-            this.labelProductName.MaximumSize = new System.Drawing.Size(0, 17);
-            this.labelProductName.Name = "labelProductName";
-            this.labelProductName.Size = new System.Drawing.Size(342, 17);
-            this.labelProductName.TabIndex = 0;
-            this.labelProductName.Text = "Product Name";
-            this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.productName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.productName.Location = new System.Drawing.Point(178, 15);
+            this.productName.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
+            this.productName.MaximumSize = new System.Drawing.Size(0, 17);
+            this.productName.Name = "productName";
+            this.productName.Size = new System.Drawing.Size(342, 17);
+            this.productName.TabIndex = 0;
+            this.productName.Text = "Product Name";
+            this.productName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // labelVersion
+            // version
             // 
-            this.labelVersion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelVersion.Location = new System.Drawing.Point(178, 34);
-            this.labelVersion.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
-            this.labelVersion.MaximumSize = new System.Drawing.Size(0, 17);
-            this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(342, 17);
-            this.labelVersion.TabIndex = 1;
-            this.labelVersion.Text = "Version";
-            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.version.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.version.Location = new System.Drawing.Point(178, 34);
+            this.version.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
+            this.version.MaximumSize = new System.Drawing.Size(0, 17);
+            this.version.Name = "version";
+            this.version.Size = new System.Drawing.Size(342, 17);
+            this.version.TabIndex = 1;
+            this.version.Text = "Version";
+            this.version.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelCopyright
             // 
@@ -319,18 +319,18 @@ namespace MapManager
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TextBox textBoxVersions;
+        private System.Windows.Forms.TextBox versionInfo;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TextBox textBoxDescription;
+        private System.Windows.Forms.TextBox mapserverFormats;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox textBoxDescription1;
+        private System.Windows.Forms.TextBox gdalFormats;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TextBox textBoxDescription2;
+        private System.Windows.Forms.TextBox ogrFormats;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.PictureBox logoPictureBox;
-        private System.Windows.Forms.Label labelProductName;
-        private System.Windows.Forms.Label labelVersion;
+        private System.Windows.Forms.Label productName;
+        private System.Windows.Forms.Label version;
         private System.Windows.Forms.Label labelCopyright;
         private System.Windows.Forms.Label labelCompanyName;
         private System.Windows.Forms.Label label1;

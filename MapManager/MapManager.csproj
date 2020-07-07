@@ -201,6 +201,7 @@
     <Compile Include="TileManager\TileManagerForm.Designer.cs">
       <DependentUpon>TileManagerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Version.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <SubType>Designer</SubType>
       <DependentUpon>AboutBox.cs</DependentUpon>
