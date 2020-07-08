@@ -25,11 +25,9 @@ namespace MapManager.Tests.Apis.Gdal
         [Fact]
         public void DriverNames()
         {
-            Log.Debug("Getting Driver Names ...");
             var driverNames = MapManager.Apis.Gdal.Driver.DriverNames.ToArray();
-            Log.Debug("Driver Names returned successfully.");
-            Assert.Equal(210, driverNames.Length);
             Log.Debug("Driver Name Count: {DriverNameCount}", driverNames.Length);
+            Assert.Equal(209, driverNames.Length);
             Assert.Equal(new[]
             {
                 "Virtual Raster",
@@ -37,7 +35,7 @@ namespace MapManager.Tests.Apis.Gdal
                 "GeoTIFF",
                 "National Imagery Transmission Format",
                 "Raster Product Format TOC format"
-            }, driverNames.Take(5));
+            }, driverNames.Take(5).ToArray());
             Assert.Equal(new[]
             {
                 "Generic Binary (.hdr Labelled)",
@@ -45,7 +43,7 @@ namespace MapManager.Tests.Apis.Gdal
                 "ESRI .hdr Labelled",
                 "ISCE raster",
                 "HTTP Fetching Wrapper"
-            }, driverNames.Skip(205).Take(5));
+            }, driverNames.Skip(204).Take(5).ToArray());
         }
     }
 }
