@@ -7,7 +7,7 @@ namespace MapManager.ViewModels
     {
         public MainFormViewModel()
         {
-            this.Log().Info("MainFormViewModel");
+            this.Log().Debug("MainFormViewModel");
         }
     }
 }
