@@ -9,6 +9,8 @@ namespace MapManager
 {
     static class Program
     {
+        private static Serilog.ILogger Log => Logger.Log.ForContext(typeof(Program));
+
         public static MainForm frmMain = null;
 
         /// <summary>
@@ -17,10 +19,6 @@ namespace MapManager
         [STAThread]
         static void Main(string[] args)
         {
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .WriteTo.Console()
-                .CreateLogger();
             Log.Information("MapManager starting ...");
             Locator.CurrentMutable.UseSerilogFullLogger();
 

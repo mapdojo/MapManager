@@ -1,5 +1,7 @@
 ﻿using Serilog;
+using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace MapManager.Apis.Gdal
 {
@@ -27,11 +29,30 @@ namespace MapManager.Apis.Gdal
         {
             Log.Debug("Registering GDAL Drivers ...");
             OSGeo.GDAL.Gdal.AllRegister();
-            Log.Debug("GDAL Drivers Registered.");
             var driverLongNames = new HashSet<string>();
             for (var i = 0; i < OSGeo.GDAL.Gdal.GetDriverCount(); i++)
                 driverLongNames.Add(OSGeo.GDAL.Gdal.GetDriver(i).LongName);
+            Log.Debug("{DriverLongNamesCount} GDAL Drivers Registered.", driverLongNames.Count);
             return driverLongNames;
+        }
+
+        private const string GDAL_DRIVER_PATH = "GDAL_DRIVER_PATH";
+
+        public static void SetGdalDriverPathEnvironment(DirectoryInfo gdalPlugins)
+        {   
+            if (gdalPlugins.Exists)
+            {
+                Log.Debug("Setting {GDAL_DRIVER_PATH} to {gdalPlugins} ...", GDAL_DRIVER_PATH, gdalPlugins);
+                OSGeo.GDAL.Gdal.SetConfigOption(GDAL_DRIVER_PATH, gdalPlugins.FullName);
+                Log.Debug("{GDAL_DRIVER_PATH} set to {gdalPlugins}", GDAL_DRIVER_PATH, gdalPlugins);
+            }
+            else
+                Log.Warning("{GDAL_DRIVER_PATH} could not be set because {gdalPlugins} does not exist.",GDAL_DRIVER_PATH, gdalPlugins);
+        }
+
+        public static void Register()
+        {
+            GetDriverNames();
         }
     }
 }

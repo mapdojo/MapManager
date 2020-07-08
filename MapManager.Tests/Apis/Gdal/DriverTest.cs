@@ -4,6 +4,8 @@ using System.Linq;
 using MapManager.Apis;
 using Xunit;
 using Xunit.Abstractions;
+using System.IO;
+using System;
 
 namespace MapManager.Tests.Apis.Gdal
 {
@@ -44,6 +46,13 @@ namespace MapManager.Tests.Apis.Gdal
                 "ISCE raster",
                 "HTTP Fetching Wrapper"
             }, driverNames.Skip(204).Take(5).ToArray());
+        }
+
+        [Fact]
+        public void SetGdalDriverPathEnvironment()
+        {
+            var gdalPlugins = new DirectoryInfo(Path.Combine(Environment.CurrentDirectory, "gdalplugins"));
+            MapManager.Apis.Gdal.Driver.SetGdalDriverPathEnvironment(gdalPlugins);
         }
     }
 }

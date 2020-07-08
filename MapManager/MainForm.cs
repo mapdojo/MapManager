@@ -14,6 +14,7 @@ using OSGeo.OGR;
 using OSGeo.OSR;
 using ReactiveUI;
 using ScintillaNET;
+using Serilog;
 
 namespace MapManager
 {
@@ -22,6 +23,8 @@ namespace MapManager
     /// </summary>
     public partial class MainForm : Form, IViewFor<MainFormViewModel>
     {
+        private static ILogger Log => Logger.Log.ForContext(typeof(MainForm));
+
         private string fileName;
         private int scrollPos;
         private int caretPos;
@@ -52,15 +55,17 @@ namespace MapManager
             try
             {
                 // try to load all the dependencies at startup
-                string version = mapscript.msGetVersion();
+                string version = Apis.MapServer.VersionSupport;
+                Log.Debug("MapServer Version: {version}", version);
 
-                // gdal plugin path
-                if (Directory.Exists(Environment.CurrentDirectory + "\\gdalplugins"))
-                    Gdal.SetConfigOption("GDAL_DRIVER_PATH", Environment.CurrentDirectory + "\\gdalplugins");
+                var gdalPlugins = new DirectoryInfo(Path.Combine(Environment.CurrentDirectory, "gdalplugins"));
+                Apis.Gdal.Driver.SetGdalDriverPathEnvironment(gdalPlugins);
 
-                Gdal.AllRegister();
-                Ogr.RegisterAll();
-                mapscript.SetEnvironmentVariable("CURL_CA_BUNDLE=" + Environment.CurrentDirectory + "\\curl-ca-bundle.crt");
+                Apis.Gdal.Driver.Register();
+                Apis.Ogr.Driver.Register();
+
+                var curlCaBundleCrt = new FileInfo(Path.Combine(Environment.CurrentDirectory, "curl-ca-bundle.crt"));
+                Apis.Curl.SetCurlCertificateAuthorityBundleEnvironment(curlCaBundleCrt);
                 
                 scintillaControl.StyleResetDefault();
                 scintillaControl.Styles[Style.Default].Font = "Consolas";

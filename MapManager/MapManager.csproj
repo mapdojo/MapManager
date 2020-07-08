@@ -175,6 +175,7 @@
     <Compile Include="AppSettingsForm.Designer.cs">
       <DependentUpon>AppSettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logger.cs" />
     <Compile Include="MapFileConvertForm.cs">
       <SubType>Form</SubType>
     </Compile>

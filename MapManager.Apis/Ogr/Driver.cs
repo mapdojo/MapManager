@@ -27,11 +27,16 @@ namespace MapManager.Apis.Ogr
         {
             Log.Debug("Registering OGR Drivers ...");
             OSGeo.OGR.Ogr.RegisterAll();
-            Log.Debug("OGR Drivers Registered.");
             var driverLongNames = new HashSet<string>();
             for (var i = 0; i < OSGeo.OGR.Ogr.GetDriverCount(); i++) 
                 driverLongNames.Add(OSGeo.OGR.Ogr.GetDriver(i).name);
+            Log.Debug("{DriverLongNamesCount} OGR Drivers Registered.", driverLongNames.Count);
             return driverLongNames;
+        }
+
+        public static void Register()
+        {
+            GetDriverNames();
         }
     }
 }
