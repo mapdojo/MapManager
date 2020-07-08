@@ -1,14 +1,32 @@
 using System.Linq;
+using MapManager.Apis;
+using Serilog;
+using Serilog.Events;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace MapManager.Tests.Apis.Ogr
 {
     public class DriverTest
     {
+        private ILogger Log { get; }
+        public DriverTest(ITestOutputHelper output)
+        {
+            Log = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.TestOutput(output, LogEventLevel.Debug,
+                    "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level}] [{SourceContext}] {Message}{NewLine}{Exception}")
+                .Enrich.FromLogContext()
+                .CreateLogger()
+                .ForContext<DriverTest>();
+            Logger.Init(Log);
+        }
+        
         [Fact]
         public void DriverNames()
         {
             var driverNames = MapManager.Apis.Ogr.Driver.DriverNames.ToArray();
+            Log.Debug("DriverNameCount: {DriveNameCount}", driverNames.Length);
             string[] expectedDriverNames = new string[]
             {
                 "PCIDSK",

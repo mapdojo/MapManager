@@ -2,11 +2,14 @@
 using System.Runtime.InteropServices;
 using System.Text;
 using OSGeo.MapServer;
+using Serilog;
 
 namespace MapManager.Apis.MapServer
 {
-    public static class Version
+    public class Version
     {
+        private static ILogger Log => Logger.Log.ForContext(typeof(Version));
+        
         public static readonly string VersionString = mapscript.msGetVersion();
 
         [DllImport("proj", EntryPoint = "pj_get_release")]
@@ -29,45 +32,63 @@ namespace MapManager.Apis.MapServer
         {
             get
             {
+                Log.Debug("Registering GDAL Drivers ...");
                 OSGeo.GDAL.Gdal.AllRegister();
+                Log.Debug("GDAL Drivers Registered.");
 
                 var s = new StringBuilder();
                 s.AppendLine("MapServer version " + mapscript.MS_VERSION);
                 s.AppendLine(OSGeo.GDAL.Gdal.VersionInfo("GDAL_RELEASE_NAME"));
                 try
                 {
-                    s.AppendLine("proj " + Marshal.PtrToStringAnsi(pj_get_release()));
+                    Log.Debug("Getting PROJ Version ...");
+                    var proj = Marshal.PtrToStringAnsi(pj_get_release());
+                    s.AppendLine($"proj {proj}");
+                    Log.Debug("PROJ Version is {proj}.", proj);
                 }
                 catch (Exception)
                 {
                     // library not available
+                    Log.Warning("PROJ Library is not available.");
                 }
 
                 try
                 {
-                    s.AppendLine("geos " + Marshal.PtrToStringAnsi(GEOSversion()));
+                    Log.Debug("Getting GEOS Version ...");
+                    var geos = Marshal.PtrToStringAnsi(GEOSversion());
+                    s.AppendLine($"geos {geos}");
+                    Log.Debug("GEOS Version is {geos}.", geos);
                 }
                 catch (Exception)
                 {
                     // library not available
+                    Log.Warning("GEOS Library is not available.");
                 }
 
                 try
                 {
-                    s.AppendLine("zlib " + Marshal.PtrToStringAnsi(zlibVersion()));
+                    Log.Debug("Getting ZLib Version ...");
+                    var zlib = Marshal.PtrToStringAnsi(zlibVersion());
+                    s.AppendLine($"zlib {zlib}");
+                    Log.Debug("ZLib Version is {zlib}.", zlib);
                 }
                 catch (Exception)
                 {
                     // library not available
+                    Log.Warning("ZLib Library is not available.");
                 }
 
                 try
                 {
-                    s.AppendLine(Marshal.PtrToStringAnsi(curl_version()));
+                    Log.Debug("Getting cUrl Version ...");
+                    var curl = Marshal.PtrToStringAnsi(curl_version());
+                    s.AppendLine(curl);
+                    Log.Debug("cUrl Version is {curl}.", curl);
                 }
                 catch (Exception)
                 {
                     // library not available
+                    Log.Warning("cUrl Library is not available.");
                 }
 
                 return s.ToString();
