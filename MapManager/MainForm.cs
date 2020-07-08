@@ -7,10 +7,12 @@ using System.Text;
 using System.Windows.Forms;
 using MapLibrary;
 using MapManager.TileManager;
+using MapManager.ViewModels;
 using OSGeo.GDAL;
 using OSGeo.MapServer;
 using OSGeo.OGR;
 using OSGeo.OSR;
+using ReactiveUI;
 using ScintillaNET;
 
 namespace MapManager
@@ -18,7 +20,7 @@ namespace MapManager
     /// <summary>
     /// The main form of the application.
     /// </summary>
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IViewFor<MainFormViewModel>
     {
         private string fileName;
         private int scrollPos;
@@ -175,6 +177,16 @@ namespace MapManager
             statusStripMain.Items.Insert(1, cbItem);
 
             UpdateMRU();
+
+            ViewModel = new MainFormViewModel();
+        }
+
+        public MainFormViewModel ViewModel { get; set; }
+
+        object IViewFor.ViewModel
+        {
+            get => ViewModel;
+            set => ViewModel = (MainFormViewModel)value;
         }
 
         /// <summary>

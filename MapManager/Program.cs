@@ -1,6 +1,9 @@
 using System;
 using System.IO;
 using System.Windows.Forms;
+using Serilog;
+using Splat;
+using Splat.Serilog;
 
 namespace MapManager
 {
@@ -14,6 +17,12 @@ namespace MapManager
         [STAThread]
         static void Main(string[] args)
         {
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.Console()
+                .CreateLogger();
+            Log.Information("MapManager starting ...");
+            Locator.CurrentMutable.UseSerilogFullLogger();
+
             // setting the current directory equal to the executing directory
             if (Environment.CurrentDirectory != Application.StartupPath)
             {
