@@ -1,5 +1,6 @@
 ﻿using ReactiveUI;
 using System;
+using MapManager.Apis;
 
 namespace MapManager.ViewModels
 {
@@ -20,9 +21,9 @@ namespace MapManager.ViewModels
             ProductName = MapManager.Version.AssemblyProduct;
             Version = $"Version {MapManager.Version.AssemblyVersion}";
             Copyright = MapManager.Version.AssemblyCopyright;
-            VersionInfo = Apis.MapServer.Version.VersionInfo;
-            MapserverFormats = Apis.MapServer.Version.VersionString
-                .Substring(Apis.MapServer.Version.VersionString.IndexOf("OUTPUT", StringComparison.Ordinal))
+            VersionInfo = MapServer.VersionInfo;
+            MapserverFormats = MapServer.VersionSupport
+                .Substring(MapServer.VersionSupport.IndexOf("OUTPUT", StringComparison.Ordinal))
                 .Replace(" ", "\r\n");
             GdalFormats = string.Join("\r\n", Apis.Gdal.Driver.DriverNames);
             OgrFormats = string.Join("\r\n", Apis.Ogr.Driver.DriverNames);

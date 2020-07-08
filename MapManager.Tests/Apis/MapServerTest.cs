@@ -4,13 +4,13 @@ using Serilog.Events;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace MapManager.Tests.Apis.MapServer
+namespace MapManager.Tests.Apis
 {
-    public class VersionTest
+    public class MapServerTest
     {
         private ILogger Log { get; }
         
-        public VersionTest(ITestOutputHelper output)
+        public MapServerTest(ITestOutputHelper output)
         {
             Log = new LoggerConfiguration()
                 .MinimumLevel.Debug()
@@ -18,14 +18,14 @@ namespace MapManager.Tests.Apis.MapServer
                     "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level}] [{SourceContext}] {Message}{NewLine}{Exception}")
                 .Enrich.FromLogContext()
                 .CreateLogger()
-                .ForContext<VersionTest>();
+                .ForContext<MapServerTest>();
             Logger.Init(Log);
         }
 
         [Fact]
         public void VersionInfo()
         {
-            var versionInfo = MapManager.Apis.MapServer.Version.VersionInfo;
+            var versionInfo = MapManager.Apis.MapServer.VersionInfo;
             Log.Debug("VersionInfo: {VersionInfo}", versionInfo);
             Assert.Equal(@"MapServer version 7.4.3
 GDAL 3.0.4, released 2020/01/28
@@ -37,13 +37,21 @@ libcurl/7.70.0-DEV OpenSSL/1.1.1g zlib/1.2.3
         }
         
         [Fact]
-        public void VersionString()
+        public void VersionSupport()
         {
-            var versionString = MapManager.Apis.MapServer.Version.VersionString;
-            Log.Debug("VersionString: {VersionString}", versionString);
+            var versionSupport = MapManager.Apis.MapServer.VersionSupport;
+            Log.Debug("VersionString: {VersionString}", versionSupport);
             Assert.Equal(
                 @"MapServer version 7.4.3 OUTPUT=PNG OUTPUT=JPEG OUTPUT=KML SUPPORTS=PROJ SUPPORTS=AGG SUPPORTS=FREETYPE SUPPORTS=CAIRO SUPPORTS=SVG_SYMBOLS SUPPORTS=SVGCAIRO SUPPORTS=ICONV SUPPORTS=FRIBIDI SUPPORTS=WMS_SERVER SUPPORTS=WMS_CLIENT SUPPORTS=WFS_SERVER SUPPORTS=WFS_CLIENT SUPPORTS=WCS_SERVER SUPPORTS=SOS_SERVER SUPPORTS=FASTCGI SUPPORTS=THREADS SUPPORTS=GEOS SUPPORTS=PBF INPUT=JPEG INPUT=POSTGIS INPUT=OGR INPUT=GDAL INPUT=SHAPEFILE",
-                versionString);
+                versionSupport);
+        }
+        
+        [Fact]
+        public void VersionMapServer()
+        {
+            var version = MapManager.Apis.MapServer.Version;
+            Log.Debug("VersionMapServer: {VersionMapServer}", version);
+            Assert.Equal(@"7.4.3", version);
         }
     }
 }
