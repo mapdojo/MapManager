@@ -8,9 +8,6 @@ namespace MapManager.Apis
     {
         private static ILogger Log => Logger.Log.ForContext(typeof(Proj));
 
-        [DllImport("proj", EntryPoint = "pj_get_release")]
-        private static extern IntPtr pj_get_release();
-        
         public static string Version
         {
             get
@@ -31,5 +28,8 @@ namespace MapManager.Apis
                 return null;
             }
         }
+
+        [DllImport("proj", EntryPoint = "pj_get_release")]
+        private static extern IntPtr pj_get_release();
     }
 }

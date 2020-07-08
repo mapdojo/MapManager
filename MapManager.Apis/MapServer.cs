@@ -6,11 +6,10 @@ namespace MapManager.Apis
 {
     public class MapServer
     {
-        private static ILogger Log => Logger.Log.ForContext(typeof(MapServer));
-        
         public static readonly string VersionSupport = mapscript.msGetVersion();
 
         public static readonly string Version = mapscript.MS_VERSION;
+        private static ILogger Log => Logger.Log.ForContext(typeof(MapServer));
 
         public static string VersionInfo
         {

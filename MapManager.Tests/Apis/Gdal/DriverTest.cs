@@ -1,17 +1,17 @@
-using Serilog;
-using Serilog.Events;
+using System;
+using System.IO;
 using System.Linq;
 using MapManager.Apis;
+using MapManager.Apis.Gdal;
+using Serilog;
+using Serilog.Events;
 using Xunit;
 using Xunit.Abstractions;
-using System.IO;
-using System;
 
 namespace MapManager.Tests.Apis.Gdal
 {
     public class DriverTest
     {
-        private ILogger Log { get; }
         public DriverTest(ITestOutputHelper output)
         {
             Log = new LoggerConfiguration()
@@ -24,10 +24,12 @@ namespace MapManager.Tests.Apis.Gdal
             Logger.Init(Log);
         }
 
+        private ILogger Log { get; }
+
         [Fact]
         public void DriverNames()
         {
-            var driverNames = MapManager.Apis.Gdal.Driver.DriverNames.ToArray();
+            var driverNames = Driver.DriverNames.ToArray();
             Log.Debug("Driver Name Count: {DriverNameCount}", driverNames.Length);
             Assert.Equal(209, driverNames.Length);
             Assert.Equal(new[]
@@ -52,7 +54,7 @@ namespace MapManager.Tests.Apis.Gdal
         public void SetGdalDriverPathEnvironment()
         {
             var gdalPlugins = new DirectoryInfo(Path.Combine(Environment.CurrentDirectory, "gdalplugins"));
-            MapManager.Apis.Gdal.Driver.SetGdalDriverPathEnvironment(gdalPlugins);
+            Driver.SetGdalDriverPathEnvironment(gdalPlugins);
         }
     }
 }

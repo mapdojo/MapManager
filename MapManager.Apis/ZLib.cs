@@ -8,9 +8,6 @@ namespace MapManager.Apis
     {
         private static ILogger Log => Logger.Log.ForContext(typeof(ZLib));
 
-        [DllImport("zlib1", EntryPoint = "zlibVersion")]
-        private static extern IntPtr zlibVersion();
-        
         public static string Version
         {
             get
@@ -31,5 +28,8 @@ namespace MapManager.Apis
                 return null;
             }
         }
+
+        [DllImport("zlib1", EntryPoint = "zlibVersion")]
+        private static extern IntPtr zlibVersion();
     }
 }

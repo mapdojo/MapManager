@@ -1,16 +1,15 @@
-using System.Windows.Forms;
-using ReactiveUI;
-using MapManager.ViewModels;
-using System.Reactive.Linq;
-using System.Reactive;
 using System;
+using System.Reactive.Linq;
+using System.Windows.Forms;
+using MapManager.ViewModels;
+using ReactiveUI;
 
 namespace MapManager
 {
     /// <summary>
     ///     Provides the about box for the application
     /// </summary>
-    partial class AboutBox : Form, IViewFor<AboutBoxViewModel>
+    internal partial class AboutBox : Form, IViewFor<AboutBoxViewModel>
     {
         /// <summary>
         ///     Constructs a new AboutBox object.
@@ -31,8 +30,9 @@ namespace MapManager
                 d(this.OneWayBind(ViewModel, vm => vm.OgrFormats, v => v.ogrFormats.Text));
             });
 
-            IObservable<EventPattern<KeyEventArgs>> keyDown = Observable.FromEventPattern<KeyEventArgs>(this, "KeyDown");
-            keyDown.Subscribe(evt => {
+            var keyDown = Observable.FromEventPattern<KeyEventArgs>(this, "KeyDown");
+            keyDown.Subscribe(evt =>
+            {
                 if (evt.EventArgs.KeyCode == Keys.Escape)
                     Close();
             });
@@ -45,7 +45,7 @@ namespace MapManager
         object IViewFor.ViewModel
         {
             get => ViewModel;
-            set => ViewModel = (AboutBoxViewModel)value;
+            set => ViewModel = (AboutBoxViewModel) value;
         }
     }
 }

@@ -8,8 +8,6 @@ namespace MapManager.Tests.Apis
 {
     public class ProjTest
     {
-        private ILogger Log { get; }
-        
         public ProjTest(ITestOutputHelper output)
         {
             Log = new LoggerConfiguration()
@@ -22,10 +20,12 @@ namespace MapManager.Tests.Apis
             Logger.Init(Log);
         }
 
+        private ILogger Log { get; }
+
         [Fact]
         public void Version()
         {
-            var version = MapManager.Apis.Proj.Version;
+            var version = Proj.Version;
             Assert.Equal(@"Rel. 4.8.0, 6 March 2012", version);
         }
     }

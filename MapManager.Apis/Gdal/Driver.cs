@@ -1,25 +1,22 @@
-﻿using Serilog;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
+using Serilog;
 
 namespace MapManager.Apis.Gdal
 {
     public class Driver
     {
-        private static ILogger Log => Logger.Log.ForContext(typeof(Driver));
+        private const string GDAL_DRIVER_PATH = "GDAL_DRIVER_PATH";
 
         private static HashSet<string> driverNames;
+        private static ILogger Log => Logger.Log.ForContext(typeof(Driver));
 
         public static IEnumerable<string> DriverNames
         {
             get
             {
-                if (driverNames != null && driverNames.Count > 0)
-                {
-                    return driverNames;
-                }
-                
+                if (driverNames != null && driverNames.Count > 0) return driverNames;
+
                 driverNames = GetDriverNames();
                 return driverNames;
             }
@@ -36,10 +33,8 @@ namespace MapManager.Apis.Gdal
             return driverLongNames;
         }
 
-        private const string GDAL_DRIVER_PATH = "GDAL_DRIVER_PATH";
-
         public static void SetGdalDriverPathEnvironment(DirectoryInfo gdalPlugins)
-        {   
+        {
             if (gdalPlugins.Exists)
             {
                 Log.Debug("Setting {GDAL_DRIVER_PATH} to {gdalPlugins} ...", GDAL_DRIVER_PATH, gdalPlugins);
@@ -47,7 +42,10 @@ namespace MapManager.Apis.Gdal
                 Log.Debug("{GDAL_DRIVER_PATH} set to {gdalPlugins}", GDAL_DRIVER_PATH, gdalPlugins);
             }
             else
-                Log.Warning("{GDAL_DRIVER_PATH} could not be set because {gdalPlugins} does not exist.",GDAL_DRIVER_PATH, gdalPlugins);
+            {
+                Log.Warning("{GDAL_DRIVER_PATH} could not be set because {gdalPlugins} does not exist.",
+                    GDAL_DRIVER_PATH, gdalPlugins);
+            }
         }
 
         public static void Register()
