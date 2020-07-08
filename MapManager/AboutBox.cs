@@ -26,7 +26,7 @@ namespace MapManager
                 d(this.OneWayBind(ViewModel, vm => vm.Version, v => v.version.Text));
                 d(this.OneWayBind(ViewModel, vm => vm.Copyright, v => v.labelCopyright.Text));
                 d(this.OneWayBind(ViewModel, vm => vm.VersionInfo, v => v.versionInfo.Text));
-                d(this.OneWayBind(ViewModel, vm => vm.MapserverFormats, v => v.mapserverFormats.Text));
+                d(this.OneWayBind(ViewModel, vm => vm.MapServerFormats, v => v.mapserverFormats.Text));
                 d(this.OneWayBind(ViewModel, vm => vm.GdalFormats, v => v.gdalFormats.Text));
                 d(this.OneWayBind(ViewModel, vm => vm.OgrFormats, v => v.ogrFormats.Text));
             });

@@ -1,19 +1,20 @@
-﻿using ReactiveUI;
-using System;
+﻿using System;
 using MapManager.Apis;
+using MapManager.Apis.Gdal;
+using ReactiveUI;
 
 namespace MapManager.ViewModels
 {
     public class AboutBoxViewModel : ReactiveObject
     {
-        private string title;
-        private string productName;
-        private string version;
         private string copyright;
-        private string versionInfo;
-        private string mapserverFormats;
         private string gdalFormats;
+        private string mapServerFormats;
         private string ogrFormats;
+        private string productName;
+        private string title;
+        private string version;
+        private string versionInfo;
 
         public AboutBoxViewModel()
         {
@@ -22,20 +23,59 @@ namespace MapManager.ViewModels
             Version = $"Version {MapManager.Version.AssemblyVersion}";
             Copyright = MapManager.Version.AssemblyCopyright;
             VersionInfo = MapServer.VersionInfo;
-            MapserverFormats = MapServer.VersionSupport
+            MapServerFormats = MapServer.VersionSupport
                 .Substring(MapServer.VersionSupport.IndexOf("OUTPUT", StringComparison.Ordinal))
                 .Replace(" ", "\r\n");
-            GdalFormats = string.Join("\r\n", Apis.Gdal.Driver.DriverNames);
+            GdalFormats = string.Join("\r\n", Driver.DriverNames);
             OgrFormats = string.Join("\r\n", Apis.Ogr.Driver.DriverNames);
         }
 
-        public string Title { get => title; set => title = this.RaiseAndSetIfChanged(ref title, value); }
-        public string ProductName { get => productName; set => this.RaiseAndSetIfChanged(ref productName, value); }
-        public string Version { get => version; set => this.RaiseAndSetIfChanged(ref version, value); }
-        public string Copyright { get => copyright; set => this.RaiseAndSetIfChanged(ref copyright, value); }
-        public string VersionInfo { get => versionInfo; set => this.RaiseAndSetIfChanged(ref versionInfo, value); }
-        public string MapserverFormats { get => mapserverFormats; set => this.RaiseAndSetIfChanged(ref mapserverFormats, value); }
-        public string GdalFormats { get => gdalFormats; set => this.RaiseAndSetIfChanged(ref gdalFormats, value); }
-        public string OgrFormats { get => ogrFormats; set => this.RaiseAndSetIfChanged(ref ogrFormats, value); }
+        public string Title
+        {
+            get => title;
+            private set => title = this.RaiseAndSetIfChanged(ref title, value);
+        }
+
+        public string ProductName
+        {
+            get => productName;
+            private set => this.RaiseAndSetIfChanged(ref productName, value);
+        }
+
+        public string Version
+        {
+            get => version;
+            private set => this.RaiseAndSetIfChanged(ref version, value);
+        }
+
+        public string Copyright
+        {
+            get => copyright;
+            private set => this.RaiseAndSetIfChanged(ref copyright, value);
+        }
+
+        public string VersionInfo
+        {
+            get => versionInfo;
+            private set => this.RaiseAndSetIfChanged(ref versionInfo, value);
+        }
+
+        public string MapServerFormats
+        {
+            get => mapServerFormats;
+            private set => this.RaiseAndSetIfChanged(ref mapServerFormats, value);
+        }
+
+        public string GdalFormats
+        {
+            get => gdalFormats;
+            private set => this.RaiseAndSetIfChanged(ref gdalFormats, value);
+        }
+
+        public string OgrFormats
+        {
+            get => ogrFormats;
+            private set => this.RaiseAndSetIfChanged(ref ogrFormats, value);
+        }
     }
 }
