@@ -26,8 +26,8 @@ namespace MapManager.ViewModels
             MapServerFormats = MapServer.VersionSupport
                 .Substring(MapServer.VersionSupport.IndexOf("OUTPUT", StringComparison.Ordinal))
                 .Replace(" ", "\r\n");
-            GdalFormats = string.Join("\r\n", Driver.DriverNames);
-            OgrFormats = string.Join("\r\n", Apis.Ogr.Driver.DriverNames);
+            GdalFormats = string.Join("\r\n", Driver.Names);
+            OgrFormats = string.Join("\r\n", Apis.Ogr.Driver.Names);
         }
 
         public string Title

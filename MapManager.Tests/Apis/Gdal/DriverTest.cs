@@ -29,17 +29,26 @@ namespace MapManager.Tests.Apis.Gdal
         [Fact]
         public void DriverNames()
         {
-            var driverNames = Driver.DriverNames.ToArray();
+            var driverNames = Driver.Names.ToArray();
             Log.Debug("Driver Name Count: {DriverNameCount}", driverNames.Length);
-            Assert.Equal(209, driverNames.Length);
-            Assert.Equal(new[]
+            Assert.Equal(Driver.GdalDriverPath == null ? 209 : 221, driverNames.Length);
+            var firstFiveDrivers = driverNames.Take(5).ToArray();
+            Assert.Equal(Driver.GdalDriverPath == null ? new[]
             {
                 "Virtual Raster",
                 "Derived datasets using VRT pixel functions",
                 "GeoTIFF",
                 "National Imagery Transmission Format",
                 "Raster Product Format TOC format"
-            }, driverNames.Take(5).ToArray());
+            } : new []
+            {
+                "Bathymetry Attributed Grid", 
+                "Flexible Image Transport System", 
+                "GMT NetCDF Grid Format", 
+                "Hierarchical Data Format Release 4", 
+                "HDF4 Dataset"
+            }, firstFiveDrivers);
+            var lastFiveDrivers = driverNames.Skip(driverNames.Length-5).Take(5).ToArray();
             Assert.Equal(new[]
             {
                 "Generic Binary (.hdr Labelled)",
@@ -47,14 +56,14 @@ namespace MapManager.Tests.Apis.Gdal
                 "ESRI .hdr Labelled",
                 "ISCE raster",
                 "HTTP Fetching Wrapper"
-            }, driverNames.Skip(204).Take(5).ToArray());
+            }, lastFiveDrivers);
         }
 
         [Fact]
         public void SetGdalDriverPathEnvironment()
         {
             var gdalPlugins = new DirectoryInfo(Path.Combine(Environment.CurrentDirectory, "gdalplugins"));
-            Driver.SetGdalDriverPathEnvironment(gdalPlugins);
+            Driver.GdalDriverPath = gdalPlugins;
         }
     }
 }

@@ -59,7 +59,7 @@ namespace MapManager
                 Log.Debug("MapServer Version: {version}", version);
 
                 var gdalPlugins = new DirectoryInfo(Path.Combine(Environment.CurrentDirectory, "gdalplugins"));
-                Apis.Gdal.Driver.SetGdalDriverPathEnvironment(gdalPlugins);
+                Apis.Gdal.Driver.GdalDriverPath = gdalPlugins;
 
                 Apis.Gdal.Driver.Register();
                 Apis.Ogr.Driver.Register();

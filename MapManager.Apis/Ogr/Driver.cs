@@ -7,19 +7,19 @@ namespace MapManager.Apis.Ogr
     {
         private static ILogger Log => Logger.Log.ForContext(typeof(Driver));
         
-        private static HashSet<string> driverNames;
+        private static HashSet<string> names;
         
-        public static IEnumerable<string> DriverNames
+        public static IEnumerable<string> Names
         {
             get
             {
-                if (driverNames != null && driverNames.Count > 0)
+                if (names != null && names.Count > 0)
                 {
-                    return driverNames;
+                    return names;
                 }
                 
-                driverNames = GetDriverNames();
-                return driverNames;
+                names = GetDriverNames();
+                return names;
             }
         }
         
@@ -27,11 +27,11 @@ namespace MapManager.Apis.Ogr
         {
             Log.Debug("Registering OGR Drivers ...");
             OSGeo.OGR.Ogr.RegisterAll();
-            var driverLongNames = new HashSet<string>();
+            var driverNames = new HashSet<string>();
             for (var i = 0; i < OSGeo.OGR.Ogr.GetDriverCount(); i++) 
-                driverLongNames.Add(OSGeo.OGR.Ogr.GetDriver(i).name);
-            Log.Debug("{DriverLongNamesCount} OGR Drivers Registered.", driverLongNames.Count);
-            return driverLongNames;
+                driverNames.Add(OSGeo.OGR.Ogr.GetDriver(i).name);
+            Log.Debug("{DriverLongNamesCount} OGR Drivers Registered.", driverNames.Count);
+            return driverNames;
         }
 
         public static void Register()
