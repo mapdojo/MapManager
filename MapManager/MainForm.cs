@@ -143,7 +143,7 @@ namespace MapManager
             MapUtils.SetPROJ_LIB(Environment.CurrentDirectory + "\\ProjLib");
             Osr.SetPROJSearchPath(Environment.CurrentDirectory + "\\ProjLib");
 
-            Gdal.SetConfigOption("GDAL_DATA", Environment.CurrentDirectory);
+            Apis.Gdal.Data.GdalDataDirectory = new DirectoryInfo(Environment.CurrentDirectory);
             LocateDependencies();
 
             textChanged = false;
