@@ -444,6 +444,12 @@
     <None Include="Images\Map_Legend_Big.png" />
     <Content Include="Images\Refresh16.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MapManager.Apis\MapManager.Apis.csproj">
+      <Project>{419a8761-c67b-431f-a5f6-608c4ef62393}</Project>
+      <Name>MapManager.Apis</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

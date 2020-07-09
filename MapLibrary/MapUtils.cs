@@ -15,11 +15,6 @@ namespace MapLibrary
     /// </summary>
     public static class MapUtils
     {
-        [DllImport("mapserver.dll", EntryPoint = "msSetPROJ_LIB", CallingConvention = CallingConvention.Cdecl)]
-        private static extern void msSetPROJ_LIB(string proj_lib, string pszRelToPath);
-
-        private static string projLib = null;
-
         static Random rand;
 
         /// <summary>
@@ -225,21 +220,6 @@ namespace MapLibrary
             return MS_LAYER_TYPE.MS_LAYER_POINT;
         }
 
-        /// <summary>
-        /// Setting up the location of the proj4 epsg file
-        /// </summary>
-        /// <param name="proj_lib">The location of the proj4 files</param>
-        public static void SetPROJ_LIB(string proj_lib)
-        {
-            // preloading the required dll-s
-            string version = mapscript.msGetVersion();
-            if (version.Contains("SUPPORTS=PROJ"))
-            {
-                msSetPROJ_LIB(proj_lib, null);
-            }
-            projLib = proj_lib;
-        }
-
         //[DllImport("kernel32.dll", CharSet = CharSet.Auto)]
         //public static extern IntPtr GetModuleHandle(string lpModuleName);
 
@@ -301,21 +281,6 @@ namespace MapLibrary
             }
 
             return false;
-        }
-
-        /// <summary>
-        /// Getting the location of the proj4 files.
-        /// </summary>
-        /// <returns>The location of the proj4 files.</returns>
-        public static string GetPROJ_LIB()
-        {
-            if (projLib == null)
-                projLib = Environment.GetEnvironmentVariable("PROJ_LIB");
-                
-            if (projLib == null)
-                return "";
-            
-            return projLib;
         }
         
         /// <summary>
@@ -501,7 +466,7 @@ namespace MapLibrary
             string projName = "";
             proj4 = "";
             epsg = 0;
-            using (Stream s = File.OpenRead(MapUtils.GetPROJ_LIB() + "\\epsg"))
+            using (Stream s = File.OpenRead(Path.Combine(MapManager.Apis.Proj.ProjLibDirectory.FullName, "epsg")))
             {
                 using (StreamReader reader = new StreamReader(s))
                 {

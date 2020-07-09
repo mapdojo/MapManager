@@ -140,8 +140,8 @@ namespace MapManager
         {
             InitializeComponent();
 
-            MapUtils.SetPROJ_LIB(Environment.CurrentDirectory + "\\ProjLib");
-            Osr.SetPROJSearchPath(Environment.CurrentDirectory + "\\ProjLib");
+            var projLib = new DirectoryInfo(Path.Combine(Environment.CurrentDirectory, "ProjLib"));
+            Apis.Proj.ProjLibDirectory = projLib;
 
             Apis.Gdal.Data.GdalDataDirectory = new DirectoryInfo(Environment.CurrentDirectory);
             LocateDependencies();

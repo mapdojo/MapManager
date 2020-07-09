@@ -98,7 +98,7 @@ namespace MapLibrary
         private void PopulateList()
         {
             treeView.Nodes.Clear();
-            using (Stream s = File.OpenRead(MapUtils.GetPROJ_LIB() + "\\epsg"))
+            using (Stream s = File.OpenRead(Path.Combine(MapManager.Apis.Proj.ProjLibDirectory.FullName, "epsg")))
             {
                 using (StreamReader reader = new StreamReader(s))
                 {

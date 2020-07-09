@@ -200,7 +200,7 @@ namespace MapLibrary
 
             // load epsg values
             Hashtable epsg = new Hashtable();
-            using (Stream s = File.OpenRead(MapUtils.GetPROJ_LIB() + "\\epsg"))
+            using (Stream s = File.OpenRead(Path.Combine(MapManager.Apis.Proj.ProjLibDirectory.FullName, "epsg")))
             {
                 using (StreamReader reader = new StreamReader(s))
                 {
@@ -212,7 +212,7 @@ namespace MapLibrary
                             projName = line.Substring(2);
                         else if (line.StartsWith("<"))
                         {
-                            string[] items = line.Split(new char[] { '<', '>' }, 
+                            string[] items = line.Split(new char[] { '<', '>' },
                                                StringSplitOptions.RemoveEmptyEntries);
                             if (items.Length > 0)
                                 epsg.Add("EPSG:" + items[0], projName);

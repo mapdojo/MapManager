@@ -22,18 +22,21 @@ namespace MapManager.TileManager
             {
                 id = tileListId;
 
-                string version = mapscript.msGetVersion();
+                string version = Apis.MapServer.VersionSupport;
 
-                if (Directory.Exists(Environment.CurrentDirectory + "\\gdalplugins"))
-                    Gdal.SetConfigOption("GDAL_DRIVER_PATH", Environment.CurrentDirectory + "\\gdalplugins");
+                var gdalPlugins = new DirectoryInfo(Path.Combine(Environment.CurrentDirectory, "gdalplugins"));
+                Apis.Gdal.Driver.GdalDriverPath = gdalPlugins;
 
-                Gdal.AllRegister();
-                Ogr.RegisterAll();
-                mapscript.SetEnvironmentVariable("CURL_CA_BUNDLE=" + Environment.CurrentDirectory + "\\curl-ca-bundle.crt");
+                Apis.Gdal.Driver.Register();
+                Apis.Ogr.Driver.Register();
 
-                MapUtils.SetPROJ_LIB(Environment.CurrentDirectory + "\\ProjLib");
+                var curlCaBundleCrt = new FileInfo(Path.Combine(Environment.CurrentDirectory, "curl-ca-bundle.crt"));
+                Apis.Curl.SetCurlCertificateAuthorityBundleEnvironment(curlCaBundleCrt);
 
-                Gdal.SetConfigOption("GDAL_DATA", Environment.CurrentDirectory);
+                var projLib = new DirectoryInfo(Path.Combine(Environment.CurrentDirectory, "ProjLib"));
+                Apis.Proj.ProjLibDirectory = projLib;
+
+                Apis.Gdal.Data.GdalDataDirectory = new DirectoryInfo(Environment.CurrentDirectory);
 
                 map = new mapObj(mapfile);
 
