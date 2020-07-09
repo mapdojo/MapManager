@@ -140,6 +140,9 @@ namespace MapManager
         {
             InitializeComponent();
 
+            Apis.MapServer.MaxOpenFiles = 2048;
+            Apis.MapServer.UseGlobalFontCache = true;
+
             var projLib = new DirectoryInfo(Path.Combine(Environment.CurrentDirectory, "ProjLib"));
             Apis.Proj.ProjLibDirectory = projLib;
 

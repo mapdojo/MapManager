@@ -53,5 +53,24 @@ libcurl/7.70.0-DEV OpenSSL/1.1.1g zlib/1.2.3
             Log.Debug("VersionMapServer: {VersionMapServer}", version);
             Assert.Equal(@"7.4.3", version);
         }
+
+        [Theory]
+        [InlineData(2048)]
+        public void MaxOpenFiles(int maxOpenFiles)
+        {
+            Assert.Equal(null, MapServer.MaxOpenFiles);
+            MapServer.MaxOpenFiles = maxOpenFiles;
+            Assert.Equal(maxOpenFiles, MapServer.MaxOpenFiles);
+        }
+        
+        [Fact]
+        public void UseGlobalFontCache()
+        {
+            Assert.Equal(null, MapServer.UseGlobalFontCache);
+            MapServer.UseGlobalFontCache = true;
+            Assert.Equal(true, MapServer.UseGlobalFontCache);
+            MapServer.UseGlobalFontCache = false;
+            Assert.Equal(false, MapServer.UseGlobalFontCache);
+        }
     }
 }
