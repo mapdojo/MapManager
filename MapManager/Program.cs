@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Windows.Forms;
+using MapManager.Apis;
 using Serilog;
 using Splat;
 using Splat.Serilog;

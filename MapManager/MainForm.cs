@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using MapLibrary;
+using MapManager.Apis;
 using MapManager.TileManager;
 using MapManager.ViewModels;
 using OSGeo.GDAL;

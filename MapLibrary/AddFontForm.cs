@@ -1,12 +1,22 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using MapLibrary.ViewModels;
 using Microsoft.Win32;
+using ReactiveUI;
 
 namespace MapLibrary
 {
-    public partial class AddFontForm : Form
+    public partial class AddFontForm : Form, IViewFor<AddFontFormViewModel>
     {
+        public AddFontFormViewModel ViewModel { get; set; }
+
+        object IViewFor.ViewModel
+        {
+            get => ViewModel;
+            set => ViewModel = (AddFontFormViewModel)value;
+        }
+
         RegistryKey fontsKey;
 
         public AddFontForm()
@@ -18,6 +28,8 @@ namespace MapLibrary
                     comboBoxFonts.Items.Add(font);
 
             FontFile = "";
+
+            ViewModel = new AddFontFormViewModel();
         }
 
         public string FontName
