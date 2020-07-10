@@ -829,8 +829,8 @@ namespace MapLibrary
             AddFontForm form = new AddFontForm();
             if (form.ShowDialog(this) == DialogResult.OK)
             {
-                ListViewItem item = new ListViewItem(form.FontName);
-                item.SubItems.Add(form.FontFile);
+                ListViewItem item = new ListViewItem(form.ViewModel.FontAlias);
+                item.SubItems.Add(form.ViewModel.FontFile.FullName);
                 listViewFonts.Items.Add(item);
                 SetFontsetModified(true);
             }

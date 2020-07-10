@@ -1,81 +1,52 @@
 ﻿using System;
-using System.IO;
+using System.Linq;
+using System.Reactive.Linq;
 using System.Windows.Forms;
 using MapLibrary.ViewModels;
-using Microsoft.Win32;
 using ReactiveUI;
 
 namespace MapLibrary
 {
     public partial class AddFontForm : Form, IViewFor<AddFontFormViewModel>
     {
+        public AddFontForm()
+        {
+            InitializeComponent();
+
+            this.WhenActivated(d =>
+            {
+                comboBoxFonts.DataSource = ViewModel.FontNames.ToList();
+                this.Bind(ViewModel, vm => vm.FontAlias, v => v.textBoxFontName.Text);
+
+                this.BindCommand(ViewModel, a => a.Cancel, b => b.buttonCancel);
+                this.WhenAnyObservable(o => o.ViewModel.Cancel).Subscribe(_ =>
+                {
+                    DialogResult = DialogResult.Cancel;
+                    Close();
+                });
+                this.BindCommand(ViewModel, a => a.Ok, b => b.buttonOK);
+                this.WhenAnyObservable(o => o.ViewModel.Ok).Subscribe(_ =>
+                {
+                    DialogResult = DialogResult.OK;
+                    Close();
+                });
+            });
+
+            Observable.FromEventPattern<EventHandler, EventArgs>(
+                    ev => comboBoxFonts.SelectedIndexChanged += ev,
+                    ev => comboBoxFonts.SelectedIndexChanged -= ev)
+                .Select(x => comboBoxFonts.SelectedItem)
+                .BindTo(this, x => x.ViewModel.SelectedFont);
+
+            ViewModel = new AddFontFormViewModel();
+        }
+
         public AddFontFormViewModel ViewModel { get; set; }
 
         object IViewFor.ViewModel
         {
             get => ViewModel;
-            set => ViewModel = (AddFontFormViewModel)value;
-        }
-
-        RegistryKey fontsKey;
-
-        public AddFontForm()
-        {
-            InitializeComponent();
-            fontsKey = Registry.LocalMachine.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\Fonts");
-            foreach (string font in fontsKey.GetValueNames())
-                if (font.EndsWith("(TrueType)")) 
-                    comboBoxFonts.Items.Add(font);
-
-            FontFile = "";
-
-            ViewModel = new AddFontFormViewModel();
-        }
-
-        public string FontName
-        {
-            get
-            {
-                return textBoxFontName.Text;
-            }
-        }
-
-        public string FontFile { get; private set; }
-
-        private void buttonOK_Click(object sender, EventArgs e)
-        {
-            if (textBoxFontName.Text.Trim().Length == 0 || textBoxFontName.Text.Contains(" ") || textBoxFontName.Text.Contains("\t") || textBoxFontName.Text.Contains("#"))
-            {
-                MessageBox.Show("Invalid font name",
-                    "MapManager", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // get parent of System folder to have Windows folder
-            DirectoryInfo dirWindowsFolder = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.System));
-
-            // Concatenate Fonts folder onto Windows folder.
-            string strFontsFolder = Path.Combine(dirWindowsFolder.FullName, "Fonts");
-
-            FontFile = strFontsFolder + "\\" + fontsKey.GetValue(comboBoxFonts.Text, string.Empty).ToString();
-
-            if (!File.Exists(FontFile))
-            {
-                MessageBox.Show("Font file doesn't exist",
-                   "MapManager", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            DialogResult = DialogResult.OK;
-            fontsKey.Close();
-            this.Close();
-        }
-
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-            fontsKey.Close();
-            this.Close();
+            set => ViewModel = (AddFontFormViewModel) value;
         }
     }
 }

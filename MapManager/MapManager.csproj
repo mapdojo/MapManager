@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <Import Project="..\packages\ReactiveUI.Fody.11.4.17\build\ReactiveUI.Fody.props" Condition="Exists('..\packages\ReactiveUI.Fody.11.4.17\build\ReactiveUI.Fody.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -33,6 +34,8 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -99,6 +102,12 @@
     <Reference Include="ReactiveUI.Events.Winforms, Version=11.4.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\ReactiveUI.Events.Winforms.11.4.17\lib\net461\ReactiveUI.Events.Winforms.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="ReactiveUI.Fody.Helpers, Version=11.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReactiveUI.Fody.11.4.17\lib\net461\ReactiveUI.Fody.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="ReactiveUI.Validation, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReactiveUI.Validation.1.4.15\lib\net461\ReactiveUI.Validation.dll</HintPath>
     </Reference>
     <Reference Include="ReactiveUI.Winforms, Version=11.4.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\ReactiveUI.WinForms.11.4.17\lib\net461\ReactiveUI.Winforms.dll</HintPath>
@@ -407,4 +416,12 @@ del $(TargetDir)\gdalplugins\gdal_GEOR.dll $(TargetDir)\gdalplugins\ogr_SDE.dll 
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
+  <Import Project="..\packages\Fody.6.2.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.2.0\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.6.2.0\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.6.2.0\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\ReactiveUI.Fody.11.4.17\build\ReactiveUI.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ReactiveUI.Fody.11.4.17\build\ReactiveUI.Fody.props'))" />
+  </Target>
 </Project>
