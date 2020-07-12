@@ -41,22 +41,42 @@ namespace MapManager
 
         static void ReplaceFiles()
         {
-            String strFile = File.ReadAllText("Default\\Default.map");
-            strFile = strFile.Replace("FONTSET \"font.list\"", "FONTSET \"" + (Application.StartupPath + "\\Default\\font.list\"").Replace("\\", "\\\\"));
-            strFile = strFile.Replace("SYMBOLSET \"symbols.sym\"", "SYMBOLSET \"" + (Application.StartupPath + "\\Default\\symbols.sym\"").Replace("\\", "\\\\"));
-            File.WriteAllText("Default\\Default.map", strFile);
+            try
+            {
+                String strFile = File.ReadAllText("Default\\Default.map");
+                strFile = strFile.Replace("FONTSET \"font.list\"",
+                    "FONTSET \"" + (Application.StartupPath + "\\Default\\font.list\"").Replace("\\", "\\\\"));
+                strFile = strFile.Replace("SYMBOLSET \"symbols.sym\"",
+                    "SYMBOLSET \"" + (Application.StartupPath + "\\Default\\symbols.sym\"").Replace("\\", "\\\\"));
+                File.WriteAllText("Default\\Default.map", strFile);
 
-            // set references in StyleLibrary.map
-            strFile = File.ReadAllText("Default\\StyleLibrary.map");
-            strFile = strFile.Replace("FONTSET \"font.list\"", "FONTSET \"" + (Application.StartupPath + "\\Default\\font.list\"").Replace("\\", "\\\\"));
-            strFile = strFile.Replace("SYMBOLSET \"symbols.sym\"", "SYMBOLSET \"" + (Application.StartupPath + "\\Default\\symbols.sym\"").Replace("\\", "\\\\"));
-            File.WriteAllText("Default\\StyleLibrary.map", strFile);
+                // set references in StyleLibrary.map
+                strFile = File.ReadAllText("Default\\StyleLibrary.map");
+                strFile = strFile.Replace("FONTSET \"font.list\"",
+                    "FONTSET \"" + (Application.StartupPath + "\\Default\\font.list\"").Replace("\\", "\\\\"));
+                strFile = strFile.Replace("SYMBOLSET \"symbols.sym\"",
+                    "SYMBOLSET \"" + (Application.StartupPath + "\\Default\\symbols.sym\"").Replace("\\", "\\\\"));
+                File.WriteAllText("Default\\StyleLibrary.map", strFile);
 
-            // set references in Annotation.map
-            strFile = File.ReadAllText("Default\\Annotation.map");
-            strFile = strFile.Replace("FONTSET \"font.list\"", "FONTSET \"" + (Application.StartupPath + "\\Default\\font.list\"").Replace("\\", "\\\\"));
-            strFile = strFile.Replace("SYMBOLSET \"symbols.sym\"", "SYMBOLSET \"" + (Application.StartupPath + "\\Default\\symbols.sym\"").Replace("\\", "\\\\"));
-            File.WriteAllText("Default\\Annotation.map", strFile);
+                // set references in Annotation.map
+                strFile = File.ReadAllText("Default\\Annotation.map");
+                strFile = strFile.Replace("FONTSET \"font.list\"",
+                    "FONTSET \"" + (Application.StartupPath + "\\Default\\font.list\"").Replace("\\", "\\\\"));
+                strFile = strFile.Replace("SYMBOLSET \"symbols.sym\"",
+                    "SYMBOLSET \"" + (Application.StartupPath + "\\Default\\symbols.sym\"").Replace("\\", "\\\\"));
+                File.WriteAllText("Default\\Annotation.map", strFile);
+            }
+            catch (UnauthorizedAccessException unauthorizedAccessException)
+            {
+                Log.Error(unauthorizedAccessException, unauthorizedAccessException.Message);
+                MessageBox.Show(unauthorizedAccessException.Message, "MapManager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                MessageBox.Show(ex.Message, "MapManager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }
