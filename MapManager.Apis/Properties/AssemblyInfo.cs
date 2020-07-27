@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MapManager Apis")]
-[assembly: AssemblyDescription("MapManager Apis")]
+[assembly: AssemblyTitle("MapServer MapManager")]
+[assembly: AssemblyDescription("MapServer MapManager")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("mapdojo")]
-[assembly: AssemblyProduct("MapManager Apis")]
-[assembly: AssemblyCopyright("Copyright © 2020 mapdojo. All rights reserved.")]
+[assembly: AssemblyProduct("MapServer MapManager")]
+[assembly: AssemblyCopyright("Copyright © DMS 2018, Copyright © mapdojo 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

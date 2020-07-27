@@ -25,7 +25,6 @@ namespace MapLibrary
         private mapObj map;
         XmlDocument doc;
         string wms_server_version;
-        string serverURL;
         BindingSource bs;
         List<KeyValuePair<string, string>> sortedProj;
         rectObj wms_bbox;
@@ -55,6 +54,9 @@ namespace MapLibrary
                 if (evt.EventArgs.KeyCode == Keys.Escape)
                     Close();
             });
+
+            this.Bind(ViewModel, vm => vm.ServerUrl, v => v.textBoxServer.Text);
+            this.BindCommand(ViewModel, a => a.Load, b => b.buttonLoadLayers); // TODO: Handle Loading in ViewModel
 
             ViewModel = new AddWMSLayerFormViewModel(target);
         }
@@ -124,24 +126,12 @@ namespace MapLibrary
         /// </summary>
         public void LoadLayers()
         {
-            //serverURL = textBoxServer.Text.Trim().Split(new char[] { '?' })[0];
-            serverURL = textBoxServer.Text.Trim();
-
-            //steph: remove the check as it force user to encode \ in their URL (map=c:\data\mymap.map)
-            //if url is not valid, let the app report it 
-            //if (!Uri.IsWellFormedUriString(serverURL, UriKind.Absolute))
-            //{
-            //    MessageBox.Show("The specified server URL is invalid",
-            //        "MapManager", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            
             while (true)
             {
                 try
                 {
                     this.Cursor = Cursors.WaitCursor;
-                    doc = Capability.GetCapabilities(serverURL);
+                    doc = Capability.GetCapabilities(ViewModel.ServerUrl.Trim());
                     break;
                 }
                 catch (WebException wex)
@@ -153,7 +143,7 @@ namespace MapLibrary
                         if (httpResponse.StatusCode == HttpStatusCode.Unauthorized || 
                             httpResponse.StatusCode == HttpStatusCode.ProxyAuthenticationRequired)
                         {
-                            CredentialsForm form = new CredentialsForm("Authentication required for " + serverURL, 
+                            CredentialsForm form = new CredentialsForm("Authentication required for " + ViewModel.ServerUrl, 
                                     resolver);
                             if (form.ShowDialog(this) == DialogResult.OK)
                             {
@@ -182,7 +172,7 @@ namespace MapLibrary
             wms_server_version = MapManager.Apis.Wms.Version.GetVersion(doc);
 
             // load supported image types
-            var formatNodes = MapManager.Apis.Wms.Format.GetFormatNodes(doc);
+            var formatNodes = Format.GetFormatNodes(doc);
             comboBoxImageFormat.Items.Clear();
             foreach (XmlNode node in formatNodes)
             {
@@ -734,7 +724,7 @@ namespace MapLibrary
         {
             if (doc != null)
             {
-                AddWMSLayerDetailsForm form = new AddWMSLayerDetailsForm(doc, serverURL, wms_server_version);
+                AddWMSLayerDetailsForm form = new AddWMSLayerDetailsForm(doc, ViewModel.ServerUrl, wms_server_version);
                 form.ShowDialog(this);
             }
         }
