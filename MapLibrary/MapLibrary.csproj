@@ -333,7 +333,6 @@
     <Compile Include="TreeViewNoImage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ViewModels\AddFontFormViewModel.cs" />
     <Compile Include="XmlProxyUrlResolver.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -509,6 +508,10 @@
     <ProjectReference Include="..\MapManager.Apis\MapManager.Apis.csproj">
       <Project>{419a8761-c67b-431f-a5f6-608c4ef62393}</Project>
       <Name>MapManager.Apis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MapManager.ViewModels\MapManager.ViewModels.csproj">
+      <Project>{6f4f377f-3893-476a-8349-1675802b362e}</Project>
+      <Name>MapManager.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

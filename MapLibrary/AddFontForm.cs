@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reactive.Linq;
 using System.Windows.Forms;
-using MapLibrary.ViewModels;
+using MapManager.ViewModels;
 using ReactiveUI;
 
 namespace MapLibrary

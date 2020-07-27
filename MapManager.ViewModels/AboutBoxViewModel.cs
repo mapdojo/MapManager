@@ -18,10 +18,10 @@ namespace MapManager.ViewModels
 
         public AboutBoxViewModel()
         {
-            Title = $"About {MapManager.Version.AssemblyTitle}";
-            ProductName = MapManager.Version.AssemblyProduct;
-            Version = $"Version {MapManager.Version.AssemblyVersion}";
-            Copyright = MapManager.Version.AssemblyCopyright;
+            Title = $"About {Apis.Version.AssemblyTitle}";
+            ProductName = Apis.Version.AssemblyProduct;
+            Version = $"Version {Apis.Version.AssemblyVersion}";
+            Copyright = Apis.Version.AssemblyCopyright;
             VersionInfo = MapServer.VersionInfo;
             MapServerFormats = MapServer.VersionSupport
                 .Substring(MapServer.VersionSupport.IndexOf("OUTPUT", StringComparison.Ordinal))

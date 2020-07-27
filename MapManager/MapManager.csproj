@@ -235,9 +235,6 @@
     <Compile Include="TileManager\TileManagerForm.Designer.cs">
       <DependentUpon>TileManagerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Version.cs" />
-    <Compile Include="ViewModels\MainFormViewModel.cs" />
-    <Compile Include="ViewModels\AboutBoxViewModel.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <SubType>Designer</SubType>
       <DependentUpon>AboutBox.cs</DependentUpon>
@@ -306,6 +303,10 @@
     <ProjectReference Include="..\MapManager.Apis\MapManager.Apis.csproj">
       <Project>{419a8761-c67b-431f-a5f6-608c4ef62393}</Project>
       <Name>MapManager.Apis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MapManager.ViewModels\MapManager.ViewModels.csproj">
+      <Project>{6f4f377f-3893-476a-8349-1675802b362e}</Project>
+      <Name>MapManager.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

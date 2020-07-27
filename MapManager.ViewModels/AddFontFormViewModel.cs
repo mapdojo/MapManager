@@ -8,7 +8,7 @@ using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Serilog;
 
-namespace MapLibrary.ViewModels
+namespace MapManager.ViewModels
 {
     public class AddFontFormViewModel : ReactiveObject
     {

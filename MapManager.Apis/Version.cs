@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Reflection;
 
-namespace MapManager
+namespace MapManager.Apis
 {
     public static class Version
     {
@@ -19,7 +19,7 @@ namespace MapManager
                 if (attributes.Length > 0)
                 {
                     // Select the first one
-                    var titleAttribute = (AssemblyTitleAttribute) attributes[0];
+                    var titleAttribute = (AssemblyTitleAttribute)attributes[0];
                     // If it is not an empty string, return it
                     if (titleAttribute.Title != "")
                         return titleAttribute.Title;
@@ -49,7 +49,7 @@ namespace MapManager
                 if (attributes.Length == 0)
                     return "";
                 // If there is a Description attribute, return its value
-                return ((AssemblyDescriptionAttribute) attributes[0]).Description;
+                return ((AssemblyDescriptionAttribute)attributes[0]).Description;
             }
         }
 
@@ -67,7 +67,7 @@ namespace MapManager
                 if (attributes.Length == 0)
                     return "";
                 // If there is a Product attribute, return its value
-                return ((AssemblyProductAttribute) attributes[0]).Product;
+                return ((AssemblyProductAttribute)attributes[0]).Product;
             }
         }
 
@@ -85,7 +85,7 @@ namespace MapManager
                 if (attributes.Length == 0)
                     return "";
                 // If there is a Copyright attribute, return its value
-                return ((AssemblyCopyrightAttribute) attributes[0]).Copyright;
+                return ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
             }
         }
 
@@ -103,7 +103,7 @@ namespace MapManager
                 if (attributes.Length == 0)
                     return "";
                 // If there is a Company attribute, return its value
-                return ((AssemblyCompanyAttribute) attributes[0]).Company;
+                return ((AssemblyCompanyAttribute)attributes[0]).Company;
             }
         }
     }
