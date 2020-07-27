@@ -271,7 +271,6 @@
       <DependentUpon>LayerPropertyEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="ListViewColumnSorter.cs" />
-    <Compile Include="MapObjectHolder.cs" />
     <Compile Include="MapPropertyEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>

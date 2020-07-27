@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Forms;
+using MapManager.Apis.Map;
 using OSGeo.MapServer;
 
 namespace MapLibrary

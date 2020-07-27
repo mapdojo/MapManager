@@ -5,6 +5,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using MapManager.Apis.Map;
 using OSGeo.MapServer;
 using OSGeo.OGR;
 

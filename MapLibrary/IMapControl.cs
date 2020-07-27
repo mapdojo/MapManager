@@ -1,3 +1,5 @@
+using MapManager.Apis.Map;
+
 namespace MapLibrary
 {
     /// <summary>

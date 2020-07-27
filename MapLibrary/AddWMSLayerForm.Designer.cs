@@ -377,7 +377,6 @@ namespace MapLibrary
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add WMS Layer(s)";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddWMSLayerForm_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);

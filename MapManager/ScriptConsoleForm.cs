@@ -3,7 +3,7 @@ using System.CodeDom.Compiler;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
-using MapLibrary;
+using MapManager.Apis.Map;
 using OSGeo.MapServer;
 
 namespace MapManager

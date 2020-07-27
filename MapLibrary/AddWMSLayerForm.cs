@@ -4,16 +4,20 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Net;
+using System.Reactive.Linq;
 using System.Windows.Forms;
 using System.Xml;
+using MapManager.Apis.Map;
+using MapManager.ViewModels;
 using OSGeo.MapServer;
+using ReactiveUI;
 
 namespace MapLibrary
 {
     /// <summary>
     /// Represents a Form for adding WMS layers.
     /// </summary>
-    public partial class AddWMSLayerForm : Form
+    public partial class AddWMSLayerForm : Form, IViewFor<AddWMSLayerFormViewModel>
     {
         private MapObjectHolder target;
         private MapObjectHolder selected;
@@ -43,6 +47,15 @@ namespace MapLibrary
             this.map = target;
             this.target = target;
             UpdateControls();
+
+            var keyDown = Observable.FromEventPattern<KeyEventArgs>(this, "KeyDown");
+            keyDown.Subscribe(evt =>
+            {
+                if (evt.EventArgs.KeyCode == Keys.Escape)
+                    Close();
+            });
+
+            ViewModel = new AddWMSLayerFormViewModel(target);
         }
 
         /// <summary>
@@ -788,19 +801,6 @@ namespace MapLibrary
         }
 
         /// <summary>
-        /// KeyDown event handler of the AddWMSLayerForm control.
-        /// </summary>
-        /// <param name="sender">The source object of this event.</param>
-        /// <param name="e">The event parameters.</param>
-        private void AddWMSLayerForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Close();
-            }
-        }
-
-        /// <summary>
         /// Click event handler of the buttonProxy control.
         /// </summary>
         /// <param name="sender">The source object of this event.</param>
@@ -809,6 +809,14 @@ namespace MapLibrary
         {
             CredentialsForm form = new CredentialsForm("Specify Connection Settings", resolver);
             form.ShowDialog(this);
+        }
+
+        public AddWMSLayerFormViewModel ViewModel { get; set; }
+
+        object IViewFor.ViewModel
+        {
+            get => ViewModel;
+            set => ViewModel = (AddWMSLayerFormViewModel)value;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using MapManager.Apis.Map;
 using OSGeo.MapServer;
 
 namespace MapLibrary

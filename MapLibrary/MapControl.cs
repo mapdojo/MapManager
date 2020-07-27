@@ -6,6 +6,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 using MapLibrary.Properties;
+using MapManager.Apis.Map;
 using OSGeo.MapServer;
 
 namespace MapLibrary

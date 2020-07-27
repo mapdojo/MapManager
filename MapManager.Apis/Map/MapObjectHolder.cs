@@ -1,7 +1,7 @@
 using System;
 using OSGeo.MapServer;
 
-namespace MapLibrary
+namespace MapManager.Apis.Map
 {
     /// <summary>
     /// Wrapper class to store mapscript objects along with their parent objects.
@@ -43,7 +43,7 @@ namespace MapLibrary
         /// <param name="sender">The source object of the event.</param>
         /// <param name="zoom">Current zoom.</param>
         /// <param name="scale">Current scale.</param>
-        internal void RaiseZoomChanged(object sender, double zoom, double scale)
+        public void RaiseZoomChanged(object sender, double zoom, double scale)
         {
             if (ZoomChanged != null)
                 ZoomChanged(sender, zoom, scale);
@@ -251,8 +251,8 @@ namespace MapLibrary
         {
             if (obj.GetType() == typeof(MapObjectHolder))
                 return obj.Equals(target);
-            if (this.target.GetType() == obj.GetType())
-                return this.target.Equals(obj);
+            if (target.GetType() == obj.GetType())
+                return target.Equals(obj);
             return false;
         }
 

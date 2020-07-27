@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using MapManager.Apis.Map;
 using OSGeo.GDAL;
 using OSGeo.MapServer;
 using OSGeo.OGR;
