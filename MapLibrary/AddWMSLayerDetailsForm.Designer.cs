@@ -67,7 +67,6 @@ namespace MapLibrary
             this.buttonOK.TabIndex = 8;
             this.buttonOK.Text = "Close";
             this.buttonOK.UseVisualStyleBackColor = true;
-            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // textBoxServerName
             // 
@@ -150,7 +149,6 @@ namespace MapLibrary
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "WMS Server Details";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddWMSLayerDetailsForm_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
