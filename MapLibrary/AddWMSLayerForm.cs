@@ -8,6 +8,7 @@ using System.Reactive.Linq;
 using System.Windows.Forms;
 using System.Xml;
 using MapManager.Apis.Map;
+using MapManager.Apis.Wms;
 using MapManager.ViewModels;
 using OSGeo.MapServer;
 using ReactiveUI;
@@ -123,13 +124,8 @@ namespace MapLibrary
         /// </summary>
         public void LoadLayers()
         {
-            //Create the XmlDocument.
-            doc = new XmlDocument();
-            doc.XmlResolver = null;
-
             //serverURL = textBoxServer.Text.Trim().Split(new char[] { '?' })[0];
             serverURL = textBoxServer.Text.Trim();
-
 
             //steph: remove the check as it force user to encode \ in their URL (map=c:\data\mymap.map)
             //if url is not valid, let the app report it 
@@ -139,22 +135,13 @@ namespace MapLibrary
             //        "MapManager", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //    return;
             //}
-
             
             while (true)
             {
                 try
                 {
                     this.Cursor = Cursors.WaitCursor;
-                    XmlTextReader reader;
-                    if (serverURL.Contains("?"))
-                        reader = new XmlTextReader(serverURL + "&SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0");
-                    else
-                        reader = new XmlTextReader(serverURL + "?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0");
-
-                    reader.Namespaces = false;
-                    reader.XmlResolver = resolver;
-                    doc.Load(reader);
+                    doc = Capability.GetCapabilities(serverURL);
                     break;
                 }
                 catch (WebException wex)
@@ -192,16 +179,12 @@ namespace MapLibrary
             }
 
             // server version
-            XmlAttribute att = doc.DocumentElement.Attributes["version"];
-            wms_server_version = "1.1.1";
-            if (att != null)
-                wms_server_version = att.Value.Trim();
-            if (!wms_server_version.StartsWith("1.0") && !wms_server_version.StartsWith("1.1"))
-                wms_server_version = "1.1.1";
+            wms_server_version = MapManager.Apis.Wms.Version.GetVersion(doc);
 
             // load supported image types
+            var formatNodes = MapManager.Apis.Wms.Format.GetFormatNodes(doc);
             comboBoxImageFormat.Items.Clear();
-            foreach (XmlNode node in doc.SelectNodes("//Request/GetMap/Format"))
+            foreach (XmlNode node in formatNodes)
             {
                 int index = comboBoxImageFormat.Items.Add(node.InnerText.Trim());
                 if (comboBoxImageFormat.Items[index].ToString() == map.outputformat.mimetype || 
@@ -212,51 +195,11 @@ namespace MapLibrary
             }
 
             // load epsg values
-            Hashtable epsg = new Hashtable();
-            using (Stream s = File.OpenRead(Path.Combine(MapManager.Apis.Proj.ProjLibDirectory.FullName, "epsg")))
-            {
-                using (StreamReader reader = new StreamReader(s))
-                {
-                    string line;
-                    string projName = "";
-                    while ((line = reader.ReadLine()) != null)
-                    {
-                        if (line.StartsWith("#") && line.Length > 2)
-                            projName = line.Substring(2);
-                        else if (line.StartsWith("<"))
-                        {
-                            string[] items = line.Split(new char[] { '<', '>' },
-                                               StringSplitOptions.RemoveEmptyEntries);
-                            if (items.Length > 0)
-                                epsg.Add("EPSG:" + items[0], projName);
-                        }
-                    }
-                }
-            }
+            Hashtable epsg = Epsg.GetEpsg();
 
             // load projections
-            Dictionary<string, string> projections = new Dictionary<string, string>();
-            string selectedProj = null;
-            foreach (XmlNode srs in doc.SelectNodes("//CRS | //SRS"))
-            {
-                string[] srs2 = srs.InnerText.Split();
-                foreach (string s in srs2)
-                {
-                    if (!projections.ContainsKey(s))
-                    {
-                        if (epsg.ContainsKey(s))
-                            projections.Add(s, epsg[s].ToString());
-                        else
-                            projections.Add(s, s);
+            sortedProj = Projection.GetProjections(doc, epsg, out string selectedProj);
 
-                        if (s.Contains("EPSG:4326"))
-                            selectedProj = epsg[s].ToString();
-                    }
-                }
-            }
-
-            sortedProj = new List<KeyValuePair<string, string>>(projections);
-            
             bs = new BindingSource();
             bs.DataSource = sortedProj;
             comboBoxProj.DataSource = bs;
@@ -280,7 +223,8 @@ namespace MapLibrary
             treeViewLayers.BeginUpdate();
             treeViewLayers.Nodes.Clear();
             listViewLayers.Items.Clear();
-            foreach (XmlNode node in doc.SelectNodes("//Capability/Layer"))
+            var layerNodes = Capability.GetLayerNodes(doc);
+            foreach (XmlNode node in layerNodes)
             {
                 AddLayerNode(treeViewLayers.Nodes, node);
             }
@@ -351,11 +295,6 @@ namespace MapLibrary
         {
             UpdateProjBinding();   
         }
-
-        /// <summary>
-        /// Enum for the layer inheritance (see WMS specification)
-        /// </summary>
-        private enum LayerInheritConstants { No, Add, Replace};
 
         /// <summary>
         /// Get the property of the layer in the hierarchy

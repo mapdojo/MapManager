@@ -332,7 +332,6 @@
     <Compile Include="TreeViewNoImage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="XmlProxyUrlResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddGraticuleLayerForm.resx">

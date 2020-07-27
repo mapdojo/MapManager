@@ -2,7 +2,7 @@
 using System.Net;
 using System.Xml;
 
-namespace MapLibrary
+namespace MapManager.Apis.Wms
 {
     /// <summary>
     /// XmlProxyUrlResolver Class

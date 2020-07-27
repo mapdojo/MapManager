@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MapManager.Apis.Wms;
+using System;
 using System.ComponentModel;
 using System.Net;
 using System.Windows.Forms;
