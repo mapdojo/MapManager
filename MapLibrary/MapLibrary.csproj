@@ -329,6 +329,7 @@
     <Compile Include="ThemeWizardForm.Designer.cs">
       <DependentUpon>ThemeWizardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TreeNodeView.cs" />
     <Compile Include="TreeViewNoImage.cs">
       <SubType>Component</SubType>
     </Compile>

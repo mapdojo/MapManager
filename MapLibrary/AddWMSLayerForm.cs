@@ -73,24 +73,10 @@ namespace MapLibrary
         /// <param name="layerDesc">The XML data for the layer node</param>
         private void AddLayerNode(TreeNodeCollection nodes, XmlNode layerDesc)
         {
-            string title = layerDesc.SelectSingleNode("Title").InnerText;
-            TreeNode layerNode = new TreeNode(title);
-            XmlAttribute att = layerDesc.Attributes["queryable"];
-            if (att != null && att.Value.Trim() == "1")
-            {
-                layerNode.ImageIndex = 0;
-                layerNode.SelectedImageIndex = 0;
-            }
-            else
-            {
-                layerNode.ImageIndex = TreeViewNoImage.NOIMAGE;
-                layerNode.SelectedImageIndex = TreeViewNoImage.NOIMAGE;
-            }
-            
-            layerNode.Tag = layerDesc; // wire up the layer XML in the node
+            var layerNode = new TreeNodeView(layerDesc);
             nodes.Add(layerNode);
             // add sublayers (if any)
-            foreach (XmlNode node in layerDesc.SelectNodes("Layer"))
+            foreach (XmlNode node in layerNode.ViewModel.LayerNodes)
             {
                 AddLayerNode(layerNode.Nodes, node);
             }
@@ -280,7 +266,7 @@ namespace MapLibrary
         /// <param name="prop">The property name</param>
         /// <param name="inherit">The type of the inheritance (see WMS specification)</param>
         /// <returns></returns>
-        private List<XmlNode> GetLayerProp(TreeNode node, string xpath, LayerInheritConstants inherit)
+        private List<XmlNode> GetLayerProp(TreeNodeView node, string xpath, LayerInheritConstants inherit)
         {
             XmlNode layerDesc = (XmlNode)node.Tag;
             XmlNodeList propNodes = layerDesc.SelectNodes(xpath);
@@ -292,13 +278,13 @@ namespace MapLibrary
             {
                 // trying to find the property from the parent layer
                 if (propNodes.Count == 0 || inherit == LayerInheritConstants.Add)
-                    retNodes.AddRange(GetLayerProp(node.Parent, xpath, inherit));
+                    retNodes.AddRange(GetLayerProp((TreeNodeView)node.Parent, xpath, inherit));
             }
             
             return retNodes;
         }
 
-        private void GetLayerAttributes(TreeNode node)
+        private void GetLayerAttributes(TreeNodeView node)
         {
             XmlNode minx = null;
             XmlNode miny = null;
@@ -536,7 +522,7 @@ namespace MapLibrary
                     wms_maxscaledenom = -1;
                     wms_queryable = null;
                     foreach (ListViewItem item in listViewLayers.Items)
-                        GetLayerAttributes((TreeNode)item.Tag);
+                        GetLayerAttributes((TreeNodeView)item.Tag);
 
                     AddLayerToMap();
                 }
@@ -552,7 +538,7 @@ namespace MapLibrary
                         wms_maxscaledenom = -1;
                         wms_queryable = null;
 
-                        GetLayerAttributes((TreeNode)item.Tag);
+                        GetLayerAttributes((TreeNodeView)item.Tag);
                         AddLayerToMap();
                     }
                 }
@@ -596,7 +582,7 @@ namespace MapLibrary
         /// <param name="e">The event parameters.</param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            TreeNode node = treeViewLayers.SelectedNode;
+            var node = (TreeNodeView)treeViewLayers.SelectedNode;
             ListViewItem item = new ListViewItem(node.Text);
             item.Tag = node; // must preserve the hierarchy (inheritance)
             XmlAttribute att = ((XmlNode)node.Tag).Attributes["queryable"];
@@ -698,7 +684,7 @@ namespace MapLibrary
         private void listViewLayers_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listViewLayers.SelectedItems.Count > 0)
-                UpdateLayerParams((XmlNode)((TreeNode)listViewLayers.SelectedItems[0].Tag).Tag);
+                UpdateLayerParams((XmlNode)((TreeNodeView)listViewLayers.SelectedItems[0].Tag).Tag);
             UpdateControls();
         }
 
