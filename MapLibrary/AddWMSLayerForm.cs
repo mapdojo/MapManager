@@ -23,18 +23,13 @@ namespace MapLibrary
         private MapObjectHolder target;
         private MapObjectHolder selected;
         private mapObj map;
-        XmlDocument doc;
-        string wms_server_version;
         BindingSource bs;
-        List<KeyValuePair<string, string>> sortedProj;
         rectObj wms_bbox;
         string wms_name;
         string wms_title;
         string wms_queryable;
         double wms_minscaledenom;
         double wms_maxscaledenom;
-
-        static XmlProxyUrlResolver resolver = new XmlProxyUrlResolver();
 
         /// <summary>
         /// Constructs a new AddWMSLayerForm class.
@@ -46,8 +41,7 @@ namespace MapLibrary
                 throw new ApplicationException("Invalid object type.");
             this.map = target;
             this.target = target;
-            UpdateControls();
-
+            
             var keyDown = Observable.FromEventPattern<KeyEventArgs>(this, "KeyDown");
             keyDown.Subscribe(evt =>
             {
@@ -59,6 +53,8 @@ namespace MapLibrary
             this.BindCommand(ViewModel, a => a.Load, b => b.buttonLoadLayers); // TODO: Handle Loading in ViewModel
 
             ViewModel = new AddWMSLayerFormViewModel(target);
+
+            UpdateControls();
         }
 
         /// <summary>
@@ -109,7 +105,7 @@ namespace MapLibrary
             buttonRemove.Enabled = false;
             buttonUp.Enabled = false;
             buttonDown.Enabled = false;
-            buttonDetails.Enabled = (doc != null);
+            buttonDetails.Enabled = (ViewModel.XmlDocument != null);
 
             if (listViewLayers.SelectedItems.Count > 0)
             {
@@ -131,7 +127,7 @@ namespace MapLibrary
                 try
                 {
                     this.Cursor = Cursors.WaitCursor;
-                    doc = Capability.GetCapabilities(ViewModel.ServerUrl.Trim());
+                    ViewModel.XmlDocument = Capability.GetCapabilities(ViewModel.ServerUrl.Trim());
                     break;
                 }
                 catch (WebException wex)
@@ -144,7 +140,7 @@ namespace MapLibrary
                             httpResponse.StatusCode == HttpStatusCode.ProxyAuthenticationRequired)
                         {
                             CredentialsForm form = new CredentialsForm("Authentication required for " + ViewModel.ServerUrl, 
-                                    resolver);
+                                    ViewModel.XmlProxyUrlResolver);
                             if (form.ShowDialog(this) == DialogResult.OK)
                             {
                                 continue;
@@ -168,11 +164,8 @@ namespace MapLibrary
                 }
             }
 
-            // server version
-            wms_server_version = MapManager.Apis.Wms.Version.GetVersion(doc);
-
             // load supported image types
-            var formatNodes = Format.GetFormatNodes(doc);
+            var formatNodes = ViewModel.Formats;
             comboBoxImageFormat.Items.Clear();
             foreach (XmlNode node in formatNodes)
             {
@@ -184,20 +177,14 @@ namespace MapLibrary
                     comboBoxImageFormat.SelectedIndex = index;
             }
 
-            // load epsg values
-            Hashtable epsg = Epsg.GetEpsg();
-
-            // load projections
-            sortedProj = Projection.GetProjections(doc, epsg, out string selectedProj);
-
             bs = new BindingSource();
-            bs.DataSource = sortedProj;
+            bs.DataSource = ViewModel.Projections;
             comboBoxProj.DataSource = bs;
             
             UpdateProjBinding();
 
-            if (selectedProj != null)
-                comboBoxProj.SelectedValue = selectedProj;
+            if (ViewModel.SelectedProjection != null)
+                comboBoxProj.SelectedValue = ViewModel.SelectedProjection;
 
             if (comboBoxImageFormat.SelectedIndex < 0 && comboBoxImageFormat.Items.Count > 0)
                 comboBoxImageFormat.SelectedIndex = 0;
@@ -213,7 +200,7 @@ namespace MapLibrary
             treeViewLayers.BeginUpdate();
             treeViewLayers.Nodes.Clear();
             listViewLayers.Items.Clear();
-            var layerNodes = Capability.GetLayerNodes(doc);
+            var layerNodes = Capability.GetLayerNodes(ViewModel.XmlDocument);
             foreach (XmlNode node in layerNodes)
             {
                 AddLayerNode(treeViewLayers.Nodes, node);
@@ -236,9 +223,9 @@ namespace MapLibrary
             
             if (checkBoxProj.Checked)
             {    
-                if (sortedProj != null)
+                if (ViewModel.Projections != null)
                 {
-                    sortedProj.Sort(delegate(KeyValuePair<string, string> a, KeyValuePair<string, string> b)
+                    ViewModel.Projections.Sort(delegate(KeyValuePair<string, string> a, KeyValuePair<string, string> b)
                     {
                         return a.Value.CompareTo(b.Value);
                     });
@@ -256,9 +243,9 @@ namespace MapLibrary
             }
             else
             {
-                if (sortedProj != null)
+                if (ViewModel.Projections != null)
                 {
-                    sortedProj.Sort(delegate(KeyValuePair<string, string> a, KeyValuePair<string, string> b)
+                    ViewModel.Projections.Sort(delegate(KeyValuePair<string, string> a, KeyValuePair<string, string> b)
                     {
                         return a.Key.CompareTo(b.Key);
                     });
@@ -405,21 +392,21 @@ namespace MapLibrary
             layer.status = mapscript.MS_ON;
 
             // set up authentication
-            NetworkCredential cred = (NetworkCredential)resolver.GetCredentials();
+            NetworkCredential cred = (NetworkCredential)ViewModel.XmlProxyUrlResolver.GetCredentials();
             if (cred != null)
             {
                 layer.metadata.set("wms_auth_username", cred.UserName);
                 layer.metadata.set("wms_auth_password", cred.Password);
                 layer.metadata.set("wms_auth_type", "any");
             }
-            WebProxy proxy = (WebProxy)resolver.Proxy;
+            WebProxy proxy = (WebProxy)ViewModel.XmlProxyUrlResolver.Proxy;
             if (proxy != null)
             {
                 layer.metadata.set("wms_proxy_host", proxy.Address.Host);
                 layer.metadata.set("wms_proxy_port", proxy.Address.Port.ToString());
                 layer.metadata.set("wms_proxy_auth_type", "any");
-                layer.metadata.set("wms_proxy_type", resolver.ProxyType);
-                cred = (NetworkCredential)resolver.GetProxyCredentials();
+                layer.metadata.set("wms_proxy_type", ViewModel.XmlProxyUrlResolver.ProxyType);
+                cred = (NetworkCredential)ViewModel.XmlProxyUrlResolver.GetProxyCredentials();
                 if (cred != null)
                 {
                     layer.metadata.set("wms_proxy_username", cred.UserName);
@@ -438,7 +425,7 @@ namespace MapLibrary
             layer.metadata.set("wms_name", wms_name);
             layer.metadata.set("wms_format", comboBoxImageFormat.Text.Trim());
  
-            layer.metadata.set("wms_server_version", wms_server_version);
+            layer.metadata.set("wms_server_version", ViewModel.ServerVersion);
 
             if (!colorPickerLayerColor.Value.IsEmpty)
             {
@@ -722,9 +709,9 @@ namespace MapLibrary
         /// <param name="e">The event parameters.</param>
         private void buttonDetails_Click(object sender, EventArgs e)
         {
-            if (doc != null)
+            if (ViewModel.XmlDocument != null)
             {
-                AddWMSLayerDetailsForm form = new AddWMSLayerDetailsForm(doc, ViewModel.ServerUrl, wms_server_version);
+                AddWMSLayerDetailsForm form = new AddWMSLayerDetailsForm(ViewModel.XmlDocument, ViewModel.ServerUrl, ViewModel.ServerVersion);
                 form.ShowDialog(this);
             }
         }
@@ -736,7 +723,7 @@ namespace MapLibrary
         /// <param name="e">The event parameters.</param>
         private void buttonConnection_Click(object sender, EventArgs e)
         {
-            CredentialsForm form = new CredentialsForm("Specify Connection Settings", resolver);
+            CredentialsForm form = new CredentialsForm("Specify Connection Settings", ViewModel.XmlProxyUrlResolver);
             form.ShowDialog(this);
         }
 

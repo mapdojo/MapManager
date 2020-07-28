@@ -8,10 +8,9 @@ namespace MapManager.Apis.Wms
 {
     public class Projection
     {
-        public static List<KeyValuePair<string, string>> GetProjections(XmlDocument doc, Hashtable epsg, out string selectedProj)
+        public static List<KeyValuePair<string, string>> GetProjections(XmlDocument doc, Hashtable epsg)
         {
             Dictionary<string, string> projections = new Dictionary<string, string>();
-            selectedProj = null;
             foreach (XmlNode srs in doc.SelectNodes("//CRS | //SRS"))
             {
                 string[] srs2 = srs.InnerText.Split();
@@ -23,9 +22,6 @@ namespace MapManager.Apis.Wms
                             projections.Add(s, epsg[s].ToString());
                         else
                             projections.Add(s, s);
-
-                        if (s.Contains("EPSG:4326"))
-                            selectedProj = epsg[s].ToString();
                     }
                 }
             }
