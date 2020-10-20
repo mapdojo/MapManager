@@ -87,8 +87,8 @@
     <Reference Include="ReactiveUI.Winforms, Version=11.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ReactiveUI.WinForms.11.4.17\lib\net461\ReactiveUI.Winforms.dll</HintPath>
     </Reference>
-    <Reference Include="ScintillaNET, Version=3.6.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\jacobslusser.ScintillaNET.3.6.3\lib\net40\ScintillaNET.dll</HintPath>
+    <Reference Include="ScintillaNet">
+      <HintPath>..\ExternalFiles\ScintillaNet.dll</HintPath>
     </Reference>
     <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <HintPath>..\packages\Serilog.2.9.0\lib\net46\Serilog.dll</HintPath>
@@ -178,7 +178,6 @@
     <Compile Include="AddStyleCategoryForm.Designer.cs">
       <DependentUpon>AddStyleCategoryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MapLexer.cs" />
     <Compile Include="FieldSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -113,8 +113,8 @@
       <HintPath>..\packages\ReactiveUI.WinForms.11.4.17\lib\net461\ReactiveUI.Winforms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ScintillaNET, Version=3.6.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\jacobslusser.ScintillaNET.3.6.3\lib\net40\ScintillaNET.dll</HintPath>
+    <Reference Include="ScintillaNet">
+      <HintPath>..\ExternalFiles\ScintillaNet.dll</HintPath>
     </Reference>
     <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <HintPath>..\packages\Serilog.2.9.0\lib\net46\Serilog.dll</HintPath>
@@ -389,6 +389,8 @@
   -->
   <PropertyGroup>
     <PreBuildEvent>
+copy $(SolutionDir)ExternalFiles\SciLexer.dll $(TargetDir)
+copy $(SolutionDir)..\Apis\bin\*.dll $(TargetDir)
 copy $(SolutionDir)..\Apis\bin\*.dll $(TargetDir)
 copy $(SolutionDir)..\Apis\bin\gdal-data\*.* $(TargetDir)
 copy $(SolutionDir)..\Apis\bin\curl\curl-ca-bundle.crt $(TargetDir)

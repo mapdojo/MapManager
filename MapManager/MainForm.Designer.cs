@@ -1,4 +1,5 @@
 using MapLibrary;
+using ScintillaNet;
 
 namespace MapManager
 {
@@ -116,7 +117,7 @@ namespace MapManager
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.mapControl = new MapControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.scintillaControl = new ScintillaNET.Scintilla();
+            this.scintillaControl = new Scintilla();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.toolStripMain.SuspendLayout();
@@ -1041,7 +1042,7 @@ namespace MapManager
         private MapControl mapControl;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ImageList imageListTabs;
-        private ScintillaNET.Scintilla scintillaControl;
+        private Scintilla scintillaControl;
         private System.Windows.Forms.TabControl tabControlContents;
         private System.Windows.Forms.ToolStripButton toolStripButtonHelp;
         private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;

@@ -1,3 +1,5 @@
+using ScintillaNet;
+
 namespace MapLibrary
 {
     partial class StyleLibraryForm
@@ -38,9 +40,9 @@ namespace MapLibrary
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.layerControlStyles = new LayerControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.scintillaControl = new ScintillaNET.Scintilla();
+            this.scintillaControl = new Scintilla();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.scintillaControlSymbolset = new ScintillaNET.Scintilla();
+            this.scintillaControlSymbolset = new Scintilla();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.listViewFonts = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -382,12 +384,12 @@ namespace MapLibrary
         private System.Windows.Forms.TabPage tabPage1;
         private LayerControl layerControlStyles;
         private System.Windows.Forms.TabPage tabPage2;
-        private ScintillaNET.Scintilla scintillaControl;
+        private Scintilla scintillaControl;
         private System.Windows.Forms.PictureBox pictureBoxSample;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timerRefresh;
         private System.Windows.Forms.TabPage tabPage3;
-        private ScintillaNET.Scintilla scintillaControlSymbolset;
+        private Scintilla scintillaControlSymbolset;
         private System.Windows.Forms.Panel panelRefresh;
         private System.Windows.Forms.Label labelRefresh;
         private System.Windows.Forms.TextBox textBoxInfo;

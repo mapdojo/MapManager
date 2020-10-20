@@ -15,7 +15,7 @@ using OSGeo.MapServer;
 using OSGeo.OGR;
 using OSGeo.OSR;
 using ReactiveUI;
-using ScintillaNET;
+using ScintillaNet;
 using Serilog;
 
 namespace MapManager
@@ -68,25 +68,9 @@ namespace MapManager
 
                 var curlCaBundleCrt = new FileInfo(Path.Combine(Environment.CurrentDirectory, "curl-ca-bundle.crt"));
                 Apis.Curl.SetCurlCertificateAuthorityBundleEnvironment(curlCaBundleCrt);
-                
-                scintillaControl.StyleResetDefault();
-                scintillaControl.Styles[Style.Default].Font = "Consolas";
-                scintillaControl.Styles[Style.Default].Size = 10;
-                scintillaControl.StyleClearAll();
 
-                scintillaControl.Styles[MapLexer.StyleDefault].ForeColor = Color.Black;
-                scintillaControl.Styles[MapLexer.StyleKeyword].ForeColor = Color.Blue;
-                scintillaControl.Styles[MapLexer.StyleIdentifier].ForeColor = Color.Teal;
-                scintillaControl.Styles[MapLexer.StyleNumber].ForeColor = Color.Purple;
-                scintillaControl.Styles[MapLexer.StyleString].ForeColor = Color.Red;
-
-                scintillaControl.Lexer = Lexer.Container;
-                scintillaControl.StyleNeeded += scintilla_StyleNeeded;
-
-                scintillaControl.TabWidth = 4;
-                scintillaControl.CharAdded += ScintillaControl_CharAdded;
-
-                scintillaControl.TextChanged += ScintillaControl_TextChanged;
+                this.scintillaControl.ConfigurationManager.Language = "user";
+                this.scintillaControl.ConfigurationManager.Configure(new ScintillaNet.Configuration.Configuration(Environment.CurrentDirectory + "\\MapfileConfig.xml", "user", true));
             }
             catch (Exception ex)
             {
@@ -106,33 +90,6 @@ namespace MapManager
             SetMargins();
             textChanged = true;
             SetDirty(true);
-        }
-
-        private void ScintillaControl_CharAdded(object sender, CharAddedEventArgs e)
-        {
-            // Find the word start
-            var currentPos = scintillaControl.CurrentPosition;
-            var wordStartPos = scintillaControl.WordStartPosition(currentPos, true);
-
-            // Display the autocompletion list
-            var lenEntered = currentPos - wordStartPos;
-            if (lenEntered > 0)
-            {
-                if (!scintillaControl.AutoCActive)
-                {
-                    scintillaControl.AutoCShow(lenEntered, "ALIGN ANCHORPOINT ANGLE ANTIALIAS BACKGROUNDCOLOR BANDSITEM BINDVALS BROWSEFORMAT BUFFER CHARACTER CLASS CLASSGROUP CLASSITEM CLUSTER COLOR COLORRANGE CONFIG CONNECTION CONNECTIONTYPE DATA DATAPATTERN DATARANGE DEBUG DEFRESOLUTION DRIVER DUMP EMPTY ENCODING END ERROR EXPRESSION EXTENSION EXTENT FEATURE FILEPATTERN FILLED FILTER FILTERITEM FOOTER FONT FONTSET FORCE FORMATOPTION FROM GAP GEOMTRANSFORM GRATICULE GRID GRIDSTEP GROUP HEADER IMAGE IMAGECOLOR IMAGEMODE IMAGEPATH IMAGEQUALITY IMAGETYPE IMAGEURL INCLUDE INDEX INITIALGAP INTERLACE INTERVALS ITEMS JOIN KEYIMAGE KEYSIZE KEYSPACING LABEL LABELCACHE LABELFORMAT LABELITEM LABELMAXSCALE LABELMAXSCALEDENOM LABELMINSCALE LABELMINSCALEDENOM LABELREQUIRES LATLON LAYER LEADER LEGEND LEGENDFORMAT LINECAP LINEJOIN LINEJOINMAXSIZE LOG MAP MARKER MARKERSIZE MASK MAXARCS MAXBOXSIZE MAXDISTANCE MAXFEATURES MAXGEOWIDTH MAXINTERVAL MAXLENGTH MAXOVERLAPANGLE MAXSCALE MAXSCALEDENOM MAXSIZE MAXSUBDIVIDE MAXTEMPLATE MAXWIDTH METADATA MIMETYPE MINARCS MINBOXSIZE MINDISTANCE MINFEATURESIZE MINGEOWIDTH MININTERVAL MINLENGTH MINSCALE MINSCALEDENOM MINSIZE MINSUBDIVIDE MINTEMPLATE MINWIDTH NAME NFTEMPLATE OFFSET OFFSITE OPACITY OUTLINECOLOR OUTLINEWIDTH OUTPUTFORMAT OVERLAYBACKGROUNDCOLOR OVERLAYCOLOR OVERLAYMAXSIZE OVERLAYMINSIZE OVERLAYOUTLINECOLOR OVERLAYSIZE OVERLAYSYMBOL PARTIALS PLUGIN PATTERN POINTS POLAROFFSET POSITION POSTLABELCACHE PRIORITY PROCESSING PROJECTION QUERY QUERYFORMAT QUERYITEM QUERYMAP RANGEITEM REFERENCE REGION RELATIVETO REPEATDISTANCE REQUIRES RESOLUTION SCALE SCALEDENOM SCALEBAR SHADOWCOLOR SHADOWSIZE SHAPEPATH SIZE SIZEUNITS STATUS STYLE STYLEITEM SYMBOL SYMBOLSCALE SYMBOLSCALEDENOM SYMBOLSET TABLE TEMPLATE TEMPLATEPATTERN TEMPPATH TEXT TEXTITEM TILEINDEX TILEITEM TITLE TO TOLERANCE TOLERANCEUNITS TRANSPARENCY TRANSPARENT TRANSFORM TYPE UNION UNITS VALIDATION WEB WIDTH WKT WRAP");
-                }
-            }
-        }
-
-        private readonly MapLexer mapLexer = new MapLexer("class const int namespace partial public static string using void LEGEND MAP LAYER");
-
-        private void scintilla_StyleNeeded(object sender, StyleNeededEventArgs e)
-        {
-            var startPos = scintillaControl.GetEndStyled();
-            var endPos = e.Position;
-
-            mapLexer.Style(scintillaControl, startPos, endPos);
         }
         
         /// <summary>
@@ -747,7 +704,6 @@ namespace MapManager
         /// <param name="e">The event parameters.</param>
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            scintillaControl.EmptyUndoBuffer();
             NewMap();
         }
 
@@ -1751,28 +1707,22 @@ namespace MapManager
         /// <param name="e">Event parameters.</param>
         private void MainForm_Activated(object sender, EventArgs e)
         {
-            if (fileHasChanged)
-            {
-                fileHasChanged = false;
-
-                StringBuilder msg = new StringBuilder();
-                msg.Append("The file ");
-                msg.Append(fileName);
-                msg.Append(" has been modified outside of MapManager. Do you want to reload it");
-                if (dirtyFlag)
-                    msg.Append(" and loose the changes made in MapManager");
-                msg.Append("?");
-
-                if (MessageBox.Show(msg.ToString(), "MapManager",
-                           MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    dirtyFlag = false;
-                    buttonApply.Enabled = false;
-                    OpenMap(fileName, isTemplate);
-                    int pos = scintillaControl.CurrentPosition;
-                    //scintillaControl.CurrentPos = pos;
-                }
-            }
+            if (!this.fileHasChanged)
+                return;
+            this.fileHasChanged = false;
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append("The file ");
+            stringBuilder.Append(this.fileName);
+            stringBuilder.Append(" has been modified outside of MapManager. Do you want to reload it");
+            if (this.dirtyFlag)
+                stringBuilder.Append(" and lose the changes made in MapManager");
+            stringBuilder.Append("?");
+            if (MessageBox.Show(stringBuilder.ToString(), "MapManager", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+            this.dirtyFlag = false;
+            this.buttonApply.Enabled = false;
+            int currentPos = this.scintillaControl.CurrentPos;
+            this.OpenMap(this.fileName, this.isTemplate);
         }
 
         /// <summary>
@@ -1812,9 +1762,9 @@ namespace MapManager
         private void SetMargins()
         {
             // adjust margin width (text width + padding)
-            scintillaControl.Margins[0].Width = scintillaControl.TextWidth(33, scintillaControl.Lines.Count.ToString()) + 6;
-            scintillaControl.Margins[1].Width = 0;
-            scintillaControl.Margins[2].Width = 20;
+            this.scintillaControl.Margins.Margin0.Width = this.scintillaControl.NativeInterface.TextWidth(33, this.scintillaControl.Lines.Count.ToString()) + 6;
+      		this.scintillaControl.Margins.Margin1.Width = 0;
+      		this.scintillaControl.Margins.Margin2.Width = 20;
         }
 
         /// <summary>
@@ -1822,26 +1772,23 @@ namespace MapManager
         /// </summary>
         private void LoadTextContents()
         {
-            // saving the map into a temporary file
-            if ((mapObj)mapControl.Target != null)
+            mapObj mapObject = (mapObj)this.mapControl.Target;
+            if (mapObject == null)
+                return;
+            string text = string.Empty;
+            text = mapObject.convertToString();
+            if (!(this.scintillaControl.Text != text))
+                return;
+            this.scintillaControl.Text = text;
+            this.SetMargins();
+            if (this.caretPos > 0)
             {
-                string txt = ((mapObj)mapControl.Target).convertToString();
-
-                if (scintillaControl.Text != txt)
-                {
-                    scintillaControl.Text = txt;
-                    SetMargins();
-
-                    if (caretPos > 0)
-                    {
-                        scintillaControl.SelectionStart = caretPos;
-                        scintillaControl.CurrentPosition = caretPos;
-                    }
-                    if (scrollPos > 0)
-                        scintillaControl.ScrollRange(0, scrollPos);
-                    textChanged = false;
-                }
+                this.scintillaControl.Selection.Start = this.caretPos;
+                this.scintillaControl.Caret.Position = this.caretPos;
             }
+            if (this.scrollPos > 0)
+                this.scintillaControl.Scrolling.ScrollBy(0, this.scrollPos);
+            this.textChanged = false;
         }
 
         /// <summary>
@@ -1908,23 +1855,34 @@ namespace MapManager
         /// <param name="e">The event parameters.</param>
         private void tabControlContents_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControlContents.SelectedIndex == 0)
+            if (this.tabControlContents.SelectedIndex == 0)
             {
-                scrollPos = scintillaControl.FirstVisibleLine;
-                caretPos = scintillaControl.CurrentPosition;
-
-                ValidateTextContents();
+                this.scrollPos = this.scintillaControl.Lines.FirstVisible.Number;
+                this.caretPos = this.scintillaControl.Caret.Position;
+                this.ValidateTextContents();
             }
-            else if (tabControlContents.SelectedIndex == 1)
+            else if (this.tabControlContents.SelectedIndex == 1)
             {
-                ConfirmChanges();
-
-                LoadTextContents();
-                scintillaControl.Focus();
-                textChanged = false;
+                this.ConfirmChanges();
+                this.LoadTextContents();
+                this.scintillaControl.Focus();
+                this.textChanged = false;
             }
+            this.UpdateMenuState();
+        }
 
-            UpdateMenuState();
+        private void scintillaControl_TextInserted(object sender, TextModifiedEventArgs e)
+        {
+            this.SetMargins();
+            this.textChanged = true;
+            this.SetDirty(true);
+        }
+
+        private void scintillaControl_TextDeleted(object sender, TextModifiedEventArgs e)
+        {
+            this.SetMargins();
+            this.textChanged = true;
+            this.SetDirty(true);
         }
 
         /// <summary>
@@ -1936,40 +1894,36 @@ namespace MapManager
         {
             if (layer == null)
                 return;
-
-            int pos = 0;
-            int layerindex = layer.index;
-            if (tabControlContents.SelectedIndex != 1)
+            this.scintillaControl.Text = "";
+            this.scrollPos = 0;
+            this.caretPos = 0;
+            this.tabControlContents.SelectedIndex = 1;
+            int num = 0;
+            int index = layer.index;
+            using (StringReader stringReader = new StringReader(this.scintillaControl.Text))
             {
-                scrollPos = 0;
-                caretPos = 0;
-                scintillaControl.Text = "";
-                tabControlContents.SelectedIndex = 1;
-            }
-
-            using (StringReader reader = new StringReader(scintillaControl.Text))
-            {
-                string line;
-                while ((line = reader.ReadLine()) != null)
+                string str;
+                while ((str = stringReader.ReadLine()) != null)
                 {
-                    if (line.Trim() == "LAYER")
+                    if (str.Trim() == "LAYER")
                     {
-                        if (layerindex < 0) // class not found
+                        if (index >= 0)
+                            --index;
+                        else
                             break;
-                        --layerindex;
                     }
-                    else if (layerindex < 0 && classindex >= 0 && line.Trim() == "CLASS")
-                    {
+                    else if (index < 0 && classindex >= 0 && str.Trim() == "CLASS")
                         --classindex;
+                    if (index < 0)
+                    {
+                        if (classindex < 0)
+                            break;
                     }
-                    if (layerindex < 0 && classindex < 0)
-                        break;
-
-                    ++pos;
+                    ++num;
                 }
             }
-            scintillaControl.Lines[pos].Goto();
-            scrollPos = pos;
+            this.scrollPos = num;
+            this.scintillaControl.Scrolling.ScrollBy(0, this.scrollPos);
         }
 
         /// <summary>
@@ -1991,7 +1945,7 @@ namespace MapManager
         private void findToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControlContents.SelectedIndex = 1;
-            //TODO: https://github.com/Stumpii/ScintillaNET-FindReplaceDialog
+			scintillaControl.FindReplace.ShowFind();
         }
 
         /// <summary>
@@ -2002,7 +1956,7 @@ namespace MapManager
         private void replaceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControlContents.SelectedIndex = 1;
-            // TODO: https://github.com/Stumpii/ScintillaNET-FindReplaceDialog
+            scintillaControl.FindReplace.ShowReplace();
         }
 
         /// <summary>
