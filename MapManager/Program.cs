@@ -43,28 +43,45 @@ namespace MapManager
         {
             try
             {
-                String strFile = File.ReadAllText("Default\\Default.map");
-                strFile = strFile.Replace("FONTSET \"font.list\"",
-                    "FONTSET \"" + (Application.StartupPath + "\\Default\\font.list\"").Replace("\\", "\\\\"));
-                strFile = strFile.Replace("SYMBOLSET \"symbols.sym\"",
-                    "SYMBOLSET \"" + (Application.StartupPath + "\\Default\\symbols.sym\"").Replace("\\", "\\\\"));
-                File.WriteAllText("Default\\Default.map", strFile);
+                if (!Apis.Config.SharedFontList.File.Exists)
+                {
+                    File.Copy(Apis.Config.DefaultFontList.File.FullName, Apis.Config.SharedFontList.File.FullName);
+                }
 
-                // set references in StyleLibrary.map
-                strFile = File.ReadAllText("Default\\StyleLibrary.map");
-                strFile = strFile.Replace("FONTSET \"font.list\"",
-                    "FONTSET \"" + (Application.StartupPath + "\\Default\\font.list\"").Replace("\\", "\\\\"));
-                strFile = strFile.Replace("SYMBOLSET \"symbols.sym\"",
-                    "SYMBOLSET \"" + (Application.StartupPath + "\\Default\\symbols.sym\"").Replace("\\", "\\\\"));
-                File.WriteAllText("Default\\StyleLibrary.map", strFile);
+                if (!Apis.Config.SharedSymbols.File.Exists)
+                {
+                    File.Copy(Apis.Config.DefaultSymbols.File.FullName, Apis.Config.SharedSymbols.File.FullName);
+                }
 
-                // set references in Annotation.map
-                strFile = File.ReadAllText("Default\\Annotation.map");
-                strFile = strFile.Replace("FONTSET \"font.list\"",
-                    "FONTSET \"" + (Application.StartupPath + "\\Default\\font.list\"").Replace("\\", "\\\\"));
-                strFile = strFile.Replace("SYMBOLSET \"symbols.sym\"",
-                    "SYMBOLSET \"" + (Application.StartupPath + "\\Default\\symbols.sym\"").Replace("\\", "\\\\"));
-                File.WriteAllText("Default\\Annotation.map", strFile);
+                // set references in Default.map
+                var replaceMapText = File.ReadAllText(Apis.Config.DefaultMap.File.FullName);
+                replaceMapText = replaceMapText.Replace("FONTSET \"font.list\"",
+                    $"FONTSET \"{Apis.Config.SharedFontList.File.FullName.Replace(@"\", @"\\")}\"");
+                replaceMapText = replaceMapText.Replace("SYMBOLSET \"symbols.sym\"",
+                    $"SYMBOLSET \"{Apis.Config.SharedSymbols.File.FullName.Replace(@"\", @"\\")}\"");
+                File.WriteAllText(Apis.Config.SharedDefaultMap.File.FullName, replaceMapText);
+
+                if (!Apis.Config.SharedStyleLibraryMap.File.Exists)
+                {
+                    // set references in StyleLibrary.map
+                    var replaceStyleLibraryMapText = File.ReadAllText(Apis.Config.DefaultStyleLibraryMap.File.FullName);
+                    replaceStyleLibraryMapText = replaceStyleLibraryMapText.Replace("FONTSET \"font.list\"",
+                        $"FONTSET \"{Apis.Config.SharedFontList.File.FullName.Replace(@"\", @"\\")}\"");
+                    replaceStyleLibraryMapText = replaceStyleLibraryMapText.Replace("SYMBOLSET \"symbols.sym\"",
+                        $"SYMBOLSET \"{Apis.Config.SharedSymbols.File.FullName.Replace(@"\", @"\\")}\"");
+                    File.WriteAllText(Apis.Config.SharedStyleLibraryMap.File.FullName, replaceStyleLibraryMapText);
+                }
+
+                if (!Apis.Config.SharedAnnotationMap.File.Exists)
+                {
+                    // set references in Annotation.map
+                    var replaceAnnotationMapText = File.ReadAllText(Apis.Config.DefaultAnnotationMap.File.FullName);
+                    replaceAnnotationMapText = replaceAnnotationMapText.Replace("FONTSET \"font.list\"",
+                        $"FONTSET \"{Apis.Config.SharedFontList.File.FullName.Replace(@"\", @"\\")}\"");
+                    replaceAnnotationMapText = replaceAnnotationMapText.Replace("SYMBOLSET \"symbols.sym\"",
+                        $"SYMBOLSET \"{Apis.Config.SharedSymbols.File.FullName.Replace(@"\", @"\\")}\"");
+                    File.WriteAllText(Apis.Config.SharedAnnotationMap.File.FullName, replaceAnnotationMapText);
+                } 
             }
             catch (UnauthorizedAccessException unauthorizedAccessException)
             {

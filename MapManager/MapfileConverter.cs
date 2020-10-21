@@ -78,17 +78,17 @@ namespace MapManager
               
         public void Parse(string contents, bool ignoreVersion)
         {
-            string fontsetPath = Application.StartupPath + "\\Default\\font.list";
-            string symbolsetPath = Application.StartupPath + "\\Default\\symbols.sym";
+            string fontsetPath = Apis.Config.DefaultFontList.File.FullName;
+            string symbolsetPath = Apis.Config.DefaultSymbols.File.FullName;
             string path = "";
 
             StringBuilder outputformat = new StringBuilder();
 
             mapObj template = null;
 
-            if (File.Exists(Application.StartupPath + "\\Default\\Default.map"))
+            if (Apis.Config.SharedDefaultMap.File.Exists)
             {
-                template = new mapObj(Application.StartupPath + "\\Default\\Default.map");
+                template = new mapObj(Apis.Config.SharedDefaultMap.File.FullName);
 
                 fontsetPath = template.fontset.filename;
                 symbolsetPath = template.symbolset.filename;

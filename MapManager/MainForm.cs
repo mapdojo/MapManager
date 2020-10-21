@@ -215,10 +215,10 @@ namespace MapManager
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                string styleLibFile = Application.StartupPath + "\\Default\\StyleLibrary.map";
+                string styleLibFile = Apis.Config.SharedStyleLibraryMap.File.FullName;
                 if (!File.Exists(styleLibFile))
                 {
-                    styleLibFile = Environment.CurrentDirectory + "\\StyleLibrary.map";
+                    styleLibFile = Apis.Config.DefaultStyleLibraryMap.File.FullName;
                     if (!File.Exists(styleLibFile))
                         return;
                 }
@@ -370,7 +370,7 @@ namespace MapManager
                 if (File.Exists(s))
                 {
                     // filter out the Default.map files (ticket #4423)
-                    if (!s.ToLower().EndsWith("Default\\Default.map"))
+                    if (!Apis.Config.SharedDefaultMap.File.FullName.ToLower().EndsWith(@"shared\default.map"))
                     {
                         ToolStripMenuItem menuItem = new ToolStripMenuItem(s);
                         this.recentMapsToolStripMenuItem.DropDownItems.Add(s, null, this.MRUMenuItem_Click);
@@ -575,13 +575,13 @@ namespace MapManager
                 if (map.symbolset.filename != null && !File.Exists(map.symbolset.filename))
                 {
                     // override the symbolset if that points to incorrect location
-                    map.setSymbolSet(Application.StartupPath + "\\Default\\symbols.sym");
+                    map.setSymbolSet(Apis.Config.SharedSymbols.File.FullName);
                 }
 
                 if (map.fontset.filename != null && !File.Exists(map.fontset.filename))
                 {
                     // override the fontset if that points to incorrect location
-                    map.setFontSet(Application.StartupPath + "\\Default\\font.list");
+                    map.setFontSet(Apis.Config.SharedFontList.File.FullName);
                 }
 
                 if (MapUtils.RenameDuplicatedNames(map))
@@ -647,9 +647,9 @@ namespace MapManager
             try
             {
                 // opening the template file if exists
-                if (File.Exists(Application.StartupPath + "\\Default\\Default.map"))
+                if (Apis.Config.SharedDefaultMap.File.Exists)
                 {
-                    if (!OpenMap(Application.StartupPath + "\\Default\\Default.map", true))
+                    if (!OpenMap(Apis.Config.SharedDefaultMap.File.FullName, true))
                         return;
                 }
                 else
@@ -757,7 +757,7 @@ namespace MapManager
         private void CopyDependentFiles(string oldFile, string newFile)
         {
             if (oldFile == "Default.map")
-                oldFile = Application.StartupPath + "\\Default\\Default.map"; // template
+                oldFile = Apis.Config.SharedDefaultMap.File.FullName; // template
 
             string oldPath = oldFile.Substring(0, oldFile.LastIndexOf('\\'));
             string newPath = newFile.Substring(0, newFile.LastIndexOf('\\'));
