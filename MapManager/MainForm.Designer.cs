@@ -1,5 +1,6 @@
 using MapLibrary;
 using ScintillaNet;
+using System;
 
 namespace MapManager
 {
@@ -924,6 +925,9 @@ namespace MapManager
             this.scintillaControl.Name = "scintillaControl";
             this.scintillaControl.Size = new System.Drawing.Size(844, 616);
             this.scintillaControl.TabIndex = 0;
+            this.scintillaControl.TextInserted += new EventHandler<TextModifiedEventArgs>(this.scintillaControl_TextInserted);
+            this.scintillaControl.TextDeleted += new EventHandler<TextModifiedEventArgs>(this.scintillaControl_TextDeleted);
+            this.scintillaControl.ZoomChanged += new EventHandler(this.scintillaControl_ZoomChanged);
             // 
             // MainForm
             // 

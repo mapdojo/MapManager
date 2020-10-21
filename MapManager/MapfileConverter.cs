@@ -194,16 +194,16 @@ namespace MapManager
                             
                         outputformat.AppendLine(line);
                     }
-                    else if (key == "FONTSET" && line.Substring(line.IndexOf("FONTSET") + 8).ToUpper().Trim(new char[] { '\'', '\"', ' ' }) != fontsetPath.ToUpper().Replace("\\", "\\\\"))
-                    {
-                        AppendLog("Upgrade fontset location", lineNumber);
-                        output.AppendLine("  FONTSET \"" + fontsetPath.Replace("\\", "\\\\") + "\"");
-                    }
-                    else if (key == "SYMBOLSET" && line.Substring(line.IndexOf("SYMBOLSET") + 10).ToUpper().Trim(new char[] { '\'', '\"', ' ' }) != symbolsetPath.ToUpper().Replace("\\", "\\\\"))
-                    {
-                        AppendLog("Upgrade symbolset location", lineNumber);
-                        output.AppendLine("  SYMBOLSET \"" + symbolsetPath.Replace("\\", "\\\\") + "\"");
-                    }
+                    //else if (key == "FONTSET" && line.Substring(line.IndexOf("FONTSET") + 8).ToUpper().Trim(new char[] { '\'', '\"', ' ' }) != fontsetPath.ToUpper().Replace("\\", "\\\\"))
+                    //{
+                    //    AppendLog("Upgrade fontset location", lineNumber);
+                    //    output.AppendLine("  FONTSET \"" + fontsetPath.Replace("\\", "\\\\") + "\"");
+                    //}
+                    //else if (key == "SYMBOLSET" && line.Substring(line.IndexOf("SYMBOLSET") + 10).ToUpper().Trim(new char[] { '\'', '\"', ' ' }) != symbolsetPath.ToUpper().Replace("\\", "\\\\"))
+                    //{
+                    //    AppendLog("Upgrade symbolset location", lineNumber);
+                    //    output.AppendLine("  SYMBOLSET \"" + symbolsetPath.Replace("\\", "\\\\") + "\"");
+                    //}
                     else if (key == "RESOLUTION" && !mapfileContents.Contains("DEFRESOLUTION "))
                     {
                         output.AppendLine(line);
