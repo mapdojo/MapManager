@@ -411,6 +411,7 @@ copy $(SolutionDir)Default $(TargetDir)Default
 
 if not exist $(TargetDir)gdalplugins mkdir $(TargetDir)gdalplugins
 copy $(SolutionDir)..\Apis\bin\gdal\plugins\*.* $(TargetDir)\gdalplugins
+copy $(SolutionDir)..\Apis\bin\gdal\plugins-optional\gdal_ECW_JP2ECW.dll $(TargetDir)\gdalplugins\gdal_ECW_JP2ECW.dll
 
 del $(TargetDir)\gdalplugins\gdal_GEOR.dll $(TargetDir)\gdalplugins\ogr_SDE.dll $(TargetDir)\gdalplugins\gdal_SDE.dll $(TargetDir)\gdalplugins\ogr_OCI.dll
 </PreBuildEvent>
