@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("mapdojo")]
 [assembly: AssemblyProduct("MapServer MapManager")]
-[assembly: AssemblyCopyright("Copyright © DMS 2018, Copyright © mapdojo 2020")]
+[assembly: AssemblyCopyright("Copyright © DMS 2018, Copyright © mapdojo 2020 - 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
