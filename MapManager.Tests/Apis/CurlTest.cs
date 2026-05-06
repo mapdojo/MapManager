@@ -2,7 +2,6 @@ using MapManager.Apis;
 using Serilog;
 using Serilog.Events;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace MapManager.Tests.Apis
 {
@@ -14,8 +13,8 @@ namespace MapManager.Tests.Apis
         {
             Log = new LoggerConfiguration()
                 .MinimumLevel.Debug()
-                .WriteTo.TestOutput(output, LogEventLevel.Debug,
-                    "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level}] [{SourceContext}] {Message}{NewLine}{Exception}")
+                // .WriteTo.TestOutput(output, LogEventLevel.Debug,
+                //     "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level}] [{SourceContext}] {Message}{NewLine}{Exception}")
                 .Enrich.FromLogContext()
                 .CreateLogger()
                 .ForContext<CurlTest>();
