@@ -13,8 +13,8 @@ namespace MapManager.Apis.Config
 
         private static DirectoryInfo GetDirectory()
         {
-            var sharedDirectory
-                = new DirectoryInfo(Path.Combine(new DirectoryInfo(Path.GetDirectoryName(typeof(Version).Assembly.Location)).Parent.Parent.FullName, "Shared"));
+            var outputDirectory = new DirectoryInfo(AppContext.BaseDirectory.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar));
+            var sharedDirectory = new DirectoryInfo(Path.Combine(outputDirectory.Parent.Parent.FullName, "Shared"));
             return sharedDirectory;
         }
 
