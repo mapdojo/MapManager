@@ -1,12 +1,17 @@
 using MapManager.Apis;
 using Serilog;
 using Serilog.Events;
+using System.IO;
 using Xunit;
 
 namespace MapManager.Tests.Apis.Config
 {
     public class ConfigTest
     {
+        private static string OutputDirectory => AppContext.BaseDirectory.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+        private static string DefaultDirectory => Path.Combine(OutputDirectory, "Default");
+        private static string SharedDirectory => new DirectoryInfo(OutputDirectory).Parent.Parent.FullName + Path.DirectorySeparatorChar + "Shared";
+
         private ILogger Log { get; }
 
         public ConfigTest(ITestOutputHelper output)
@@ -26,7 +31,7 @@ namespace MapManager.Tests.Apis.Config
         {
             var fullName = MapManager.Apis.Config.Default.Directory.FullName;
             Log.Debug(fullName);
-            Assert.Equal(@"C:\Code\mapdojo\Xyzt\MapManager\MapManager.UnitTests\bin\Debug\net461\Default", fullName);
+            Assert.Equal(DefaultDirectory, fullName);
         }
         
         [Fact]
@@ -34,7 +39,7 @@ namespace MapManager.Tests.Apis.Config
         {
             var fullName = MapManager.Apis.Config.DefaultAnnotationMap.File.FullName;
             Log.Debug(fullName);
-            Assert.Equal(@"C:\Code\mapdojo\Xyzt\MapManager\MapManager.UnitTests\bin\Debug\net461\Default\Annotation.map", fullName);
+            Assert.Equal(Path.Combine(DefaultDirectory, "Annotation.map"), fullName);
         }
         
         [Fact]
@@ -42,7 +47,7 @@ namespace MapManager.Tests.Apis.Config
         {
             var fullName = MapManager.Apis.Config.DefaultFontList.File.FullName;
             Log.Debug(fullName);
-            Assert.Equal(@"C:\Code\mapdojo\Xyzt\MapManager\MapManager.UnitTests\bin\Debug\net461\Default\font.list", fullName);
+            Assert.Equal(Path.Combine(DefaultDirectory, "font.list"), fullName);
         }
         
         [Fact]
@@ -50,7 +55,7 @@ namespace MapManager.Tests.Apis.Config
         {
             var fullName = MapManager.Apis.Config.DefaultMap.File.FullName;
             Log.Debug(fullName);
-            Assert.Equal(@"C:\Code\mapdojo\Xyzt\MapManager\MapManager.UnitTests\bin\Debug\net461\Default\Default.map", fullName);
+            Assert.Equal(Path.Combine(DefaultDirectory, "Default.map"), fullName);
         }
         
         [Fact]
@@ -58,7 +63,7 @@ namespace MapManager.Tests.Apis.Config
         {
             var fullName = MapManager.Apis.Config.DefaultStyleLibraryMap.File.FullName;
             Log.Debug(fullName);
-            Assert.Equal(@"C:\Code\mapdojo\Xyzt\MapManager\MapManager.UnitTests\bin\Debug\net461\Default\StyleLibrary.map", fullName);
+            Assert.Equal(Path.Combine(DefaultDirectory, "StyleLibrary.map"), fullName);
         }
         
         [Fact]
@@ -66,7 +71,7 @@ namespace MapManager.Tests.Apis.Config
         {
             var fullName = MapManager.Apis.Config.DefaultSymbols.File.FullName;
             Log.Debug(fullName);
-            Assert.Equal(@"C:\Code\mapdojo\Xyzt\MapManager\MapManager.UnitTests\bin\Debug\net461\Default\symbols.sym", fullName);
+            Assert.Equal(Path.Combine(DefaultDirectory, "symbols.sym"), fullName);
         }
         
         [Fact]
@@ -74,7 +79,7 @@ namespace MapManager.Tests.Apis.Config
         {
             var fullName = MapManager.Apis.Config.Shared.Directory.FullName;
             Log.Debug(fullName);
-            Assert.Equal(@"C:\Code\mapdojo\Xyzt\MapManager\MapManager.UnitTests\bin\Shared", fullName);
+            Assert.Equal(SharedDirectory, fullName);
         }
         
         [Fact]
@@ -82,7 +87,7 @@ namespace MapManager.Tests.Apis.Config
         {
             var fullName = MapManager.Apis.Config.SharedAnnotationMap.File.FullName;
             Log.Debug(fullName);
-            Assert.Equal(@"C:\Code\mapdojo\Xyzt\MapManager\MapManager.UnitTests\bin\Debug\net461\Default\Annotation.map", fullName);
+            Assert.Equal(Path.Combine(SharedDirectory, "Annotation.map"), fullName);
         }
         
         [Fact]
@@ -90,7 +95,7 @@ namespace MapManager.Tests.Apis.Config
         {
             var fullName = MapManager.Apis.Config.SharedFontList.File.FullName;
             Log.Debug(fullName);
-            Assert.Equal(@"C:\Code\mapdojo\Xyzt\MapManager\MapManager.UnitTests\bin\Debug\net461\Default\font.list", fullName);
+            Assert.Equal(Path.Combine(SharedDirectory, "font.list"), fullName);
         }
         
         [Fact]
@@ -98,7 +103,7 @@ namespace MapManager.Tests.Apis.Config
         {
             var fullName = MapManager.Apis.Config.SharedDefaultMap.File.FullName;
             Log.Debug(fullName);
-            Assert.Equal(@"C:\Code\mapdojo\Xyzt\MapManager\MapManager.UnitTests\bin\Debug\net461\Default\Default.map", fullName);
+            Assert.Equal(Path.Combine(SharedDirectory, "Default.map"), fullName);
         }
         
         [Fact]
@@ -106,7 +111,7 @@ namespace MapManager.Tests.Apis.Config
         {
             var fullName = MapManager.Apis.Config.SharedStyleLibraryMap.File.FullName;
             Log.Debug(fullName);
-            Assert.Equal(@"C:\Code\mapdojo\Xyzt\MapManager\MapManager.UnitTests\bin\Debug\net461\Default\StyleLibrary.map", fullName);
+            Assert.Equal(Path.Combine(SharedDirectory, "StyleLibrary.map"), fullName);
         }
         
         [Fact]
@@ -114,7 +119,7 @@ namespace MapManager.Tests.Apis.Config
         {
             var fullName = MapManager.Apis.Config.SharedSymbols.File.FullName;
             Log.Debug(fullName);
-            Assert.Equal(@"C:\Code\mapdojo\Xyzt\MapManager\MapManager.UnitTests\bin\Debug\net461\Default\symbols.sym", fullName);
+            Assert.Equal(Path.Combine(SharedDirectory, "symbols.sym"), fullName);
         }
     }
 }
