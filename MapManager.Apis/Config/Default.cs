@@ -13,8 +13,7 @@ namespace MapManager.Apis.Config
 
         private static DirectoryInfo GetDirectory()
         {
-            var assemblyDirectory
-                = new DirectoryInfo(Path.Combine(Path.GetDirectoryName(typeof(Version).Assembly.Location) ?? @"./", "Default"));
+            var assemblyDirectory = new DirectoryInfo(Path.Combine(AppContext.BaseDirectory, "Default"));
             return assemblyDirectory;
         }
 
