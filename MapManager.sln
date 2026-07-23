@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TileGenerator", "TileManage
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MapManager.Apis", "MapManager.Apis\MapManager.Apis.csproj", "{419A8761-C67B-431F-A5F6-608C4EF62393}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MapManager.Tests", "MapManager.Tests\MapManager.Tests.csproj", "{84C20E71-F310-429B-B8CB-0997083AD9C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MapManager.UnitTests", "MapManager.UnitTests\MapManager.UnitTests.csproj", "{84C20E71-F310-429B-B8CB-0997083AD9C6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapManager.ViewModels", "MapManager.ViewModels\MapManager.ViewModels.csproj", "{6F4F377F-3893-476A-8349-1675802B362E}"
 EndProject
