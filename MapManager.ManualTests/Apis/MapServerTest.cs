@@ -57,7 +57,7 @@ libcurl/7.70.0-DEV OpenSSL/1.1.1g zlib/1.2.3
         [InlineData(2048)]
         public void MaxOpenFiles(int maxOpenFiles)
         {
-            Assert.Equal(null, MapServer.MaxOpenFiles);
+            Assert.Null(MapServer.MaxOpenFiles);
             MapServer.MaxOpenFiles = maxOpenFiles;
             Assert.Equal(maxOpenFiles, MapServer.MaxOpenFiles);
         }
@@ -65,7 +65,7 @@ libcurl/7.70.0-DEV OpenSSL/1.1.1g zlib/1.2.3
         [Fact]
         public void UseGlobalFontCache()
         {
-            Assert.Equal(null, MapServer.UseGlobalFontCache);
+            Assert.Null(MapServer.UseGlobalFontCache);
             MapServer.UseGlobalFontCache = true;
             Assert.Equal(true, MapServer.UseGlobalFontCache);
             MapServer.UseGlobalFontCache = false;

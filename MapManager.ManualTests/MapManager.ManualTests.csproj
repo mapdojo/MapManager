@@ -11,8 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Serilog comes from the consumer's Directory.Build.props; referencing it here too raised NU1504. -->
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="Serilog" />
     <PackageReference Include="Serilog.Sinks.XUnit3" />
     <PackageReference Include="xunit.v3" />
     <PackageReference Include="xunit.runner.visualstudio" />

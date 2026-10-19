@@ -3,6 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <!-- Vendored legacy code written before nullable reference types. The consumer's
+         Directory.Build.props enables them, which raised CS8601/CS8603/CS8618/CS8625 here.
+         Suppressed per project rather than annotated (mapdojo/Apis.Bake#1012, mapdojo/MapManager#6). -->
+    <Nullable>disable</Nullable>
   </PropertyGroup>
   
   <ItemGroup>
@@ -21,9 +25,8 @@
   </ItemGroup>
   
   <ItemGroup>
+    <!-- Serilog comes from the consumer's Directory.Build.props; referencing it here too raised NU1504. -->
     <PackageReference Include="Microsoft.Win32.Registry" />
-    <PackageReference Include="ReactiveUI" />
-    <PackageReference Include="Serilog" />
     <PackageReference Include="Serilog.Sinks.Console" />
   </ItemGroup>
 
